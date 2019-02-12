@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 
-exports.test = class TestEnvironment{
+exports.environment = class TestEnvironment{
   constructor(params){
     // console.log('constructor');
 
@@ -31,7 +31,7 @@ exports.test = class TestEnvironment{
   }
 };
 
-class Test{
+exports.test = class Test{
   constructor(testName, page){
     this.testName = testName;
     this.page = page;
