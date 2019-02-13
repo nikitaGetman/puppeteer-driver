@@ -3,6 +3,7 @@ const performanceTester = require('./performanceTester');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+const colors = require('colors');
 
 
 (async () => {
@@ -27,35 +28,44 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
             let testComplectName = test;
 
             dataReport.push({'name' : testComplectName});
+            console.log("Test complect: ", testComplectName.bgBlue.black)
 
             let tests = testsParams[test];
             for(let i = 0; i < tests.length; i++){
                 
                 try{
-                    console.log('Test started: \'' + testComplectName + ': ' + tests[i].name + '\'');
+                    process.stdout.write('Test started: \'' + tests[i].name + '\'\033[0G');
 
-                    let testParams = {}; // TODO parameters (filter values)
+                    let testParams = tests[i].parameters ? tests[i].parameters : {};
                     let measuredData = await performanceTester.newTest(page, tests[i].url, testParams);
         
-                    let extractedData = extractNecessaryData(measuredData.timeMeasurementData);
-        
+                    let fields = ['htmlTime', 'listReadCollectTime', 'listReadCounterTime'];
+                    
+                    if(testParams.hasOwnProperty('~~download')) {
+                        fields.push('downloadTime');
+                    }
+                    // console.log(fields);
+                    let extractedData = extractNecessaryData(measuredData.timeMeasurementData, fields);
+
                     let newReportRow = {
                         'name': tests[i].name,
                         'url': tests[i].url,
                         'averageTime': measuredData.averageTime,
                         'htmlTime': extractedData.htmlTime,
-                        'listReadCollectTimer': extractedData.listReadCollectTimer,
-                        'listReadCounterTimer': extractedData.listReadCounterTimer
+                        'listReadCollectTime': extractedData.listReadCollectTime,
+                        'listReadCounterTime': extractedData.listReadCounterTime,
+                        'downloadTime' : extractedData.downloadTime ? extractedData.downloadTime : undefined
                     }
         
                     rowData.push(measuredData.timeMeasurementData);
                     dataReport.push(newReportRow);
         
-                    console.log('Test passed: \'' + testComplectName + ': ' + tests[i].name + '\'');
+                    process.stdout.write('TEST PASSED: \n'.bgGreen.black);
 
                 }catch(e){
-
-                    console.error('Test failed: \'' + testComplectName + ': ' + tests[i].name + '\'');
+                    
+                    process.stdout.write('TEST FAILED: \n'.bgRed.black);
+                    console.log('Exception: ');
                     console.error(e);
 
                 }
@@ -63,6 +73,7 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
             }
         }
         // tests executed /////////////////////////////////////
+
 
         // saving reoirts /////////////////////////////////////
         if (executionParams.rowReportPath !== undefined || executionParams.rowReportPath !== ""){
@@ -72,8 +83,9 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
         saveDataToCsv(dataReport, executionParams.reportPath,'test_report_' + Date.now() + '.csv');
         ///////////////////////////////////////////////////////
 
+
             // don't close the browser to compare real timings with measured
-        // await browser.close();
+        await browser.close();
 
     }
     catch(e){
@@ -85,14 +97,15 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
     
 })();
 
-function extractNecessaryData(data){
+function extractNecessaryData(data, fields){
 
     const mainUrl = data.mainUrl;
 
     let extractedData = {
         'htmlTime' : -1,
-        'listReadCollectTimer': -1,
-        'listReadCounterTimer': -1
+        'listReadCollectTime': -1,
+        'listReadCounterTime': -1,
+        'downloadTime': undefined,
     };
 
     for(let key in data.requestsData){
@@ -102,6 +115,12 @@ function extractNecessaryData(data){
         if(row.resourceType === 'Document' && row.method === 'GET' && row.url === (mainUrl + '/List'))
             extractedData.htmlTime = row.responseTime;
 
+            // Document Load
+        if(row.method === 'POST' && (row.url === (mainUrl + '/ExportToExcel') || row.url === (mainUrl + '/Download'))){
+            if(fields.includes('downloadTime')){
+                extractedData.downloadTime = (row.responseTime / 1000).toFixed(2); // convert to seconds
+            }
+        }
 
         if(row.url === (mainUrl + '/List_Read') && row.method === 'POST')
             {   // List_Read
@@ -111,10 +130,10 @@ function extractNecessaryData(data){
                 }
 
                 if(parsedPostData.includes('pageSize')){
-                    extractedData.listReadCollectTimer = row.responseTime;
+                    extractedData.listReadCollectTime = row.responseTime;
                 }
                 if(parsedPostData.includes('aggregate')){
-                    extractedData.listReadCounterTimer = row.responseTime;
+                    extractedData.listReadCounterTime = row.responseTime;
                 }
             }
     }
@@ -144,8 +163,9 @@ function saveDataToCsv(data, path, filename){
             {id: "url", title: "Url"},
             {id: "averageTime", title: "Page load time (s)"},
             {id: "htmlTime", title: "HTML Document load time (ms)"},
-            {id: "listReadCollectTimer", title: "List_Read collect load time (ms)"},
-            {id: "listReadCounterTimer", title: "List_Read counter load time (ms)"}
+            {id: "listReadCollectTime", title: "List_Read collect load time (ms)"},
+            {id: "listReadCounterTime", title: "List_Read counter load time (ms)"},
+            {id: "downloadTime", title: "Report download time (s)"}
         ]
     });
 
@@ -169,3 +189,11 @@ function saveDataToJSON(data, path, filename){
         if (err) throw err;
     });
 }
+
+
+/*
+
+
+        
+
+*/
