@@ -69,7 +69,7 @@ exports.init = async function init(params, loginParams){
         await page.type('#UserLogin', loginParams.username);
         await page.type('#Password', loginParams.password);
         await page.click('input[type="submit"]');
-        await page.waitForNavigation({waitUntil: ['load']});
+        // await page.waitForNavigation();
         
             
     }catch(e){
@@ -248,7 +248,7 @@ exports.newTest = async function newTest(page, url, testParams){
 
     /// General cycle of time measurement
     let averageTime = 0;
-    const iterations = 1;   
+    const iterations = 3;   
 
     // console.log('Lesteners setted. Let`s measure time...');
 

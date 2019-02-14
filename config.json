@@ -41,6 +41,229 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List"
             } 
 
+        ],
+
+        "Opening period dependent data grids with the data for the previous day (it should be less than or equal to 5 seconds)" : [
+
+            {
+                "name": "Transaction Management → Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "01.06.2018 00:00:00"
+                }
+            },
+            {
+                "name": "Transaction Management → External Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "01.06.2018 00:00:00"
+                }
+            },
+            {
+                "name": "Transaction Management → Internal Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "01.06.2018 00:00:00"
+                }
+            },
+            {
+                "name": "Transaction Management → Scheduled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
+                "parameters" : {
+                    "CreationDateFrom" : "16.06.2018 00:00:00",
+                    "CreationDateTo" : "16.06.2018 00:00:00"
+                }
+            },
+            {
+                "name": "Transaction Management → Unsettled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
+                "parameters" : {
+                    "CreationDateBottom" : "17.01.2019",
+                    "CreationDateTop" : "17.01.2019"
+                }
+            }
+        ],
+
+        "Opening period dependent data grids with the data for the previous month" : [
+
+            {
+                "name": "Transaction Management → Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "CreationDateTop" : "31.01.2019 23:59:59"
+                }
+            },
+            {
+                "name": "Transaction Management → External Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "CreationDateTop" : "31.01.2019 23:59:59"
+                }
+            },
+            {
+                "name": "Transaction Management → Internal Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "CreationDateTop" : "31.01.2019 23:59:59"
+                }
+            },
+            {
+                "name": "Transaction Management → Scheduled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
+                "parameters" : {
+                    "CreationDateFrom" : "01.06.2018 00:00:00",
+                    "CreationDateTo" : "30.06.2018 23:59:59"
+                }
+            },
+            {
+                "name": "Transaction Management → Unsettled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
+                "parameters" : {
+                    "CreationDateBottom" : "01.01.2019",
+                    "CreationDateTop" : "31.01.2019"
+                }
+            }
+
+        ],
+
+        "Opening period dependent data grids with the data for the period from the first day of the last month to today's date": [
+
+            {
+                "name": "Transaction Management → Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00"
+                }
+            },
+            {
+                "name": "Transaction Management → External Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00"
+                }
+            },
+            {
+                "name": "Transaction Management → Internal Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00"
+                }
+            },
+            {
+                "name": "Transaction Management → Scheduled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
+                "parameters" : {
+                    "CreationDateFrom" : "01.06.2018 00:00:00"
+                }
+            },
+            {
+                "name": "Transaction Management → Unsettled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
+                "parameters" : {
+                    "CreationDateBottom" : "01.01.2019"
+                }
+            }
+
+        ],        
+        
+        "Downloading a report for the full previous month" : [
+
+            {
+                "name": "Transaction Management → Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "CreationDateTop" : "31.01.2019 23:59:59",
+                    "~~download": ""
+                }
+            },
+            {
+                "name": "Transaction Management → External Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "CreationDateTop" : "31.01.2019 23:59:59",
+                    "~~download": ""
+                }
+            },
+            {
+                "name": "Transaction Management → Internal Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "CreationDateTop" : "31.01.2019 23:59:59",
+                    "~~download": ""
+                }
+            },
+            {
+                "name": "Transaction Management → Scheduled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
+                "parameters" : {
+                    "CreationDateFrom" : "01.06.2018 00:00:00",
+                    "CreationDateTo" : "30.06.2018 23:59:59",
+                    "~~download": ""
+                }
+            },
+            {
+                "name": "Transaction Management → Unsettled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
+                "parameters" : {
+                    "CreationDateBottom" : "01.01.2019",
+                    "CreationDateTop" : "31.01.2019",
+                    "~~download": ""
+                }
+            }
+
+        ],
+
+        "Downloading a report for the period from the first day of the last month to today's date": [
+
+            {
+                "name": "Transaction Management → Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "~~download": ""
+                }
+            },
+            {
+                "name": "Transaction Management → External Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "~~download": ""
+                }
+            },
+            {
+                "name": "Transaction Management → Internal Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
+                "parameters": {
+                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "~~download": ""
+                }
+            },
+            {
+                "name": "Transaction Management → Scheduled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
+                "parameters" : {
+                    "CreationDateFrom" : "01.06.2018 00:00:00",
+                    "~~download": ""
+                }
+            },
+            {
+                "name": "Transaction Management → Unsettled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
+                "parameters" : {
+                    "CreationDateBottom" : "01.01.2019",
+                    "~~download": ""
+                }
+            }
         ]
         
     }
