@@ -1,7 +1,0 @@
-Test name,Url,Page load time (s),HTML Document load time (ms),List_Read collect load time (ms),List_Read counter load time (ms)
-Opening period independent data grids,,,,,
-Transaction Management → Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List,2.75,500.21,382.04,835.44
-Transaction Management → External Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List,2.15,331.50,158.74,604.42
-Transaction Management → Internal Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List,2.47,386.60,275.50,801.85
-Transaction Management → Scheduled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List,1.82,362.34,196.07,171.47
-Transaction Management → Unsettled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List,9.61,340.89,7996.02,4918.36
