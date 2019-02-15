@@ -1,0 +1,35 @@
+Test name,Url,Page load time (s),HTML Document load time (ms),List_Read collect load time (ms),List_Read counter load time (ms),Report download time (s)
+Opening period dependent data grids (filters are empty),,,,,,
+Transaction Management → Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List,2.77,457.85,375.98,846.26,
+Transaction Management → External Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List,2.26,348.63,129.45,605.88,
+Transaction Management → Internal Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List,2.29,336.64,137.61,686.04,
+Transaction Management → Scheduled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List,1.82,351.4,149.02,128.07,
+Transaction Management → Unsettled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List,12.74,365.48,11045.36,1475.63,
+Opening period dependent data grids with the data for the previous day (it should be less than or equal to 5 seconds),,,,,,
+Transaction Management → Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List,2.33,451.17,384.71,136.72,
+Transaction Management → External Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List,1.73,356.9,138.06,121.3,
+Transaction Management → Internal Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List,1.79,347.77,165.47,119.7,
+Transaction Management → Scheduled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List,1.91,419.17,203.27,132.45,
+Transaction Management → Unsettled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List,12.15,387.12,10336.7,117.04,
+Opening period dependent data grids with the data for the previous month,,,,,,
+Transaction Management → Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List,2.29,453.01,372.86,133.5,
+Transaction Management → External Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List,1.71,336.12,147.71,136.34,
+Transaction Management → Internal Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List,1.72,349.58,134.47,123.23,
+Transaction Management → Scheduled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List,1.90,420.28,223,134.54,
+Transaction Management → Unsettled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List,12.59,416.33,10777.38,122.49,
+Opening period dependent data grids with the data for the period from the first day of the last month to today's date,,,,,,
+Transaction Management → Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List,2.35,468.2,360.62,136.11,
+Transaction Management → External Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List,1.89,342.4,145.65,136.12,
+Transaction Management → Internal Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List,1.77,358.58,143.4,119.46,
+Transaction Management → Scheduled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List,2.04,464.35,220.06,131.71,
+Transaction Management → Unsettled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List,11.74,374.49,9863.26,137.14,
+Downloading a report for the full previous month,,,,,,
+Transaction Management → Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List,2.78,561.15,394.26,129.99,44.38
+Transaction Management → External Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List,2.22,355.29,188.95,148.69,60.27
+Transaction Management → Internal Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List,2.14,388.42,137.48,123.82,26.49
+Transaction Management → Scheduled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List,2.78,479.13,228.28,151.32,7.49
+Transaction Management → Unsettled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List,11.08,368.68,9139.87,134.73,9.14
+Downloading a report for the period from the first day of the last month to today's date,,,,,,
+Transaction Management → Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List,2.80,475.3,388.81,135.98,52.40
+Transaction Management → Scheduled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List,2.23,403.37,215.17,137.45,7.59
+Transaction Management → Unsettled Transactions,https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List,11.35,360.06,9318.49,120.84,9.06

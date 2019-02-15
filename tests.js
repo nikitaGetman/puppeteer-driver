@@ -86,6 +86,10 @@ const colors = require('colors');
                 // don't close the browser to compare real timings with measured
             await page.close();
             await browser.close();
+            // setTimeout(()=>{
+            //     await browser.close();
+            // }, 1000);
+            
 
         }
         // tests executed /////////////////////////////////////

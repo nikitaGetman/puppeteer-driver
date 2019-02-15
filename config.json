@@ -18,6 +18,8 @@
     
     "tests": {
 
+        
+        
         "Opening period dependent data grids (filters are empty)" : [
 
             {
@@ -85,6 +87,7 @@
                     "CreationDateTop" : "17.01.2019"
                 }
             }
+            
         ],
 
         "Opening period dependent data grids with the data for the previous month" : [
@@ -93,24 +96,24 @@
                 "name": "Transaction Management → Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
                 "parameters": {
-                    "CreationDateBottom" : "01.01.2019 00:00:00",
-                    "CreationDateTop" : "31.01.2019 23:59:59"
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "30.06.2018 23:59:59"
                 }
             },
             {
                 "name": "Transaction Management → External Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
                 "parameters": {
-                    "CreationDateBottom" : "01.01.2019 00:00:00",
-                    "CreationDateTop" : "31.01.2019 23:59:59"
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "30.06.2018 23:59:59"
                 }
             },
             {
                 "name": "Transaction Management → Internal Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
                 "parameters": {
-                    "CreationDateBottom" : "01.01.2019 00:00:00",
-                    "CreationDateTop" : "31.01.2019 23:59:59"
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "30.06.2018 23:59:59"
                 }
             },
             {
@@ -125,8 +128,8 @@
                 "name": "Transaction Management → Unsettled Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
                 "parameters" : {
-                    "CreationDateBottom" : "01.01.2019",
-                    "CreationDateTop" : "31.01.2019"
+                    "CreationDateBottom" : "01.06.2018",
+                    "CreationDateTop" : "30.06.2018"
                 }
             }
 
@@ -170,16 +173,16 @@
                 }
             }
 
-        ],        
+        ],      
         
-        "Downloading a report for the full previous month" : [
+        "Downloading a report for the full previous month (~50k rows)" : [
 
             {
                 "name": "Transaction Management → Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
                 "parameters": {
-                    "CreationDateBottom" : "01.01.2019 00:00:00",
-                    "CreationDateTop" : "31.01.2019 23:59:59",
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "01.06.2018 23:59:59",
                     "~~download": ""
                 }
             },
@@ -187,8 +190,8 @@
                 "name": "Transaction Management → External Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
                 "parameters": {
-                    "CreationDateBottom" : "01.01.2019 00:00:00",
-                    "CreationDateTop" : "31.01.2019 23:59:59",
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "02.06.2018 14:00:00",
                     "~~download": ""
                 }
             },
@@ -196,8 +199,8 @@
                 "name": "Transaction Management → Internal Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
                 "parameters": {
-                    "CreationDateBottom" : "01.01.2019 00:00:00",
-                    "CreationDateTop" : "31.01.2019 23:59:59",
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "02.06.2018 08:30:00",
                     "~~download": ""
                 }
             },
@@ -205,8 +208,8 @@
                 "name": "Transaction Management → Scheduled Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
                 "parameters" : {
-                    "CreationDateFrom" : "01.06.2018 00:00:00",
-                    "CreationDateTo" : "30.06.2018 23:59:59",
+                    "CreationDateFrom" : "01.01.2018 00:00:00",
+                    "CreationDateTo" : "01.01.2019 00:00:00",
                     "~~download": ""
                 }
             },
@@ -214,21 +217,22 @@
                 "name": "Transaction Management → Unsettled Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
                 "parameters" : {
-                    "CreationDateBottom" : "01.01.2019",
-                    "CreationDateTop" : "31.01.2019",
+                    "CreationDateBottom" : "01.06.2018",
+                    "CreationDateTop" : "05.06.2018",
                     "~~download": ""
                 }
             }
 
         ],
 
-        "Downloading a report for the period from the first day of the last month to today's date": [
+        "Downloading a report for the period from the first day of the last month to today's date (~950k rows)": [
 
             {
                 "name": "Transaction Management → Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
                 "parameters": {
-                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "28.06.2018 18:00:00",
                     "~~download": ""
                 }
             },
@@ -236,7 +240,8 @@
                 "name": "Transaction Management → External Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
                 "parameters": {
-                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "30.06.2018 07:30:00",
                     "~~download": ""
                 }
             },
@@ -244,7 +249,8 @@
                 "name": "Transaction Management → Internal Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
                 "parameters": {
-                    "CreationDateBottom" : "01.01.2019 00:00:00",
+                    "CreationDateBottom" : "01.06.2018 00:00:00",
+                    "CreationDateTop" : "29.06.2018 14:30:00",
                     "~~download": ""
                 }
             },
@@ -252,7 +258,8 @@
                 "name": "Transaction Management → Scheduled Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
                 "parameters" : {
-                    "CreationDateFrom" : "01.06.2018 00:00:00",
+                    "CreationDateFrom" : "01.01.2018 00:00:00",
+                    "CreationDateTo" : "01.01.2019 00:00:00",
                     "~~download": ""
                 }
             },
@@ -260,11 +267,13 @@
                 "name": "Transaction Management → Unsettled Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
                 "parameters" : {
-                    "CreationDateBottom" : "01.01.2019",
+                    "CreationDateBottom" : "01.06.2018",
+                    "CreationDateTop" : "01.01.2019",
                     "~~download": ""
                 }
             }
         ]
+        
         
     }
 }
