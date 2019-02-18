@@ -21,6 +21,7 @@ const colors = require('colors');
         let loginParams = cfg.loginParameters;
         let executionParams = cfg.executionParameters;
         let testsParams = cfg.tests;
+        let blacklist = cfg.blacklist ? cfg.blacklist : [];
 
         
         //////////////////////////////////////////////////
@@ -37,7 +38,7 @@ const colors = require('colors');
             page = resp.page;
 
 
-            dataReport.push({'name' : testSuiteName});
+            dataReport.push({'url' : testSuiteName});
             console.log("Test complect: ".blue, testSuiteName.blue.bold)
 
             let tests = testsParams[testSuiteName];
@@ -49,27 +50,21 @@ const colors = require('colors');
                     let testParams = tests[i].parameters ? tests[i].parameters : {};
                     let measuredData = await performanceTester.newTest(page, tests[i].url, testParams);
         
-                    let fields = ['htmlTime', 'listReadCollectTime', 'listReadCounterTime'];
-                    
-                    if(testParams.hasOwnProperty('~~download')) {
-                        fields.push('downloadTime');
-                    }
-                    // console.log(fields);
-                    let extractedData = extractNecessaryData(measuredData.timeMeasurementData, fields);
+                    let extractedData = extractNecessaryData(measuredData.timeMeasurementData, blacklist);
 
-                    let newReportRow = {
-                        'name': tests[i].name,
-                        'url': tests[i].url,
-                        'averageTime': measuredData.averageTime,
-                        'htmlTime': extractedData.htmlTime,
-                        'listReadCollectTime': extractedData.listReadCollectTime,
-                        'listReadCounterTime': extractedData.listReadCounterTime,
-                        'downloadTime' : extractedData.downloadTime ? extractedData.downloadTime : undefined
-                    }
-        
+
+
                     rowData.push(measuredData.timeMeasurementData);
-                    dataReport.push(newReportRow);
-        
+
+                    dataReport.push({'url': tests[i].name, 'time': measuredData.averageTime});
+                    for(req in extractedData){
+                        dataReport.push({
+                            'url': extractedData[req].url,
+                            'time': extractedData[req].responseTime,
+                            'method': extractedData[req].method
+                        });
+                    }
+
                     process.stdout.write('\033[0GTEST PASSED: '.bgGreen.black);
                     console.log();
                 }catch(e){
@@ -85,23 +80,23 @@ const colors = require('colors');
 
                 // don't close the browser to compare real timings with measured
             await page.close();
-            await browser.close();
-            // setTimeout(()=>{
-            //     await browser.close();
-            // }, 1000);
+            // await browser.close();
+            await setTimeout(()=>{
+                browser.close();
+            }, 1000);
             
 
         }
         // tests executed /////////////////////////////////////
 
 
-        // saving reoirts /////////////////////////////////////
+        // saving reports /////////////////////////////////////
         let finishTimestamp = new Date();
         if (executionParams.rowReportPath !== undefined || executionParams.rowReportPath !== ""){
-            saveDataToJSON(rowData, executionParams.rowReportPath, 'row_test_report_' + finishTimestamp.getTime() + '.json');
+           await saveDataToJSON(rowData, executionParams.rowReportPath, 'row_test_report_' + finishTimestamp.getTime() + '.json');
         }
     
-        saveDataToCsv(dataReport, executionParams.reportPath,'test_report_' + finishTimestamp.getTime() + '.csv');
+        await saveDataToCsv(dataReport, executionParams.reportPath,'test_report_' + finishTimestamp.getTime() + '.csv');
         ///////////////////////////////////////////////////////
 
 
@@ -126,58 +121,30 @@ const colors = require('colors');
     
 })();
 
-function extractNecessaryData(data, fields){
+function extractNecessaryData(data, blacklist){
 
-    const mainUrl = data.mainUrl;
-
-    let extractedData = {
-        'htmlTime' : -1,
-        'listReadCollectTime': -1,
-        'listReadCounterTime': -1,
-        'downloadTime': undefined,
-    };
+    let extractedData = [];
 
     for(let key in data.requestsData){
         let row = data.requestsData[key];
 
-            // HTML Document 
-        if(row.resourceType === 'Document' && row.method === 'GET' && row.url === (mainUrl + '/List'))
-            extractedData.htmlTime = row.responseTime;
+            // resourceType blackList
+        if(row.resourceType === 'Stylesheet' || row.resourceType === 'Script' || row.resourceType === 'Image' || row.resourceType === 'Font')
+            continue;
 
-            // Document Load
-        if(row.method === 'POST' && (row.url === (mainUrl + '/ExportToExcel') || row.url === (mainUrl + '/Download'))){
-            if(fields.includes('downloadTime')){
-                extractedData.downloadTime = (row.responseTime / 1000).toFixed(2); // convert to seconds
-            }
-        }
+            // specified url blacklist
+        if(blacklist.includes(row.url))
+            continue;
 
-        if(row.url === (mainUrl + '/List_Read') && row.method === 'POST')
-            {   // List_Read
-                let parsedPostData = row.postData.split('&');
-                for(let i = 0; i < parsedPostData.length; i++){
-                    parsedPostData[i] = parsedPostData[i].split('=')[0];    // parsedPostData contains only parameter names
-                }
 
-                if(parsedPostData.includes('pageSize')){
-                    extractedData.listReadCollectTime = row.responseTime;
-                }
-                if(parsedPostData.includes('aggregate')){
-                    extractedData.listReadCounterTime = row.responseTime;
-                }
-            }
+        extractedData.push({'url': row.url, 'responseTime': row.responseTime, 'resourceType': row.resourceType, 'method': row.method, 'postData': row.postData});
+
     }
     
-    for(key in extractedData){
-        if(extractedData[key] === -1){
-            throw ('Something went wrong while extracting data from: ' + mainUrl);
-        }
-    }
-
-
     return extractedData;
 };
 
-function saveDataToCsv(data, path, filename){
+async function saveDataToCsv(data, path, filename){
     
     if(!fs.existsSync(path)){
         fs.mkdirSync(path);
@@ -188,17 +155,13 @@ function saveDataToCsv(data, path, filename){
     const csvWriter = createCsvWriter({
         path: fullPath,
         header: [
-            {id: "name", title: "Test name"},
-            {id: "url", title: "Url"},
-            {id: "averageTime", title: "Page load time (s)"},
-            {id: "htmlTime", title: "HTML Document load time (ms)"},
-            {id: "listReadCollectTime", title: "List_Read collect load time (ms)"},
-            {id: "listReadCounterTime", title: "List_Read counter load time (ms)"},
-            {id: "downloadTime", title: "Report download time (s)"}
+            {id: 'url', title: 'Url'},
+            {id: 'time', title: 'Elapsed time (ms)'},
+            {id: 'method', title: 'Method'}
         ]
     });
 
-    csvWriter.writeRecords(data)
+    await csvWriter.writeRecords(data)
         .then((ok) => {
             console.log('Report saved to: ', filename);
         }, (err) => {
@@ -206,7 +169,7 @@ function saveDataToCsv(data, path, filename){
         });
 };
 
-function saveDataToJSON(data, path, filename){
+async function saveDataToJSON(data, path, filename){
     
     if(!fs.existsSync(path)){
         fs.mkdirSync(path);
@@ -214,12 +177,15 @@ function saveDataToJSON(data, path, filename){
 
     let fullPath = path.slice(-1) === '/' ? path + filename : path + '/' + filename;
 
-    fs.writeFile(fullPath, JSON.stringify(data), (err) => {
+    await fs.writeFile(fullPath, JSON.stringify(data), (err) => {
         if (err) throw err;
     });
 }
 
 
 /* 
-        
+        Membership Management   Programs   ACME Corporation Program   User Agreements   Versions
+
+
+        https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/List?realmId=1 no New Portal button
 */
