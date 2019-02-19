@@ -58,7 +58,7 @@ exports.init = async function init(params, loginParams){
     const browser = await puppeteer.launch(params);
     const page = await browser.newPage();
 
-    await page.setDefaultNavigationTimeout(60000); // 1 minute
+    await page.setDefaultNavigationTimeout(120000); // 2 minute
     await page.setDefaultTimeout(240000); // 4 minutes
 
 
@@ -71,8 +71,8 @@ exports.init = async function init(params, loginParams){
     try{
         await page.goto(loginParams.loginUrl);
 
-        await page.type('#UserLogin', loginParams.username, {'delay': 25});
-        await page.type('#Password', loginParams.password, {'delay': 25});
+        await page.type('#UserLogin', loginParams.username, {'delay': 10});
+        await page.type('#Password', loginParams.password, {'delay': 10});
         await page.click('input[type="submit"]');
         await page.waitFor(1000);
         // await page.reload({'waitUntil' : 'domcontentloaded'});
@@ -113,10 +113,10 @@ exports.init = async function init(params, loginParams){
 
     });
     page.on('console', msg => {
-        if( msg['_location']['url'] !== 'https://testing1.kontocloud.com:8443/favicon.ico' ){
+        if( msg['_location']['url'] !== 'https://testing1.kontocloud.com:8443/favicon.ico' && msg['_type'] !== 'verbose'){
             console.error('Message to console: ');
             console.error(msg);
-        }        
+        }         
     });
 
 
@@ -133,10 +133,10 @@ exports.init = async function init(params, loginParams){
         }
 */
 exports.newTest = async function newTest(page, url, testParams){
-    
+
         // Load page first time
     await page.setCacheEnabled(true);
-    await page.goto(url, {waitUntil: ['load','domcontentloaded','networkidle0']});
+    await page.goto(url, {waitUntil: ['networkidle0']});
 
 
         // Slice main Url
@@ -145,19 +145,18 @@ exports.newTest = async function newTest(page, url, testParams){
     mainUrl = url.slice(0, index - url.length);
         ////////////////// 
 
-
         // Click Reset Filters button (if it`s exists)
     try{
         await page.waitForSelector('.filter-control > .filter-actions > .k-button:last-child', {'timeout': 1000});
         await page.click('.filter-control > .filter-actions > .k-button:last-child', {'delay' : 100});
         await page.waitFor(500); // TODO: is this pause necessary?    
     }catch(e){
-        if(e instanceof TimeoutError)
-            console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:last-child');
+        if(e instanceof TimeoutError){
+            // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:last-child');
+        }
         else throw e;
     }
     
-
 
         // Processing specified testParameters
     let commands = {};
@@ -178,8 +177,9 @@ exports.newTest = async function newTest(page, url, testParams){
                 await page.waitForSelector('.filter-control > .filter-actions > .k-button:first-child', {'timeout': 1000});
                 await page.click('.filter-control > .filter-actions > .k-button:first-child', {'delay' : 100});
             }catch(e){
-                if(e instanceof TimeoutError)
-                    console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:first-child');
+                if(e instanceof TimeoutError){
+                    // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:first-child');
+                }
                 else throw e;
             }
             
@@ -190,11 +190,11 @@ exports.newTest = async function newTest(page, url, testParams){
         }
     }
         //////////////////////////////////
-
+    
         // Update page couple times to get correct average values
-    await page.goto(url, {waitUntil: 'networkidle0'});
+    await page.reload(url, {waitUntil: 'networkidle0'});
     await page.waitFor(500);
-
+    
 
         // Specify listeners for Request events
     let requestsData = {};
@@ -229,14 +229,14 @@ exports.newTest = async function newTest(page, url, testParams){
         }
     });
         // Add server timing when response received
-    client.on('Network.responseReceived', (res) => {
+    client.on('Network.responseReceived', async (res) => {
 
         try{
             let response = res['response'];
             let reqId = res['requestId'];
 
-                // if response does not served from cache 
-            if( !response['fromDiskCache'] ){
+                // if response does not served from cache
+            if( !response['fromDiskCache'] && curRequestsData[reqId]){
                     // add timings
                 curRequestsData[reqId]['responseTime'] = response['timing']['receiveHeadersEnd'] - response['timing']['sendEnd'];
                     // add startDownload timestamp if it is in black list 
@@ -249,17 +249,19 @@ exports.newTest = async function newTest(page, url, testParams){
             }
 
         }catch(e){
+            console.log('Receive request error:');
+            console.log(e);
             throw e;
         }
 
     });
         // Add loading timing when request finished
-    client.on('Network.loadingFinished', (request) => {
+    client.on('Network.loadingFinished', async (request) => {
         
         try{
             let reqId = request['requestId'];
 
-            if( curRequestsData[reqId]['startDownloadTimestamp'] > 0){
+            if( curRequestsData[reqId] && curRequestsData[reqId]['startDownloadTimestamp'] > 0){
                 curRequestsData[reqId]['downloadTime'] = request['timestamp'] - curRequestsData[reqId]['startDownloadTimestamp'];;
             }
 
@@ -267,12 +269,14 @@ exports.newTest = async function newTest(page, url, testParams){
 
             lastResponseTime = request['timestamp'];
         }catch(e){
+            console.log('loadingFinished unhandled request');
+            console.log(e);
             throw e;
         }
 
     });
         // Delete request from array if it is failed
-    client.on('Network.loadingFailed', (request) => {
+    client.on('Network.loadingFailed', async (request) => {
         try{
             let reqId = request['requestId'];
             delete curRequestsData[reqId];
@@ -282,7 +286,6 @@ exports.newTest = async function newTest(page, url, testParams){
             throw e;
         }
     });
-
 
 
         /// General cycle of time measurement
@@ -305,7 +308,7 @@ exports.newTest = async function newTest(page, url, testParams){
             // executing additional commands
         try{
             for(cmd in commands){
-                
+
                 if(cmd === '~~download'){
                     await page.setDefaultTimeout(2400000); // 40 minutes for downloading reports
                         
@@ -380,8 +383,8 @@ exports.newTest = async function newTest(page, url, testParams){
     averageTime = (averageTime / iterations * 1000).toFixed(2);    // to ms
 
         // Finishing execution
-    await client.send('Network.disable');
-
+    // await client.send('Network.disable');
+    
     return {averageTime, 'timeMeasurementData': {'mainUrl': mainUrl, requestsData} };
 };
 

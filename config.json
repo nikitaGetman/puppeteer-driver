@@ -23,6 +23,21 @@
         "Opening period independent data grids" : [
 
             {
+                "name": "Membership Management → Program → User Agreements → New Version",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreement/Create"
+            },
+            {
+                "name": "Membership Management → Program → User Agreements → Text",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreementText/Edit/1"
+            },
+            {
+                "name": "Merchants → Merchants → Merchant Data",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/Edit/28110"
+            },
+
+
+
+            {
                 "name": "Home → System Health Monitor",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/SystemHealthMonitor"
             },
@@ -99,25 +114,25 @@
                 "name": "Membership Management → Program → User Agreements → Versions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/4/UserAgreement/List"
             },
-            {!
+            {
                 "name": "Membership Management → Program → User Agreements → Versions → Version",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramIntegrationSettings/4"
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreement/Edit/1"
             },
-            {!
+            {
                 "name": "Membership Management → Program → User Agreements → New Version",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/4/UserAgreement/List"
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreement/Create"
             },
-            {!
+            {
                 "name": "Membership Management → Program → User Agreements → Texts",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/4/UserAgreement/List"
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreementText/List"
             },
-            {!
+            {
                 "name": "Membership Management → Program → User Agreements → Text",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/4/UserAgreement/List"
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreementText/Edit/1"
             },
-            {!
+            {
                 "name": "Membership Management → Program → User Agreements → New Text",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/4/UserAgreement/List"
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreementText/Create"
             },
             {
                 "name": "Membership Management → Members",
@@ -177,7 +192,7 @@
                 "name": "Product Management → Fee Management → Fees",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Fee/List"
             },
-            {!
+            {
                 "name": "Product Management → Fee Management → Fees → Edit Fee",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Fee/Edit/6"
             },
@@ -189,9 +204,9 @@
                 "name": "Product Management → Fee Management → Recurring Fees",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/RecurringFee/List"
             },
-            {!
-                "name": "Product Management → Fee Management → Recurring Fees → Edit Fee",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/FinancialInstitution/Edit"
+            {
+                "name": "Product Management → Fee Management → Recurring Fees → Edit Fee !!!",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/RecurringFee/Edit/3"
             },
             {
                 "name": "Product Management → Fee Management → Recurring Fees → New Fee",
@@ -231,8 +246,8 @@
                 "name": "Account Management → Account Data → Account Application (link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit/3"
             },
-            {!
-                "name": "Account Management → Account Data → Account Statement",
+            {
+                "name": "Account Management → Account Data → Account Statement !!!",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List/7"
             },
             {
@@ -244,16 +259,16 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountLimit/List/7"
             },
             {
-                "name": "Account Management → Account Data → Risk Management",
+                "name": "Account Management → Account Data → Risk Management !!!",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountRiskManagement/List/7"
             },
             {
                 "name": "Account Management → Account Applications",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/List"
             },
-            {!
+            {
                 "name": "Account Management → Account Application",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit/218091"
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/List"
             },
             {
                 "name": "Account Management → Account Application → Applicant (link)",
@@ -267,23 +282,20 @@
                 "name": "Account Management → Stored Payment Options",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/StoredPaymentOption/List"
             },
-            {!
+            {
                 "name": "Account Management → Compliance Check → Account Owner (link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit/17937"
             },
-            ! Billing events
             {
                 "name": "Account Management → Account Groups",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountGroup/List"
             },
-            ! Changed Fees
-            ! Account Adjustments
             {
                 "name": "Account Management → Account Adjustments → New Adjustment",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/Create"
             },
             {
-                !"name": "Account Management → Account Adjusments → Account Number (link)",
+                "name": "Account Management → Account Adjusments → Account Number (link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/Edit/35"
             },
             {
@@ -292,7 +304,7 @@
             },
 
 
-            !!!
+            
             {
                 "name": "Transaction Management → Transactions → Transaction → Details (link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List?transactionId=10887326"
@@ -301,24 +313,24 @@
                 "name": "Transaction Management → Transactions → Transaction → Open Dependent Transaction (link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List?dependingTransactionId=10887313"
             },
-            {!
-                "name": "Transaction Management → Transactions → Transaction → Open Refunded Transaction (link)",
+            {
+                "name": "Transaction Management → Transactions → Transaction → Open Refunded Transaction (link) (!!! specify correct link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/MandateArchive/List"
             },
-            {!
-                "name": "Transaction Management → Transactions → Transaction → Risk Score (link)",
+            {
+                "name": "Transaction Management → Transactions → Transaction → Risk Score (link) (!!! specify correct link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/MandateArchive/List"
             },
-            {!
+            {
                 "name": "Transaction Management → External Transactions → Open Transaction (link)",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/MandateArchive/List"
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List?transactionId=10887327"
             },
-            {!
-                "name": "Transaction Management → Internal Transactions → Open Transactions (link)",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/MandateArchive/List"
+            {
+                "name": "Transaction Management → Internal Transactions → Open Transactions (link) (!!! specify correct link)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List?transactionIssuingId=8302306"
             },
 
-            !!!
+            
             {
                 "name": "Risk Management → Risk Type",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskType/List"
@@ -354,7 +366,7 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/Create"
             },
 
-            !!!
+            
             {
                 "name": "Reports → E-Wallet Activation",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletActivation"
@@ -411,15 +423,15 @@
                 "name": "Settings → User → Effective Permissions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/EffectivePermissions/19115"
             },
-            {!
-                "name": "Settings → User → External IDs",
+            {
+                "name": "Settings → User → External IDs (!!! empty)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationUserExternalId/List/19115"
             },
             {
                 "name": "Settings → Roles",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings"
             },
-            {!
+            {
                 "name": "Settings → Role",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/Edit/5"
             },
@@ -462,21 +474,21 @@
                 "name": "Settings → Log → API Activity Log → Select any entry → Open (link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog/Entry/6148868"
             },
-            {!
-                "name": "Settings → Log → API Activity Log → Select the successful transaction with 'KC-Authorize' transaction type → Open (link) → Open Internal Transaction (link)",
+            {
+                "name": "(!!! incorrect link) Settings → Log → API Activity Log → Select the successful transaction with 'KC-Authorize' transaction type → Open (link) → Open Internal Transaction (link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/Create"
             },
-            {!
-                "name": "Settings → Log → API Activity Log → Select the successful transaction with 'Capture' transaction type → Open (link) → Open External Transaction (link)",
+            {
+                "name": "(!!!) Settings → Log → API Activity Log → Select the successful transaction with 'Capture' transaction type → Open (link) → Open External Transaction (link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List?TransactionAcquiringId=6987344"
             },
-            {!
+            {
                 "name": "Settings → Log → System Activity Log → select any entry and click its Entity (link)",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationSettings/UIPolicy"
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/Edit/11"
             },
-            {!
+            {
                 "name": "Settings → Log → System Activity Log → select any entry and click its Details (link)",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog/Details/30303595?isArchived=false"
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog/Details/30306800?isArchived=false"
             },
             {
                 "name": "Settings → Log → System Activity Log Settings",
@@ -546,8 +558,8 @@
                 "name": "Settings → Email Templates → Layouts",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/List"
             },
-            {!
-                "name": "Settings → Email Templates → New Layout",
+            {
+                "name": "(!!!) Settings → Email Templates → New Layout",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/Edit/10"
             },
             {
@@ -558,9 +570,9 @@
                 "name": "Settings → Email Templates → Contents",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailContent/List"
             },
-            {!
-                "name": "Settings → Email Templates → Contents → New Content",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailContent/Create?notificationTypeId=7&culture=sq-AL"
+            {
+                "name": "(!!!) Settings → Email Templates → Contents → New Content",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailContent/Create?notificationTypeId=100&culture=prs-AF"
             },
             {
                 "name": "Settings → User Agreements → Versions",
@@ -590,8 +602,8 @@
                 "name": "Settings → Bank Holidays",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BankHoliday"
             },
-            {!
-                "name": "Settings → Bank Holidays → New Holiday",
+            {
+                "name": "(!!! incorrect link) Settings → Bank Holidays → New Holiday",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/Create"
             },
             {
@@ -640,10 +652,36 @@
                 "name": "Account → Email Notifications",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSettings/EmailNotifications"
             }
-
         ],
         
+        
+        
+        
+        
+        
         "Opening period dependent data grids (filters are empty)" : [
+
+            {
+                "name": "Account Management → Compliance Check",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/List"
+            },
+            {
+                "name": "Account Management → Billing Events",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BillingEvent/List"
+            },
+            {
+                "name": "Account Management → Charged Fees",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/FeeCharge/List"
+            },
+            {
+                "name": "Account Management → Charged Initiator Fees",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorFeeCharge/List"
+            },
+            {
+                "name": "Account Management → Account Adjustments",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/List"
+            },
+
 
             {
                 "name": "Transaction Management → Transactions",
@@ -664,8 +702,94 @@
             {
                 "name": "Transaction Management → Unsettled Transactions",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List"
-            } 
+            },
 
+
+            {
+                "name": "Risk Management → Order Risk Check",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/OrderRiskCheck/List"
+            },
+            {
+                "name": "Risk Management → Blocked Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BlockedTransactionIssuing/List"
+            },
+
+
+            {
+                "name": "Reports → Account Application Status",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus"
+            },
+            {
+                "name": "Reports → Acount Balance",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance"
+            },
+            {
+                "name": "Reports → External Authorization",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalAuthorization"
+            },
+            {
+                "name": "Reports → External Payout",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalPayout"
+            },
+            {
+                "name": "Reports → Fees",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Fee"
+            },
+            {
+                "name": "Reports → Fraud Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FraudTransactions"
+            },
+            {
+                "name": "Reports → KPI Report",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Kpi"
+            },
+            {
+                "name": "Reports → Loading",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Loading"
+            },
+            {
+                "name": "Reports → Payment",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Payment"
+            },
+            {
+                "name": "Reports → Risk Score Card",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskScoreCard"
+            },
+            {
+                "name": "Reports → Sent Emails",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SentEmails"
+            },
+            {
+                "name": "Reports → Summary Payout",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SummaryPayout"
+            },
+            {
+                "name": "Reports → Unloading",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading"
+            },
+            {
+                "name": "Reports → User Statistics",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/UserStatistics"
+            },
+
+
+            {
+                "name": "Settings → Log → End-of-Day Job Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog"
+            },
+            {
+                "name": "Settings → Log → API Activity Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog"
+            },
+            {
+                "name": "Settings → System Activity Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog"
+            },
+            {
+                "name": "Settings → External Call Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog"
+            }
+        
         ]
         
         
