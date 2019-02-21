@@ -2,11 +2,11 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const {TimeoutError} = require('puppeteer/Errors');
 
-    // Checks that object is empty or not
-function isEmpty(obj) {
-    for(var key in obj) return false;
-    return true;
-}
+//     // Checks that object is empty or not
+// function isEmpty(obj) {
+//     for(var key in obj) return false;
+//     return true;
+// }
 
 
 /*
@@ -82,7 +82,7 @@ exports.init = async function init(params, loginParams){
         throw e;
     }
 
-
+    
         // Specify listeners for page events
     page.on('requestfailed', request => {
         if(request.failure().errorText !== 'net::ERR_ABORTED'){
@@ -116,13 +116,84 @@ exports.init = async function init(params, loginParams){
         if( msg['_location']['url'] !== 'https://testing1.kontocloud.com:8443/favicon.ico' && msg['_type'] !== 'verbose'){
             console.error('Message to console: ');
             console.error(msg);
-        }         
+        }
+        if(msg['_type'] === 'error'){
+            throw {'consoleMessage': msg['_text'], 'url': msg['_location']['url']};
+        }
     });
 
 
     return {browser, page};
 };
 
+
+
+async function executeCommand(command, page){
+    for(key in command){
+        // console.log(command);
+
+        if(key === '~~download'){
+            
+            let selector = command[key] !== '' ? command[key] : '.form-group > div > div[data-apply-filter] > .k-button';
+
+                // checking that download btn is not disabled
+            let downloadBtn = await page.$(selector);
+            if(downloadBtn['_remoteObject']['description'].split('.').includes('disabled')){
+                throw 'Download button is disabled.';
+            }
+
+            await page.setDefaultTimeout(2400000); // 40 minutes for downloading reports
+                    
+                // click Download button
+            await page.click(selector, {'delay' : 100});
+            
+                // wait untail all requests would be resolved
+            await page.waitFor(100);
+            while(page.activeResponses > 0){
+                await page.waitFor(100);
+            }
+
+            await page.setDefaultTimeout(240000); // returns to 4 minutes
+        }
+
+        else if(key === '~~click'){
+            await page.click(command[key], {'delay': 100});
+
+                // wait untail all requests would be resolved
+            await page.waitFor(500);
+            // console.log('waitng until response resolves: ', page.activeResponses);
+            while(page.activeResponses > 0){
+                await page.waitFor(100);
+            }
+        }
+
+        else if(key === '~~delay'){
+            await page.waitFor(command[key]);
+        }
+        else if(key === '~~refresh'){
+            let selector = command[key] !== '' ? command[key] : '.filter-control > .filter-actions > .k-button:first-child';
+            
+            await page.waitForSelector(selector, {'timeout': 1000});
+            await page.click(selector, {'delay' : 100});
+        }
+        else if(key === '~~resetFilters'){
+            let selector = command[key] !== '' ? command[key] : '.filter-control > .filter-actions > .k-button:last-child';
+          
+            await page.waitForSelector(selector, {'timeout': 1000});
+            await page.click(selector, {'delay' : 100});
+        }
+        else if(key.slice(0,2) === '~~'){
+            throw 'Unknown command: ' + JSON.stringify(command);
+        }
+
+        else{
+              // if it's parameter then spicify it
+            await page.type(key, new String(command[key]));
+        }
+
+    }
+           
+}
 /*
     newTest - creates new performance test and measures requests time
         Returns average time for whole page and timings for each request
@@ -135,9 +206,13 @@ exports.init = async function init(params, loginParams){
 exports.newTest = async function newTest(page, url, testParams){
 
         // Load page first time
+        try{
     await page.setCacheEnabled(true);
     await page.goto(url, {waitUntil: ['networkidle0']});
-
+        }
+        catch(e){
+            console.log(e);
+        }
 
         // Slice main Url
     let mainUrl = '';
@@ -148,8 +223,7 @@ exports.newTest = async function newTest(page, url, testParams){
         // Click Reset Filters button (if it`s exists)
     try{
         await page.waitForSelector('.filter-control > .filter-actions > .k-button:last-child', {'timeout': 1000});
-        await page.click('.filter-control > .filter-actions > .k-button:last-child', {'delay' : 100});
-        await page.waitFor(500); // TODO: is this pause necessary?    
+        await executeCommand({'~~resetFilters': ''}, page);
     }catch(e){
         if(e instanceof TimeoutError){
             // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:last-child');
@@ -159,35 +233,42 @@ exports.newTest = async function newTest(page, url, testParams){
     
 
         // Processing specified testParameters
-    let commands = {};
-    if( !isEmpty(testParams)){
+    let iterationCommands = [];
+    if( testParams.length > 0 ){
+        let forEachIterationFlag = false;
 
-        try{
-            for(param in testParams){
-                    // if it's command
-                if(param.slice(0, 2) === '~~'){  
-                    commands[param] = testParams[param];
-                    continue;   
-                }
-                    // if it's parameter then spicify it
-                await page.type('#' + param, new String(testParams[param]));
-            }
-                // click Refresh button (if it`s exists)
+        for(let i=0; i < testParams.length; i++){
             try{
-                await page.waitForSelector('.filter-control > .filter-actions > .k-button:first-child', {'timeout': 1000});
-                await page.click('.filter-control > .filter-actions > .k-button:first-child', {'delay' : 100});
-            }catch(e){
-                if(e instanceof TimeoutError){
-                    // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:first-child');
+                if(testParams[i] === "~~ITERATION"){
+                    forEachIterationFlag = true;
+                    continue;
                 }
-                else throw e;
+  
+                if( !forEachIterationFlag ){
+                        // if it's command
+                    await executeCommand(testParams[i], page);
+                }
+                else{
+                    iterationCommands.push(testParams[i]);
+                }
+                
+            }catch(e){
+                    // if can not specify parameter
+                throw e;
             }
-            
-
-        }catch(e){
-                // if can not specify parameter
-            throw e;
         }
+
+            // click Refresh button (if it`s exists)
+        try{
+            await page.waitForSelector('.filter-control > .filter-actions > .k-button:first-child', {'timeout': 1000});
+            await executeCommand({'~~refresh': ''}, page);
+        }catch(e){
+            if(e instanceof TimeoutError){
+                // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:first-child');
+            }
+            else throw e;
+        }
+
     }
         //////////////////////////////////
     
@@ -203,7 +284,7 @@ exports.newTest = async function newTest(page, url, testParams){
     let firstRequestTime = -1;
     let lastResponseTime = -1;
 
-    let activeResponses = 0;
+    page.activeResponses = 0;
 
     const client = await page.target().createCDPSession();
     await client.send('Network.enable');
@@ -222,7 +303,7 @@ exports.newTest = async function newTest(page, url, testParams){
         }
 
         curRequestsData[reqId] = newRequest;
-        activeResponses++;
+        page.activeResponses++;
 
         if(firstRequestTime === -1){
             firstRequestTime = request['timestamp'];
@@ -265,7 +346,7 @@ exports.newTest = async function newTest(page, url, testParams){
                 curRequestsData[reqId]['downloadTime'] = request['timestamp'] - curRequestsData[reqId]['startDownloadTimestamp'];;
             }
 
-            activeResponses--;
+            page.activeResponses--;
 
             lastResponseTime = request['timestamp'];
         }catch(e){
@@ -281,7 +362,7 @@ exports.newTest = async function newTest(page, url, testParams){
             let reqId = request['requestId'];
             delete curRequestsData[reqId];
 
-            activeResponses--;
+            page.activeResponses--;
         }catch(e){
             throw e;
         }
@@ -295,7 +376,7 @@ exports.newTest = async function newTest(page, url, testParams){
     for(let i=0; i < iterations; i++){
             // set default values
         curRequestsData = {};
-        activeResponses = 0;
+        page.activeResponses = 0;
         firstRequestTime = -1;
         lastResponseTime = 0;
 
@@ -306,36 +387,18 @@ exports.newTest = async function newTest(page, url, testParams){
         averageTime += (lastResponseTime - firstRequestTime);
 
             // executing additional commands
-        try{
-            for(cmd in commands){
-
-                if(cmd === '~~download'){
-                    await page.setDefaultTimeout(2400000); // 40 minutes for downloading reports
-                        
-                        // click Download button
-                    await page.click('.form-group > div > div[data-apply-filter] > .k-button', {'delay' : 100});
-                    
-                        // wait untail all requests would be resolved
-                    while(activeResponses > 0){
-                        await page.waitFor(100);
-                    }
-
-                    await page.setDefaultTimeout(240000); // returns to 4 minutes
-                }
-
-                if(cmd == '~~click'){
-                    await page.click(commands[cmd], {'delay': 100});
-
-                    // wait untail all requests would be resolved
-                    while(activeResponses > 0){
-                        await page.waitFor(100);
-                    }
-                }
+        for(let i=0; i < iterationCommands.length; i++){
+            
+            try{
+                await executeCommand(iterationCommands[i], page);
+            }catch(e){
+                let newMsg = 'Error while processing command for: ' + url + ' command: ' + JSON.stringify(iterationCommands[i]) + '\n' 
+                                + ( typeof e === 'object' ? JSON.stringify(e) : e);
+                throw newMsg;
             }
-        }catch(e){
-            console.error('Error while processing command for: ', url);
-            throw e;
+                
         }
+        
             ////////////////////////////////        
 
             // Add iteration data to general array
@@ -526,12 +589,13 @@ exports.newTest = async function newTest(page, url, testParams){
 
             {
                 "name": "Transaction Management → Transactions",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
-                "parameters": {
-                    "CreationDateBottom" : "01.06.2018 00:00:00",
-                    "CreationDateTop" : "01.06.2018 23:59:59",
-                    "~~download": ""
-                }
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Transaction/List",
+                "parameters": [
+                    {"#CreationDateBottom" : "01.06.2018 00:00:00"},
+                    {"#CreationDateTop" : "01.06.2018 23:59:59"},
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
             },
             {
                 "name": "Transaction Management → External Transactions",
@@ -576,12 +640,13 @@ exports.newTest = async function newTest(page, url, testParams){
 
             {
                 "name": "Transaction Management → Transactions",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
-                "parameters": {
-                    "CreationDateBottom" : "01.06.2018 00:00:00",
-                    "CreationDateTop" : "28.06.2018 18:00:00",
-                    "~~download": ""
-                }
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Transaction/List",
+                "parameters": [
+                    {"#CreationDateBottom" : "01.06.2018 00:00:00"},
+                    {"#CreationDateTop" : "28.06.2018 18:00:00"},
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
             },
             {
                 "name": "Transaction Management → External Transactions",

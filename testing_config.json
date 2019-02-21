@@ -1,0 +1,52 @@
+{
+    "loginParameters": {
+        "username": "Nikitag@dmdevelopment.ru",
+        "password": "1234567890",
+        "loginUrl": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Authentication/Login"
+    },
+
+    "executionParameters": {
+        "reportPath" : "reports",
+        "rowReportPath" : "row-reports/",
+        "headless" : false,
+        "devtools": true,
+        "defaultViewport": {
+            "width": 1280,
+            "height": 720
+        }
+    },
+
+    "urlBlacklist": [],
+    
+    "tests": {
+
+        "Opening period independent data grids" : [
+
+            
+            {
+                "name": "Settings → Bank Holidays → New Holiday",
+                "url": "https://dmd-vm.kontocloud.com/kontocoud/backoffice/BankHoliday",
+                "parameters": [
+                    "~~ITERATION",
+                    {"~~click": "#Create"},
+                    {"#HolidayDate": "01.01"},
+                    {"#HolidayName": "Auto test"},
+                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > .k-grid-update"},
+                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > div > div > a:last-child"},
+                    {"~~delay": 1000},
+                    {"~~click": ".modal > .modal-dialog > .modal-content > .modal-footer > button:first-child"}
+                ]
+            },
+            {
+                "name": "Transaction Management → Transactions",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Transaction/List",
+                "parameters": [
+                    {"#CreationDateBottom" : "01.06.2018 00:00:00"},
+                    {"#CreationDateTop" : "01.06.2018 23:59:59"},
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            }
+        ]
+    }
+}

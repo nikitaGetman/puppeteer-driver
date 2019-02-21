@@ -14,7 +14,7 @@ const {TimeoutError} = require('puppeteer/Errors');
 
 
             // loading configuration and login in the system
-        let cfg = await performanceTester.loadConfig('config.json');
+        let cfg = await performanceTester.loadConfig('testing_config.json');
         
         let loginParams = cfg.loginParameters;
         let executionParams = cfg.executionParameters;
@@ -96,9 +96,10 @@ const {TimeoutError} = require('puppeteer/Errors');
         // tests executed /////////////////////////////////////
 
         // trying to re-process timeouted tests ///////////////
-        dataReport.push({'url' : 'Timeouted tests'});
-        console.log("Test complect: ".blue, 'Timeouted tests'.blue.bold)
-
+        if(timeoutedTests.length > 0){
+            dataReport.push({'url' : 'Timeouted tests'});
+            console.log("Test complect: ".blue, 'Timeouted tests'.blue.bold)
+        }
         for(let i=0; i < timeoutedTests.length; i++){
 
             let resp = await performanceTester.init(executionParams, loginParams);
@@ -109,7 +110,7 @@ const {TimeoutError} = require('puppeteer/Errors');
 
                 process.stdout.write('Test started: \'' + timeoutedTests[i].name + '\'');
 
-                let testParams = timeoutedTests[i].parameters ? timeoutedTests[i].parameters : {};
+                let testParams = timeoutedTests[i].parameters ? timeoutedTests[i].parameters : [];
                 let measuredData = await performanceTester.newTest(page, timeoutedTests[i].url, testParams);
     
                 let extractedData = extractNecessaryData(measuredData.timeMeasurementData, blacklist);
@@ -238,12 +239,16 @@ async function saveDataToJSON(data, path, filename){
 
 
 /* 
-        Membership Management   Programs   ACME Corporation Program   User Agreements   Versions
+        !!! Account Management → Account Application → Risk Profile History
+        !!! Account Management → Account Application → Account Application History
+        
+        ! Reports → GoAML Transactions
+        ! Reports → Risk Transactions
+        ! Reports → User Statistics
 
+        ! Settings → User → External IDs → New External ID
 
-        https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/List?realmId=1 no New Portal button
-
-
+        ! Settings (→ Scopes) → Scope Name (link) → Effective Permissions
 
 
         

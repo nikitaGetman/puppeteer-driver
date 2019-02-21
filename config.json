@@ -1,6 +1,6 @@
 {
     "loginParameters": {
-        "username": "test@example.com",
+        "username": "Nikitag@dmdevelopment.ru",
         "password": "1234567890",
         "loginUrl": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Authentication/Login"
     },
@@ -22,21 +22,7 @@
 
         "Opening period independent data grids" : [
 
-            {
-                "name": "Membership Management → Program → User Agreements → New Version",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreement/Create"
-            },
-            {
-                "name": "Membership Management → Program → User Agreements → Text",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreementText/Edit/1"
-            },
-            {
-                "name": "Merchants → Merchants → Merchant Data",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/Edit/28110"
-            },
-
-
-
+            
             {
                 "name": "Home → System Health Monitor",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/SystemHealthMonitor"
@@ -66,9 +52,9 @@
             {
                 "name": "Membership Management → Program → Countries → select any country and click its name link",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCountry/List/4",
-                "parameters": {
-                    "~~click" : ".k-grid > .k-grid-content > table > tbody > tr:first-child > td > .gridcell-wrapper > .line-wrapper > a"
-                }
+                "parameters": [
+                    {"~~click" : ".k-grid > .k-grid-content > table > tbody > tr:first-child > td > .gridcell-wrapper > .line-wrapper > a"}
+                ]
             },
             {
                 "name": "Membership Management → Program → Currencies",
@@ -326,8 +312,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List?transactionId=10887327"
             },
             {
-                "name": "Transaction Management → Internal Transactions → Open Transactions (link) (!!! specify correct link)",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List?transactionIssuingId=8302306"
+                "name": "Transaction Management → Internal Transactions → Open Transactions (link)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List?transactionIssuingId=8302313"
             },
 
             
@@ -368,6 +354,10 @@
 
             
             {
+                "name": "Reports → E-Wallet Account Type",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletAccountType"
+            },
+            {
                 "name": "Reports → E-Wallet Activation",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletActivation"
             },
@@ -375,11 +365,7 @@
                 "name": "Reports → E-Wallet User State",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletUserState"
             },
-            {
-                "name": "Reports → E-Wallet Account Type",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletAccountType"
-            },
-
+            
 
             {
                 "name": "Support",
@@ -442,9 +428,9 @@
             {
                 "name": "Settings → Roles→ Role → Role Members → Scopes (link)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/Members/5",
-                "parameters": {
-                    "~~click": ".k-grid > .k-grid-content > table > tbody > tr:first-child > td:last-child > div > div > a"
-                }
+                "parameters": [
+                    {"~~click": ".k-grid > .k-grid-content > table > tbody > tr:first-child > td:last-child > div > div > a"}
+                ]
             },
             {
                 "name": "Settings → New Role",
@@ -603,8 +589,18 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BankHoliday"
             },
             {
-                "name": "(!!! incorrect link) Settings → Bank Holidays → New Holiday",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/Create"
+                "name": "Settings → Bank Holidays → New Holiday",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BankHoliday",
+                "parameters": [
+                    "~~ITERATION",
+                    {"~~click": "#Create"},
+                    {"#HolidayDate": "01.01"},
+                    {"#HolidayName": "Auto test"},
+                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > .k-grid-update"},
+                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > div > div > a:last-child"},
+                    {"~~delay": 1000},
+                    {"~~click": ".modal > .modal-dialog > .modal-content > .modal-footer > button:first-child"}
+                ]
             },
             {
                 "name": "Settings → Enrollment Documents",
@@ -782,11 +778,11 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog"
             },
             {
-                "name": "Settings → System Activity Log",
+                "name": "Settings → Log → System Activity Log",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog"
             },
             {
-                "name": "Settings → External Call Log",
+                "name": "Settings → Log → External Call Log",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog"
             }
         
