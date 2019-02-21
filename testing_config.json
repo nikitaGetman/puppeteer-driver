@@ -1,8 +1,8 @@
 {
     "loginParameters": {
-        "username": "Nikitag@dmdevelopment.ru",
+        "username": "test@example.com",
         "password": "1234567890",
-        "loginUrl": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Authentication/Login"
+        "loginUrl": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Authentication/Login"
     },
 
     "executionParameters": {
@@ -24,29 +24,38 @@
 
             
             {
-                "name": "Settings → Bank Holidays → New Holiday",
-                "url": "https://dmd-vm.kontocloud.com/kontocoud/backoffice/BankHoliday",
+                "name": "Settings → Log → End-of-Day Job Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog",
                 "parameters": [
-                    "~~ITERATION",
-                    {"~~click": "#Create"},
-                    {"#HolidayDate": "01.01"},
-                    {"#HolidayName": "Auto test"},
-                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > .k-grid-update"},
-                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > div > div > a:last-child"},
-                    {"~~delay": 1000},
-                    {"~~click": ".modal > .modal-dialog > .modal-content > .modal-footer > button:first-child"}
+                    {"#StartDateFrom": "20.06.2018"},
+                    {"#StartDateTo": "20.06.2018"}
                 ]
             },
             {
-                "name": "Transaction Management → Transactions",
-                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Transaction/List",
+                "name": "Settings → Log → API Activity Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog",
                 "parameters": [
-                    {"#CreationDateBottom" : "01.06.2018 00:00:00"},
-                    {"#CreationDateTop" : "01.06.2018 23:59:59"},
-                    "~~ITERATION",
-                    {"~~download": ""}
+                    {"#StartDateFrom": "31.01.2019 00:00:00"},
+                    {"#StartDateTo": "31.01.2019 23:59:59"}
+                ]
+            },
+            {
+                "name": "Settings → Log → System Activity Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog",
+                "parameters": [
+                    {"#ActionDateFrom": "20.01.2019 00:00:00"},
+                    {"#ActionDateTo": "20.01.2019 23:59:59"}
+                ]
+            },
+            {
+                "name": "Settings → Log → External Call Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog",
+                "parameters": [
+                    {"#StartDateFrom": "16.02.2019 00:00:00"},
+                    {"#StartDateTo": "16.02.2019 23:59:59"}
                 ]
             }
+            
         ]
     }
 }

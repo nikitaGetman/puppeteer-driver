@@ -32,17 +32,17 @@ const {TimeoutError} = require('puppeteer/Errors');
 
         for(let testSuiteName in testsParams){
 
+            let resp = await performanceTester.init(executionParams, loginParams);
+            let browser = resp.browser;
+            let page = resp.page;
+
 
             dataReport.push({'url' : testSuiteName});
-            console.log("Test complect: ".blue, testSuiteName.blue.bold)
+            console.log("Test suite: ".blue, testSuiteName.blue.bold)
 
             let tests = testsParams[testSuiteName];
             for(let i = 0; i < tests.length; i++){
                 
-                let resp = await performanceTester.init(executionParams, loginParams);
-                let browser = resp.browser;
-                let page = resp.page;
-
                 try{
 
                     process.stdout.write('Test started: \'' + tests[i].name + '\'');
@@ -78,19 +78,19 @@ const {TimeoutError} = require('puppeteer/Errors');
                     console.error(e);
 
                     if(e instanceof TimeoutError){
-                        timeoutedTests.push(tests[i]);
+                        timeoutedTests.push({testSuiteName : tests[i]});
                     }
 
                 }
 
-                    // close browser after each test
-                await page.close();
-                // await browser.close();
-                await setTimeout(()=>{
-                    browser.close();
-                }, 1000);
             }
 
+                // close browser after each test
+            await page.close();
+            // await browser.close();
+            await setTimeout(()=>{
+                browser.close();
+            }, 1000);
 
         }
         // tests executed /////////////////////////////////////
@@ -102,49 +102,51 @@ const {TimeoutError} = require('puppeteer/Errors');
         }
         for(let i=0; i < timeoutedTests.length; i++){
 
-            let resp = await performanceTester.init(executionParams, loginParams);
-            let browser = resp.browser;
-            let page = resp.page;
+            for(testSuiteName in timeoutedTests[i]){
 
-            try{
+                let resp = await performanceTester.init(executionParams, loginParams);
+                let browser = resp.browser;
+                let page = resp.page;
 
-                process.stdout.write('Test started: \'' + timeoutedTests[i].name + '\'');
+                try{
 
-                let testParams = timeoutedTests[i].parameters ? timeoutedTests[i].parameters : [];
-                let measuredData = await performanceTester.newTest(page, timeoutedTests[i].url, testParams);
-    
-                let extractedData = extractNecessaryData(measuredData.timeMeasurementData, blacklist);
+                    process.stdout.write('Test started: \'' + timeoutedTests[i][testSuiteName].name + '\'');
+
+                    let testParams = timeoutedTests[i][testSuiteName].parameters ? timeoutedTests[i][testSuiteName].parameters : [];
+                    let measuredData = await performanceTester.newTest(page, timeoutedTests[i][testSuiteName].url, testParams);
+        
+                    let extractedData = extractNecessaryData(measuredData.timeMeasurementData, blacklist);
 
 
-                dataReport.push({'url': timeoutedTests[i].name, 'time': measuredData.averageTime});
-                for(req in extractedData){
-                    dataReport.push({
-                        'url': extractedData[req].url,
-                        'time': extractedData[req].responseTime,
-                        'method': extractedData[req].method
-                    });
+                    dataReport.push({'url': timeoutedTests[i][testSuiteName].name, 'time': measuredData.averageTime});
+                    for(req in extractedData){
+                        dataReport.push({
+                            'url': extractedData[req].url,
+                            'time': extractedData[req].responseTime,
+                            'method': extractedData[req].method
+                        });
+                    }
+
+                    process.stdout.write('\033[0GTEST PASSED: '.bgGreen.black);
+                    console.log();
+
+                }catch(e){
+                    
+                    process.stdout.write('\033[0GTEST FAILED: '.bgRed.black);
+                    console.log();
+                    console.log('Exception: ');
+                    console.error(e);
+
                 }
 
-                process.stdout.write('\033[0GTEST PASSED: '.bgGreen.black);
-                console.log();
-
-            }catch(e){
+                    // close browser after each test
+                await page.close();
+                // await browser.close();
+                await setTimeout(()=>{
+                    browser.close();
+                }, 1000);
                 
-                process.stdout.write('\033[0GTEST FAILED: '.bgRed.black);
-                console.log();
-                console.log('Exception: ');
-                console.error(e);
-
             }
-
-                // close browser after each test
-            await page.close();
-            // await browser.close();
-            await setTimeout(()=>{
-                browser.close();
-            }, 1000);
-            
-
         }
         ///////////////////////////////////////////////////////
 
@@ -239,19 +241,23 @@ async function saveDataToJSON(data, path, filename){
 
 
 /* 
-        !!! Account Management → Account Application → Risk Profile History
-        !!! Account Management → Account Application → Account Application History
+        (OK) Account Management → Account Application → Risk Profile History
+        (OK) Account Management → Account Application → Account Application History
         
-        ! Reports → GoAML Transactions
-        ! Reports → Risk Transactions
-        ! Reports → User Statistics
-
-        ! Settings → User → External IDs → New External ID
-
-        ! Settings (→ Scopes) → Scope Name (link) → Effective Permissions
-
+        (OK) Reports → GoAML Transactions
+        (OK) Reports → Risk Transactions
+        ---- Reports → User Statistics (only for month)
 
         
+
+            
+
+        (OK) Settings → User → External IDs → New External ID
+
+        (OK) Settings (→ Scopes) → Scope Name (link) → Effective Permissions (https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/EffectivePermissions/4)
+
+
+        selectors for log
 
         ],
         

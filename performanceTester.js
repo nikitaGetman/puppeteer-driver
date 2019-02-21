@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const {TimeoutError} = require('puppeteer/Errors');
+const colors = require('colors');
 
 //     // Checks that object is empty or not
 // function isEmpty(obj) {
@@ -54,76 +55,92 @@ exports.loadConfig = async function loadConfig(filename){
 */
 exports.init = async function init(params, loginParams){
 
-        // Initailize browser and page objects
-    const browser = await puppeteer.launch(params);
-    const page = await browser.newPage();
-
-    await page.setDefaultNavigationTimeout(120000); // 2 minute
-    await page.setDefaultTimeout(240000); // 4 minutes
-
-
-    browser.on('targetchanged', () => {
-        page.bringToFront();
-    });
-    
-
-        // Login to backoffice
+    let browser = {};
+    let page = {};
     try{
-        await page.goto(loginParams.loginUrl);
+            // Initailize browser and page objects
+        browser = await puppeteer.launch(params);
+        page = await browser.newPage();
 
-        await page.type('#UserLogin', loginParams.username, {'delay': 10});
-        await page.type('#Password', loginParams.password, {'delay': 10});
-        await page.click('input[type="submit"]');
-        await page.waitFor(1000);
-        // await page.reload({'waitUntil' : 'domcontentloaded'});
-            
-    }catch(e){
-            // if can not login 
-        throw e;
-    }
+        await page.setDefaultNavigationTimeout(120000); // 2 minute
+        await page.setDefaultTimeout(240000); // 4 minutes
 
-    
-        // Specify listeners for page events
-    page.on('requestfailed', request => {
-        if(request.failure().errorText !== 'net::ERR_ABORTED'){
-            console.error('Request failed: ' + request.url() + ' (METHOD: ' + request.method() + ', postData: ' + request.postData() + ') - ' + request.failure().errorText);
-        }
-    });
-    page.on('error', e => {
-        throw e;
-    });
-    page.on('dialog', e => {
-        console.error('Dialog event happened');
-        throw e;
-    });
-    page.on('pageerror', e => {
-        const pathForScreenshots = 'pageerror-screenshots/';
 
-        if(!fs.existsSync(pathForScreenshots)){
-            fs.mkdirSync(pathForScreenshots);
+        browser.on('targetchanged', () => {
+            page.bringToFront();
+        });
+        
+
+            // Login to backoffice
+        try{
+            await page.goto(loginParams.loginUrl);
+
+            await page.type('#UserLogin', loginParams.username, {'delay': 10});
+            await page.type('#Password', loginParams.password, {'delay': 10});
+            await page.click('input[type="submit"]');
+            await page.waitFor(1000);
+            // await page.reload({'waitUntil' : 'domcontentloaded'});
+                
+        }catch(e){
+                // if can not login 
+            throw e;
         }
 
-            // wait and create screenshot before exception
-        Promise.all([
-            page.waitFor(10000),
-            page.screenshot({'path' : pathForScreenshots + Date.now() + '.png', 'fullPage' : true, 'type' : 'png'})
-        ]).then(() => {
+        
+            // Specify listeners for page events
+        page.on('requestfailed', request => {
+            if(request.failure().errorText !== 'net::ERR_ABORTED'){
+                console.error('Request failed: ' + request.url() + ' (METHOD: ' + request.method() + ', postData: ' + request.postData() + ') - ' + request.failure().errorText);
+            }
+        });
+        page.on('error', e => {
             throw e;
         });
+        page.on('dialog', e => {
+            console.error('Dialog event happened');
+            throw e;
+        });
+        page.on('pageerror', e => {
+            const pathForScreenshots = 'pageerror-screenshots/';
 
-    });
-    page.on('console', msg => {
-        if( msg['_location']['url'] !== 'https://testing1.kontocloud.com:8443/favicon.ico' && msg['_type'] !== 'verbose'){
-            console.error('Message to console: ');
-            console.error(msg);
-        }
-        if(msg['_type'] === 'error'){
-            throw {'consoleMessage': msg['_text'], 'url': msg['_location']['url']};
-        }
-    });
+            if(!fs.existsSync(pathForScreenshots)){
+                fs.mkdirSync(pathForScreenshots);
+            }
+
+                // wait and create screenshot before exception
+            Promise.all([
+                page.waitFor(10000),
+                page.screenshot({'path' : pathForScreenshots + Date.now() + '.png', 'fullPage' : true, 'type' : 'png'})
+            ]).then(() => {
+                throw e;
+            });
+
+        });
+        page.on('console', msg => {
+            if( msg['_location']['url'] !== 'https://testing1.kontocloud.com:8443/favicon.ico' && msg['_type'] !== 'verbose'){
+                console.error('Message to console: ');
+                console.error(msg);
+            }
+            if(msg['_type'] === 'error'){
+                throw {'consoleMessage': msg['_text'], 'url': msg['_location']['url']};
+            }
+        });
 
 
-    return {browser, page};
+        return {browser, page};
+    }
+    catch(e){
+
+        try{
+            await page.close();
+            // await browser.close();
+            await setTimeout(()=>{
+                browser.close();
+            }, 1000);
+        }catch(err){}
+
+        throw e;
+    }
 };
 
 
@@ -166,18 +183,24 @@ async function executeCommand(command, page){
                 await page.waitFor(100);
             }
         }
-
+        else if(key === '~~press'){
+            await page.keyboard.press(command[key], {'delay': 100});
+            
+            while(page.activeResponses > 0){
+                await page.waitFor(100);
+            }
+        }
         else if(key === '~~delay'){
             await page.waitFor(command[key]);
         }
         else if(key === '~~refresh'){
-            let selector = command[key] !== '' ? command[key] : '.filter-control > .filter-actions > .k-button:first-child';
+            let selector = command[key] !== '' ? command[key] : '.filter-actions > .k-button:first-child';
             
             await page.waitForSelector(selector, {'timeout': 1000});
             await page.click(selector, {'delay' : 100});
         }
         else if(key === '~~resetFilters'){
-            let selector = command[key] !== '' ? command[key] : '.filter-control > .filter-actions > .k-button:last-child';
+            let selector = command[key] !== '' ? command[key] : '.filter-actions > .k-button:last-child';
           
             await page.waitForSelector(selector, {'timeout': 1000});
             await page.click(selector, {'delay' : 100});
@@ -206,13 +229,9 @@ async function executeCommand(command, page){
 exports.newTest = async function newTest(page, url, testParams){
 
         // Load page first time
-        try{
     await page.setCacheEnabled(true);
     await page.goto(url, {waitUntil: ['networkidle0']});
-        }
-        catch(e){
-            console.log(e);
-        }
+
 
         // Slice main Url
     let mainUrl = '';
@@ -222,13 +241,16 @@ exports.newTest = async function newTest(page, url, testParams){
 
         // Click Reset Filters button (if it`s exists)
     try{
-        await page.waitForSelector('.filter-control > .filter-actions > .k-button:last-child', {'timeout': 1000});
+        await page.waitForSelector('.filter-actions > .k-button:last-child', {'timeout': 1000});
         await executeCommand({'~~resetFilters': ''}, page);
     }catch(e){
         if(e instanceof TimeoutError){
             // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:last-child');
         }
-        else throw e;
+        else{
+            console.log('Warning:'.bgYellow.black + ' tried to find resetButton and did not get TimeoutError'.underline.yellow);
+        }
+        // else throw e;
     }
     
 
@@ -260,7 +282,7 @@ exports.newTest = async function newTest(page, url, testParams){
 
             // click Refresh button (if it`s exists)
         try{
-            await page.waitForSelector('.filter-control > .filter-actions > .k-button:first-child', {'timeout': 1000});
+            await page.waitForSelector('.filter-actions > .k-button:first-child', {'timeout': 1000});
             await executeCommand({'~~refresh': ''}, page);
         }catch(e){
             if(e instanceof TimeoutError){
@@ -371,7 +393,7 @@ exports.newTest = async function newTest(page, url, testParams){
 
         /// General cycle of time measurement
     let averageTime = 0;
-    const iterations = 3;   
+    const iterations = 1;   
 
     for(let i=0; i < iterations; i++){
             // set default values
@@ -446,7 +468,7 @@ exports.newTest = async function newTest(page, url, testParams){
     averageTime = (averageTime / iterations * 1000).toFixed(2);    // to ms
 
         // Finishing execution
-    // await client.send('Network.disable');
+    await client.send('Network.disable');
     
     return {averageTime, 'timeMeasurementData': {'mainUrl': mainUrl, requestsData} };
 };
