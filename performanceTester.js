@@ -145,7 +145,7 @@ exports.init = async function init(params, loginParams){
 
 
 
-async function executeCommand(command, page){
+async function executeCommand(command, page, mainUrl){
     for(key in command){
         // console.log(command);
 
@@ -159,36 +159,70 @@ async function executeCommand(command, page){
                 throw 'Download button is disabled.';
             }
 
-            await page.setDefaultTimeout(2400000); // 40 minutes for downloading reports
-                    
                 // click Download button
-            await page.click(selector, {'delay' : 100});
-            
-                // wait untail all requests would be resolved
-            await page.waitFor(100);
-            while(page.activeResponses > 0){
-                await page.waitFor(100);
-            }
+                // !! should not be await 
+            page.click(selector, {'delay': 100});
 
-            await page.setDefaultTimeout(240000); // returns to 4 minutes
+            await page.waitForRequest(request => 
+                {
+                    let addUrl = mainUrl.slice(0, mainUrl.lastIndexOf('/') - mainUrl.length);
+                    
+                    let url = request.url(); 
+                    let isOk = (url === mainUrl + '/ExportToExcel')
+                            || (url === addUrl + '/AccountApplicationStatusDownload')
+                            || (url === addUrl + '/AccountBalanceDownload')
+                            || (url === addUrl + '/EWalletAccountTypeDownload')
+                            || (url === addUrl + '/EWalletActivationDownload')
+                            || (url === addUrl + '/EWalletUserStateDownload')
+                            || (url === addUrl + '/ExternalAuthorizationDownload')
+                            || (url === addUrl + '/ExternalPayoutDownload')
+                            || (url === addUrl + '/FeeDownload')
+                            || (url === addUrl + '/FraudTransactionsDownload')
+                            || (url === addUrl + '/GoAMLTransactionsDownload')  // download button is disabled
+                            || (url === addUrl + '/KpiDownload')
+                            || (url === addUrl + '/LoadingDownload')
+                            || (url === addUrl + '/PaymentDownload')
+                            || (url === addUrl + '/RiskScoreCardDownload')
+                            || (url === addUrl + '/RiskTransactionsDownload')
+                            || (url === addUrl + '/SentEmailsDownload')
+                            || (url === addUrl + '/SummaryPayoutDownload')
+                            || (url === addUrl + '/UnloadingDownload')
+                            || (url === addUrl + '/UserStatisticsDownload')
+                            || (url.split('?')[0] === mainUrl + '/Download');
+
+                    console.log(isOk);
+                    if(!isOk){
+                        console.log(mainUrl);
+                        console.log(addUrl);
+                        console.log(url);
+                    }
+                    return isOk;
+                }, {'timeout': 2400000}); // set timeout to 40 mins
+           
+            await page.waitForResponse(request => 
+                {
+                    let addUrl = mainUrl.slice(0, mainUrl.lastIndexOf('/') - mainUrl.length);
+                    
+                    let url = request.url(); 
+                    let isOk = (url === mainUrl + '/ExportToExcel')
+                            || (url === addUrl + '/AccountApplicationStatusDownload')
+                            || (url === addUrl + '/AccountBalanceDownload')
+                            || (url.split('?')[0] === mainUrl + '/Download');
+
+                    console.log(isOk);
+                    return isOk;
+                }, {'timeout': 240000}); // set timeout to 4 min
+
         }
 
         else if(key === '~~click'){
             await page.click(command[key], {'delay': 100});
-
                 // wait untail all requests would be resolved
             await page.waitFor(500);
-            // console.log('waitng until response resolves: ', page.activeResponses);
-            while(page.activeResponses > 0){
-                await page.waitFor(100);
-            }
         }
         else if(key === '~~press'){
             await page.keyboard.press(command[key], {'delay': 100});
             
-            while(page.activeResponses > 0){
-                await page.waitFor(100);
-            }
         }
         else if(key === '~~delay'){
             await page.waitFor(command[key]);
@@ -233,16 +267,21 @@ exports.newTest = async function newTest(page, url, testParams){
     await page.goto(url, {waitUntil: ['networkidle0']});
 
 
-        // Slice main Url
-    let mainUrl = '';
-    let index = url.lastIndexOf('/');
-    mainUrl = url.slice(0, index - url.length);
+        // Get base url
+    let mainUrl = url;
+
+    let index = mainUrl.lastIndexOf('/');
+    while(mainUrl.slice(index - mainUrl.length + 1) === 'List' || !isNaN(mainUrl.slice(index - mainUrl.length + 1))){
+        mainUrl = mainUrl.slice(0, index - mainUrl.length);
+        index = mainUrl.lastIndexOf('/');
+    }
+    
         ////////////////// 
 
         // Click Reset Filters button (if it`s exists)
     try{
         await page.waitForSelector('.filter-actions > .k-button:last-child', {'timeout': 1000});
-        await executeCommand({'~~resetFilters': ''}, page);
+        await executeCommand({'~~resetFilters': ''}, page, mainUrl);
     }catch(e){
         if(e instanceof TimeoutError){
             // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:last-child');
@@ -256,6 +295,7 @@ exports.newTest = async function newTest(page, url, testParams){
 
         // Processing specified testParameters
     let iterationCommands = [];
+    let specifiedIterationsCount = 0;
     if( testParams.length > 0 ){
         let forEachIterationFlag = false;
 
@@ -265,10 +305,15 @@ exports.newTest = async function newTest(page, url, testParams){
                     forEachIterationFlag = true;
                     continue;
                 }
+                if(new String(testParams[i]).split('=')[0] === '~~ITERATIONS_COUNT'){
+                    let tmp = new String(testParams[i]).split('=')[1];
+                    specifiedIterationsCount =  tmp !== undefined && tmp > 0 ? tmp : 0;
+                    continue;
+                }
   
                 if( !forEachIterationFlag ){
                         // if it's command
-                    await executeCommand(testParams[i], page);
+                    await executeCommand(testParams[i], page, mainUrl);
                 }
                 else{
                     iterationCommands.push(testParams[i]);
@@ -283,7 +328,7 @@ exports.newTest = async function newTest(page, url, testParams){
             // click Refresh button (if it`s exists)
         try{
             await page.waitForSelector('.filter-actions > .k-button:first-child', {'timeout': 1000});
-            await executeCommand({'~~refresh': ''}, page);
+            await executeCommand({'~~refresh': ''}, page, mainUrl);
         }catch(e){
             if(e instanceof TimeoutError){
                 // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:first-child');
@@ -306,7 +351,7 @@ exports.newTest = async function newTest(page, url, testParams){
     let firstRequestTime = -1;
     let lastResponseTime = -1;
 
-    page.activeResponses = 0;
+    let activeResponses = 0;
 
     const client = await page.target().createCDPSession();
     await client.send('Network.enable');
@@ -325,7 +370,7 @@ exports.newTest = async function newTest(page, url, testParams){
         }
 
         curRequestsData[reqId] = newRequest;
-        page.activeResponses++;
+        activeResponses++;
 
         if(firstRequestTime === -1){
             firstRequestTime = request['timestamp'];
@@ -368,7 +413,7 @@ exports.newTest = async function newTest(page, url, testParams){
                 curRequestsData[reqId]['downloadTime'] = request['timestamp'] - curRequestsData[reqId]['startDownloadTimestamp'];;
             }
 
-            page.activeResponses--;
+            activeResponses--;
 
             lastResponseTime = request['timestamp'];
         }catch(e){
@@ -384,7 +429,7 @@ exports.newTest = async function newTest(page, url, testParams){
             let reqId = request['requestId'];
             delete curRequestsData[reqId];
 
-            page.activeResponses--;
+            activeResponses--;
         }catch(e){
             throw e;
         }
@@ -393,12 +438,12 @@ exports.newTest = async function newTest(page, url, testParams){
 
         /// General cycle of time measurement
     let averageTime = 0;
-    const iterations = 1;   
+    const iterations = specifiedIterationsCount > 0 ? specifiedIterationsCount : 3;   
 
     for(let i=0; i < iterations; i++){
             // set default values
         curRequestsData = {};
-        page.activeResponses = 0;
+        activeResponses = 0;
         firstRequestTime = -1;
         lastResponseTime = 0;
 
@@ -412,7 +457,9 @@ exports.newTest = async function newTest(page, url, testParams){
         for(let i=0; i < iterationCommands.length; i++){
             
             try{
-                await executeCommand(iterationCommands[i], page);
+                
+                await executeCommand(iterationCommands[i], page, mainUrl);
+
             }catch(e){
                 let newMsg = 'Error while processing command for: ' + url + ' command: ' + JSON.stringify(iterationCommands[i]) + '\n' 
                                 + ( typeof e === 'object' ? JSON.stringify(e) : e);

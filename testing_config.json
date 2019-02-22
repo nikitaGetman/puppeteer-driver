@@ -20,42 +20,334 @@
     
     "tests": {
 
-        "Opening period independent data grids" : [
+        "Downloading a report with 10k rows": [
 
-            
+
             {
-                "name": "Settings → Log → End-of-Day Job Log",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog",
+                "name": "Account Management → Account → Account Statement (20 !!!)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List/8",
                 "parameters": [
-                    {"#StartDateFrom": "20.06.2018"},
-                    {"#StartDateTo": "20.06.2018"}
+                    {"#BookingDateTop": "22.02.2019"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"#BookingDateBottom": "01.01.2018"},
+                    {"~~press": "Tab"},
+                    {"~~delay": 1000},
+                    {"~~download": ""}
                 ]
             },
             {
-                "name": "Settings → Log → API Activity Log",
+                "name": "Account Management → Billing Events (10037)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BillingEvent/List",
+                "parameters": [
+                    {"#EventDateBottom": "11.01.2019 00:00:00"},
+                    {"#EventDateTop": "14.01.2019 05:45:00"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ".filter-control > .inline-block > .k-button"}
+                ]
+            },
+            {
+                "name": "Account Management → Charged Fees (392 !!!)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/FeeCharge/List",
+                "parameters": [
+                    {"#ChargedOnBottom": "01.06.2018 00:00:00"},
+                    {"#ChargedOnTop": "30.06.2018 23:59:59"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": "#excel-download"}
+                ]
+            },
+            {
+                "name": "Account Management → Charged Initiator Fees (10 !!!)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorFeeCharge/List",
+                "parameters": [
+                    {"#ChargedOnBottom": "01.06.2018 00:00:00"},
+                    {"#ChargedOnTop": "30.06.2018 23:59:59"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": "#excel-download"}
+                ]
+            },
+
+
+
+            {
+                "name": "Transaction Management → Transactions (10012)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
+                "parameters": [
+                    {"#CreationDateBottom": "20.06.2018 06:00:00"},
+                    {"#CreationDateTop": "20.06.2018 08:24:00"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Transaction Management → External Transactions (10054)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
+                "parameters": [
+                    {"#CreationDateBottom": "20.06.2018 00:00:00"},
+                    {"#CreationDateTop": "20.06.2018 02:32:00"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Transaction Management → Internal Transactions (10054)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
+                "parameters": [
+                    {"#CreationDateBottom": "20.06.2018 00:00:00"},
+                    {"#CreationDateTop": "20.06.2018 02:32:00"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Transaction Management → Scheduled Transactions (10008)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
+                "parameters": [
+                    {"#CreationDateFrom": "15.06.2018 00:00:00"},
+                    {"#CreationDateTo": "15.06.2018 22:38:00"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Transaction Management → Unsettled Transactions (13932)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
+                "parameters": [
+                    {"#CreationDateBottom": "16.02.2019"},
+                    {"#CreationDateTop": "16.02.2019"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+
+
+
+            {
+                "name": "Reports → Account Application Status (10006)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus",
+                "parameters": [
+                    {"#CreatedFromDate": "01.06.2018 00:00:00"},
+                    {"#CreatedToDate": "15.06.2018 20:42:00"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Acount Balance (12147)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance",
+                "parameters": [
+                    {"#FromDate": "01.06.2018"},
+                    {"#ToDate": "01.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → E-Wallet Account Type (208065 !!!)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletAccountType",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → E-Wallet Activation",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletActivation",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → E-Wallet User State",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletUserState",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → External Authorization (11263)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalAuthorization",
+                "parameters": [
+                    {"#CreatedFrom": "04.06.2018"},
+                    {"#CreatedTo": "04.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → External Payout (10363)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalPayout",
+                "parameters": [
+                    {"#CreatedFrom": "02.06.2018"},
+                    {"#CreatedTo": "13.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Fees (392 !!!)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Fee",
+                "parameters": [
+                    {"#FromDate": "01.06.2018"},
+                    {"#ToDate": "30.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Fraud Transactions (empty !!!)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FraudTransactions",
+                "parameters": [
+                    {"#FraudDateFrom": "20.06.2018"},
+                    {"#FraudDateTo": "20.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → GoAML Transactions (10009) !!! Disabled download button",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/GoAmlTransactions",
+                "parameters": [
+                    {"#CreationDateFrom": "20.06.2018 06:38:00"},
+                    {"#CreationDateTo": "20.06.2018 09:00:00"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → KPI Report (1 day)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Kpi",
+                "parameters": [
+                    {"#ActionDateFrom": "20.06.2018"},
+                    {"#ActionDateTo": "20.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Loading (10986)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Loading",
+                "parameters": [
+                    {"#CreatedFrom": "20.06.2018"},
+                    {"#CreatedTo": "20.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Payment (9 !!!)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Payment",
+                "parameters": [
+                    {"#CreatedFrom": "01.06.2018"},
+                    {"#CreatedTo": "01.09.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Risk Score Card (56 runs)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskScoreCard",
+                "parameters": [
+                    {"#From": "20.01.2019"},
+                    {"#To": "25.01.2019"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Risk Transactions (12351)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskTransactions",
+                "parameters": [
+                    {"#CreatedFrom": "07.06.2018"},
+                    {"#CreatedTo": "08.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Sent Emails (12265)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SentEmails",
+                "parameters": [
+                    {"#ActionDateFrom": "16.06.2018"},
+                    {"#ActionDateTo": "16.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Summary Payout (12874)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SummaryPayout",
+                "parameters": [
+                    {"#CreatedFrom": "30.08.2018"},
+                    {"#CreatedTo": "14.11.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → Unloading (10363)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading",
+                "parameters": [
+                    {"#CreatedFrom": "02.06.2018"},
+                    {"#CreatedTo": "13.06.2018"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            {
+                "name": "Reports → User Statistics (last month)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
+                ]
+            },
+            
+
+
+            {
+                "name": "Settings → Log → API Activity Log (10265)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog",
                 "parameters": [
-                    {"#StartDateFrom": "31.01.2019 00:00:00"},
-                    {"#StartDateTo": "31.01.2019 23:59:59"}
+                    {"#StartDateFrom": "10.12.2018 03:00:00"},
+                    {"#StartDateTo": "20.12.2018 04:46:00"},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~download": ""}
                 ]
-            },
-            {
-                "name": "Settings → Log → System Activity Log",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog",
-                "parameters": [
-                    {"#ActionDateFrom": "20.01.2019 00:00:00"},
-                    {"#ActionDateTo": "20.01.2019 23:59:59"}
-                ]
-            },
-            {
-                "name": "Settings → Log → External Call Log",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog",
-                "parameters": [
-                    {"#StartDateFrom": "16.02.2019 00:00:00"},
-                    {"#StartDateTo": "16.02.2019 23:59:59"}
-                ]
-            }
-            
+            }            
+
         ]
+
+
     }
 }

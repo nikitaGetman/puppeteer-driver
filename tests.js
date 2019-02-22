@@ -246,42 +246,11 @@ async function saveDataToJSON(data, path, filename){
         
         (OK) Reports → GoAML Transactions
         (OK) Reports → Risk Transactions
-        ---- Reports → User Statistics (only for month)
+        (OK) Reports → User Statistics (only for month)
 
         
-
-            
-
         (OK) Settings → User → External IDs → New External ID
 
         (OK) Settings (→ Scopes) → Scope Name (link) → Effective Permissions (https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/EffectivePermissions/4)
-
-
-        selectors for log
-
-        ],
-        
-        "Opening period dependent data grids (filters are empty)" : [
-
-            {
-                "name": "Transaction Management → Transactions",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List"
-            },
-            {
-                "name": "Transaction Management → External Transactions",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List"
-            },
-            {
-                "name": "Transaction Management → Internal Transactions",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List"
-            },
-            {
-                "name": "Transaction Management → Scheduled Transactions",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List"
-            },
-            {
-                "name": "Transaction Management → Unsettled Transactions",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List"
-            } 
 
 */
