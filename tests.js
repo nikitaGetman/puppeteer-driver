@@ -240,17 +240,7 @@ async function saveDataToJSON(data, path, filename){
 }
 
 
-/* 
-        (OK) Account Management → Account Application → Risk Profile History
-        (OK) Account Management → Account Application → Account Application History
-        
-        (OK) Reports → GoAML Transactions
-        (OK) Reports → Risk Transactions
-        (OK) Reports → User Statistics (only for month)
-
-        
-        (OK) Settings → User → External IDs → New External ID
-
-        (OK) Settings (→ Scopes) → Scope Name (link) → Effective Permissions (https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/EffectivePermissions/4)
-
+/*
+    TODOs:
+        1 - Move "email templates -> new", "contents -> new" and "bank holidays" to "CUD"
 */
