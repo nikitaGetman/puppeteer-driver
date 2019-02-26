@@ -2514,50 +2514,160 @@
 
             ------- change dmd-vm to testing1
             {
-                "name": "Membership Management → Programs → New Program + Update Program + Delete Program(at the end of case)",
+                "name": "Membership Management → Programs → New Program",
                 "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List",
                 "parameters" : [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~delay": 1000},
                     {"~~click": "#content-body > a.k-button"},
-                    {"#ProgramName": "__test_program"},
+                    {"#ProgramName": "__test_program[timestamp]"},
                     {"#ProgramCode": "test code"},
-                    {"#MemberId": "ACME Corporation Member"},
-                    {"#WalletProductId": "E-Wallet Debit"},
-                    {"#AccountTypeId": "E-Wallet Debit Program"},
+                    {"~~click": ".form-group:nth-child(3) > div > span.k-widget > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+                    {"~~click": ".form-group:nth-child(4) > div > span.k-widget > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": ".form-group:nth-child(5) > div > span.k-widget > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
                     {"#Addr1": "address 1 street"},
                     {"#PostalCode": "112233"},
                     {"#City": "Berlin"},
                     {"input[name='CountryId_input']": "Germany"},
-                    {"#ProgramUserAgreementType": "Program User Agreement"},
+                    {"~~click": "#content-body > form > div > div:nth-child(5) > div:nth-child(3) > div > div.col-md-7.col-xs-11 > span.k-widget.k-dropdown.k-header > span > span.k-input"},
+                    {"~~press": "p"},
+                    {"~~press": "Tab"},
                     {"~~click": "#ProgramCurrencies_1__IsActive"},
                     {"~~click": "#ProgramCurrencies_1__IsAccountBoardingAllowed"},
                     {"~~click": "#DefaultFeeCurrencyId[value='1']"},
-                    {"~~click": ".col-md-offset-2 > .k-button[type='submit']"},
-
-                    {"~~click": "#ProgramsGrid > .k-grid-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"}
-                    --stopped here (update fields)
+                    {"~~click": ".col-md-offset-2 > .k-button[type='submit']"}
                 ]
             },
             {
-                "name": "Membership Management → Program → Countries → Select any country and click its name link → tick 'Active' checkbox (!!! add uncheck)",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor",
+                "name": "Membership Management → Programs → Update Program",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List",
                 "parameters" : [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~delay": 1000},
+                    {"~~click": "#ProgramsGrid > .k-grid-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~click": "#ProgramName"},
+                    {"#ProgramName": "__updated_name"},
+                    {"#ProgramCode": "_"},
+                    {"#Addr1": "updated"},
+                    {"#Addr2": "address 2 street updated"},
+                    {"#PostalCode": "3"},
+                    {"#City": "Munich"},
+                    {"#State": "State"},
+                    {"#ContactPerson": "Test contact"},
+                    {"#ContactPhone": "123123123"},
+                    {"#ContactEmail": "test@test.com"},
+                    {"input[name='Culture_input']": "Germany - German"},
+                    {"#PortalUrl": "http://test.com"},
+                    {"~~click": "#IsEwalletUserNotified"},
+                    {"~~click": "#IsUserUniquenessCheckActive"},
+                    {"~~click": "#IsUserAgreementCheckActive"},
+                    {"~~click": "#content-body > form > div > div:nth-child(5) > div:nth-child(3) > div > div.col-md-7.col-xs-11 > span.k-widget.k-dropdown.k-header > span > span.k-input"},
+                    {"~~press": "f"},
+                    {"~~press": "Tab"},
+                    {"~~click": "#content-body > form > div > div:nth-child(5) > div:nth-child(4) > div > div.col-md-7.col-xs-11 > span.k-widget.k-dropdown.k-header > span > span.k-input"},
+                    {"~~press": "w"},
+                    {"~~press": "Tab"},
+                    {"#content-body > form > div > div:nth-child(5) > div:nth-child(5) > div > div.col-md-7.col-xs-11 > span.k-widget > span > input.k-formatted-value" : "5"},
+                    {"#content-body > form > div > div:nth-child(5) > div:nth-child(6) > div > div.col-md-7.col-xs-11 > span.k-widget > span > input.k-formatted-value" : "3"},
+                    {"~~click": "#IsOverrideFiCode"},
+                    {"#FiCode": "123123321"},
+                    {"~~click": "#IsFullRiskCheckActive"},
+                    {"~~click": "#IsAutomatedPaymentOptionVerificationEnabled"},
+                    {"#content-body > form > div > div:nth-child(9) > div:nth-child(2) > div > div.col-md-7.col-xs-11 > span.k-widget > span > input.k-formatted-value": "5"},
+                    {"~~click": "#IsPaymentOptionExpirationNotificationActive"},
+                    {"#content-body > form > div > div:nth-child(10) > div:nth-child(2) > div > div.col-md-7.col-xs-11 > span.k-widget > span > input.k-formatted-value": "6"},
+                    {"#BankName": "Test Bank"},
+                    {"#IBAN": "DE91100000000123456789"},
+                    {"#BIC": "ASDASDAS"},
+                    {"~~click": "#IsDunningActive"},
+                    {"#content-body > form > div > div:nth-child(16) > div > div:nth-child(2) > div.col-md-7.col-xs-11 > span.k-widget > span > input.k-formatted-value": "2"},
+                    {"#content-body > form > div > div:nth-child(16) > div > div:nth-child(3) > div.col-md-7.col-xs-11 > span.k-widget > span > input.k-formatted-value": "3"},
+                    {"~~click": ".col-md-offset-2 > .k-button[type='submit']"}
+                ]
+            },
+            {
+                "name": "Membership Management → Program → Countries → Select any country and click its name link → tick 'Active' checkbox",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List",
+                "parameters" : [
+                    {"~~delay": 1000},
+                    {"~~click": "#ProgramsGrid > .k-grid-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~click": "#submenu > div > div > li:nth-child(2) > a"},
 
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#CountriesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+                    {"~~click": "#IsActive"},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"},
+
+                    {"~~delay": 1000},
+                    {"~~click": "#CountriesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+                    {"~~click": "#IsActive"},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
                 ]
             },
             {
                 "name": "Membership Management → Program → Currencies → Select any currency and tick its 'Active' checkbox",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List",
                 "parameters" : [
+                    {"~~delay": 1000},
+                    {"~~click": "#ProgramsGrid > .k-grid-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~click": "#submenu > div > div > li:nth-child(3) > a"},
+                    
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    
+                    {"~~click": "#AccountApplicationFlowsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(2) > div > div > div > input[type='checkbox']"},
+                    {"~~delay": 1000},
+                    {"~~click": "#AccountApplicationFlowsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(3) > div > div > div > input[type='checkbox']"},
 
+                    {"~~delay": 1000},
+                    {"~~click": "#AccountApplicationFlowsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(3) > div > div > div > input[type='checkbox']"},
+                    {"~~delay": 1000},
+                    {"~~click": "#AccountApplicationFlowsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(2) > div > div > div > input[type='checkbox']"},
+                    {"~~delay": 1000},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
                 ]
             },
             {
-                "name": "Membership Management → Program → New Account Application Flow + Update Account Application Flow",
+                "name": "Membership Management → Program → New Account Application Flow",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List",
+                "parameters" : [
+                    {"~~delay": 1000},
+                    {"~~click": "#ProgramsGrid > .k-grid-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~click": "#submenu > div > div > li:nth-child(4) > a"},
+                    
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    
+                    {"~~click": "#content-body > a"},
+                    {"~~delay": 1000},
+                    {"#Name": "_Test account application flow"},
+                    {"#Code": "TSTAAFLOW"},
+                    {"~~click": "#content-body > form > div:nth-child(9) > div > span.k-widget.k-dropdown.k-header > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "#IsDefault"},
+                    {"~~click": "#content-body > form > div.row > div > button"}
+                ]
+            },
+            {
+                "name": "Membership Management → Program → Update Account Application Flow",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor",
                 "parameters" : [
 
                 ]
-            },
+            }
             {
                 "name": "Membership Management → Program → Enrollment Documents → Enrollment Document Activation (deactivation)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor",
@@ -2612,6 +2722,17 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor",
                 "parameters" : [
 
+                ]
+            },
+            {
+                "name": "Membership Management → Programs → Delete Program",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List",
+                "parameters" : [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~click": "#ProgramsGrid > .k-grid-content > table > tbody > tr:nth-child(1) > td:nth-child(11) > div > div > a"},
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
                 ]
             },
             -------

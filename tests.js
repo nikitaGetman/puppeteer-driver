@@ -26,7 +26,7 @@ const {TimeoutError} = require('puppeteer/Errors');
 
 
         // tests execution ///////////////////////////////
-        // let rowData = [];
+        let rowData = [];
         let dataReport = [];
         let timeoutedTests = [];
 
@@ -54,7 +54,7 @@ const {TimeoutError} = require('puppeteer/Errors');
 
 
 
-                    // rowData.push(measuredData.timeMeasurementData);
+                    rowData.push(measuredData.timeMeasurementData);
 
                     dataReport.push({'url': tests[i].name, 'time': measuredData.averageTime});
                     for(req in extractedData){

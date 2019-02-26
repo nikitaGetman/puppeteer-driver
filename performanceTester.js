@@ -67,6 +67,7 @@ exports.init = async function init(params, loginParams){
 
 
         browser.on('targetchanged', () => {
+            page.activeResponses = 0;
             page.bringToFront();
         });
         
@@ -147,7 +148,17 @@ exports.init = async function init(params, loginParams){
 
 async function executeCommand(command, page, mainUrl){
     for(key in command){
-        // console.log(command);
+
+        if(typeof command[key] === 'string'){
+
+            const timestamp_marker = "[timestamp]";
+
+            if(command[key].includes(timestamp_marker)){
+                let val = command[key];
+                command[key] = val.slice(0, val.indexOf(timestamp_marker)) + new String(Date.now()) + val.slice(val.indexOf(timestamp_marker) + timestamp_marker.length);
+            }
+
+        }
 
         if(key === '~~download'){
             
@@ -367,14 +378,28 @@ exports.newTest = async function newTest(page, url, testParams){
     let firstRequestTime = -1;
     let lastResponseTime = -1;
 
-    let activeResponses = 0;
+    page.activeResponses = 0;
 
     const client = await page.target().createCDPSession();
     await client.send('Network.enable');
         // Add request to array to track it
+
+    let redirectTimestamp = 0;
     client.on('Network.requestWillBeSent', (request) => {
-        
+
         let reqId = request['requestId'];
+
+        if(curRequestsData[reqId]){
+            if(curRequestsData[reqId]['responseTime'] == 0){
+                curRequestsData[reqId]['responseTime'] = Date.now() - redirectTimestamp; 
+            }
+            
+            curRequestsData['_' + reqId] = curRequestsData[reqId];
+            delete curRequestsData[reqId];
+        }
+        
+        redirectTimestamp = Date.now();
+        
         let newRequest = {
             'url': request['request']['url'],
             'method' : request['request']['method'],
@@ -386,18 +411,19 @@ exports.newTest = async function newTest(page, url, testParams){
         }
 
         curRequestsData[reqId] = newRequest;
-        activeResponses++;
+        page.activeResponses++;
 
         if(firstRequestTime === -1){
             firstRequestTime = request['timestamp'];
         }
     });
         // Add server timing when response received
-    client.on('Network.responseReceived', async (res) => {
+    client.on('Network.responseReceived', (res) => {
 
         try{
             let response = res['response'];
             let reqId = res['requestId'];
+            
 
                 // if response does not served from cache
             if( !response['fromDiskCache'] && curRequestsData[reqId]){
@@ -420,7 +446,7 @@ exports.newTest = async function newTest(page, url, testParams){
 
     });
         // Add loading timing when request finished
-    client.on('Network.loadingFinished', async (request) => {
+    client.on('Network.loadingFinished', (request) => {
         
         try{
             let reqId = request['requestId'];
@@ -429,7 +455,7 @@ exports.newTest = async function newTest(page, url, testParams){
                 curRequestsData[reqId]['downloadTime'] = request['timestamp'] - curRequestsData[reqId]['startDownloadTimestamp'];;
             }
 
-            activeResponses--;
+            page.activeResponses--;
 
             lastResponseTime = request['timestamp'];
         }catch(e){
@@ -443,9 +469,10 @@ exports.newTest = async function newTest(page, url, testParams){
     client.on('Network.loadingFailed', async (request) => {
         try{
             let reqId = request['requestId'];
+
             delete curRequestsData[reqId];
 
-            activeResponses--;
+            page.activeResponses--;
         }catch(e){
             throw e;
         }
@@ -459,7 +486,7 @@ exports.newTest = async function newTest(page, url, testParams){
     for(let i=0; i < iterations; i++){
             // set default values
         curRequestsData = {};
-        activeResponses = 0;
+        page.activeResponses = 0;
         firstRequestTime = -1;
         lastResponseTime = 0;
 
@@ -473,11 +500,12 @@ exports.newTest = async function newTest(page, url, testParams){
         for(let i=0; i < iterationCommands.length; i++){
             
             try{
-                
+                page.activeResponses = 0;
+
                 await executeCommand(iterationCommands[i], page, mainUrl);
 
-                while(activeResponses > 0){
-                    page.waitFor(100);
+                while(page.activeResponses > 0){
+                    await page.waitFor(100);
                 }
 
             }catch(e){
@@ -523,6 +551,7 @@ exports.newTest = async function newTest(page, url, testParams){
                 }
             }
         }
+        curRequestsData = {};
     }
         /////////////////////////////////////
 
