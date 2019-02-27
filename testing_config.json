@@ -23,32 +23,9 @@
 
         "Downloading a report with 300k rows": [
 
-            {
-                "name": "Membership Management → Program → Update Account Application Flow",
-                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List",
-                "parameters" : [
-                    {"~~delay": 1000},
-                    {"~~click": "#ProgramsGrid > .k-grid-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
-                    {"~~click": "#submenu > div > div > li:nth-child(4) > a"},
-                    
-                    "~~ITERATIONS_COUNT=1",
-                    "~~ITERATION",
-                    
-                    {"~~click": "#AccountApplicationFlowsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
-                    {"~~delay": 1000},
-                    {"#Name": "update"},
-                    {"~~click": "#AccountApplicationFlowSteps > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(4) > div > div"},
-                    {"~~delay": 500},
-                    {"~~click": "#AccountApplicationFlowSteps > div.k-grid-content.k-auto-scrollable > table > tbody > tr.k-state-selected.k-grid-edit-row > td.text-muted.k-edit-cell > span.k-widget.k-combobox.k-header > span > span"},
-                    {"~~click": "#ToAccountTypeId_listbox > li:nth-child(2)"},
-                    {"~~click": "form > div.row > div > button"}
-                ]
-            }
-
+            
             
 
         ]
-
-
     }
 }

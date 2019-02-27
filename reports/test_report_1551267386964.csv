@@ -1,0 +1,190 @@
+Url,Elapsed time (ms),Method
+Downloading a report with 300k rows,,
+Membership Management → Programs → New Program,2215.31,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List,567.68,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,281.16,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,218.82,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List_Read,509.22,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List_Read,330.08,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Create,754.04,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/GetMemberList?text=,551.64,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/GetProductList?text=,610.12,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Country/GetList?onlyActive=True,460.87,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Catalog/CultureListDataSourceResult,464.39,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyProgramName?ProgramName=__test_program1551266686872&Id=&MemberId=,152.41,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyProgramCode?ProgramCode=test+code&Id=,216.62,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyProgramName?ProgramName=__test_program1551266686872&Id=&MemberId=6,231.08,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountType/GetProductAccountTypes?forAccount=True&accountCategory=Program&WalletProductId=2&filter%5Bfilters%5D%5B0%5D%5Bfield%5D=Value&filter%5Bfilters%5D%5B0%5D%5Boperator%5D=eq&filter%5Bfilters%5D%5B0%5D%5Bvalue%5D=2&filter%5Blogic%5D=and,208.77,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Country/GetList?onlyActive=True,195.6,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Country/GetList?onlyActive=True,201.89,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Create,28193,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List,1098.01,GET
+Membership Management → Programs → Update Program,2248.67,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List,632.79,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,218.76,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,199.35,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List_Read,459.32,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List_Read,255.35,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875,856.39,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountType/GetNonProductAccountTypes?programId=1875&forAccount=True&accountCategory=Program&onlyEwalletAccountCategory=False&text=,487.77,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Country/GetList?onlyActive=True,463.5,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Catalog/CultureListDataSourceResult,399.1,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/GetPortals?text=,447.35,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Account/GetAccountsByAccountOwnerId?accountOwnerId=1875&text=,348.76,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyProgramName?ProgramName=__test_program1551266__updated_name686872&Id=1875&MemberId=6,186.16,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyProgramCode?ProgramCode=_test+code&Id=1875,179.64,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Catalog/CultureListDataSourceResult,186.4,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Catalog/CultureListDataSourceResult,163.61,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Catalog/CultureListDataSourceResult,144.47,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyIban?IBAN=DE91100000000123456789,281.69,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/VerifyBic?BIC=ASDASDAS,176.54,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875,694,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List,607.35,GET
+Membership Management → Program → Countries → Select any country and click its name link → tick 'Active' checkbox,1713.55,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCountry/List/1875,614.48,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCountry/Countries_Read?ProgramId=1875,372.85,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCountry/Countries_Read?ProgramId=1875,283.79,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCountry/CountryStateEdit?programId=1875&countryId=3&_=1551266796941,607.28,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCountry/CountryStateEditAjax,251.62,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCountry/Countries_Read?ProgramId=1875,348.71,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCountry/Countries_Read?ProgramId=1875,183.43,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCountry/CountryStateEdit?programId=1875&countryId=3&_=1551266796942,446.26,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCountry/CountryStateEditAjax,287.66,POST
+Membership Management → Program → Currencies → Select any currency and tick its 'Active' checkbox,2038.48,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCurrency/List/1875,727.48,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCurrency/List_Read?ProgramId=1875&ProgramName=__test_program1551266__updated_name686872,588.21,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCurrency/List_Read?ProgramId=1875&ProgramName=__test_program1551266__updated_name686872,453.03,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCurrency/List_Update?ProgramId=1875&ProgramName=__test_program1551266__updated_name686872,881.77,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCurrency/List_Update?ProgramId=1875&ProgramName=__test_program1551266__updated_name686872,566.36,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCurrency/List_Update?ProgramId=1875&ProgramName=__test_program1551266__updated_name686872,945.82,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramCurrency/List_Update?ProgramId=1875&ProgramName=__test_program1551266__updated_name686872,1209.41,POST
+Membership Management → Program → New Account Application Flow,1700.08,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/List/1875,744.62,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/List_Read?programId=1875,265.55,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/List_Read?programId=1875,222.36,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/Create/1875,641.65,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyAccountApplicationFlowName?Name=_Test+account+application+flow&Id=0&ProgramId=1875,368.72,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyAccountApplicationFlowCode?Code=TSTAAFLOW&Id=0&ProgramId=1875,258.42,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/Create/1875,1258,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/List/1875,802.2,GET
+Membership Management → Program → Update Account Application Flow,1595.79,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/List/1875,636.69,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/List_Read?programId=1875,253.76,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/List_Read?programId=1875,189.62,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/Edit/1875?accountApplicationFlowId=124,472.54,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/AccountApplicationFlowStep_Read?accountApplicationFlowId=124,262.06,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyAccountApplicationFlowName?Name=update_Test+account+application+flow&Id=124&ProgramId=1875,164.39,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountType/GetNonProductAccountTypes?programId=1875&isForAccountApplicationFlow=True&accountCategory=EwalletUser&onlyEwalletAccountCategory=False,163.98,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/AccountApplicationFlowStep_Update,241.4,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyAccountApplicationFlowCode?Code=TSTAAFLOW&Id=124&ProgramId=1875,159.55,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/Edit/1875?accountApplicationFlowId=124,252,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramAccountApplicationFlow/List/1875,544.55,GET
+Membership Management → Program → Enrollment Documents → Enrollment Document Activation,1489.54,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEnrollmentDocuments/List/1875,536.59,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEnrollmentDocuments/EnrollmentDocuments_Read?ProgramId=1875,169.37,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEnrollmentDocuments/EnrollmentDocuments_Read?ProgramId=1875,148.07,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEnrollmentDocuments/EnrollmentDocuments_Update?ProgramId=1875,235.63,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEnrollmentDocuments/EnrollmentDocuments_Update?ProgramId=1875,265.57,POST
+Membership Management → Program → New Payment Provider Setting,1545.22,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List/1875,555.73,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=1875,222.08,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=1875,191.4,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/CreateAjax?programId=1875&_=1551266987430,226.09,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/CreateAjax,108,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/Create/1875?paymentProviderType=20,473.08,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/GetPaymentOptionCards?paymentProviderType=Payon&text=,183.77,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/GetPaymentOptions?programId=1875&paymentProviderType=Payon&text=,188.41,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/GetTestModelList?paymentProviderType=Payon&text=,146.14,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/VerifyPaymentProviderSettingUniqueChannel?Channel=1551266996712&Id=&PaymentProviderType=20&PaymentGroupId=&PaymentOptionId=2&ProgramId=1875,157.29,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/Create/1875?paymentProviderType=20,213,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List/1875,540.54,GET
+Membership Management → Program → Update Payment Provider Setting,1514.90,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List/1875,537.92,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=1875,220.29,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=1875,187.4,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/Edit/1875?paymentProviderSettingId=133,499.1,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/GetPaymentOptionCards?paymentProviderType=Payon&text=,293.41,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/GetPaymentOptions?programId=1875&paymentProviderType=Payon&text=,278.99,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/GetTestModelList?paymentProviderType=Payon&text=,267.19,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/VerifyPaymentProviderSettingUniqueChannel?Channel=11551266996712&Id=133&PaymentProviderType=Payon&PaymentGroupId=&PaymentOptionId=2&ProgramId=1875,160.07,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/Edit/1875?paymentProviderSettingId=133,303,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List/1875,596,GET
+Membership Management → Program → Delete Payment Provider Setting,1581.14,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List/1875,553.77,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=1875,245.92,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=1875,210.83,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Delete?ProgramId=1875,387.18,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=1875,228.33,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=1875,196.56,POST
+Membership Management → Program → Update Integration Settings,1661.42,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramIntegrationSettings/1875,591.9,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/IdProvider/GetProvidersList?text=,160.45,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyProgramCsvImportPath?CsvImportPath=C%3A%5Cstore%5Ctest_import&ProgramId=1875,160.6,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Validation/VerifyProgramCsvExportPath?CsvExportPath=C%3A%5Cstore%5Ctest_export&ProgramId=1875,163.35,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramIntegrationSettings/1875,305,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramIntegrationSettings/1875,599.14,GET
+Membership Management → Program → Email Notifications,1860.58,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEmailNotifications/List/1875,546.08,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEmailNotifications/EmailNotificationsList_Read?programId=1875,204.41,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEmailNotifications/EmailNotificationsList_Read?programId=1875,163.38,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEmailNotifications/EmailNotificationsList_Update?programId=1875,231.37,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEmailNotifications/EmailNotificationsList_Update?programId=1875,238.31,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEmailNotifications/EmailNotificationsList_Update?programId=1875,238.18,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramEmailNotifications/EmailNotificationsList_Update?programId=1875,230.06,POST
+Membership Management → Program → User Agreements → New Version,1818.77,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreement/List,510.74,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=1875,173.95,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=1875,143.71,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreement/Create,486.75,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/GetValidUntil?validFrom=2019-02-27T00%3A00%3A00&programId=1875&id=0,164.79,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreement/Create,283,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreement/List,527.42,GET
+Membership Management → Program → User Agreements → Update Version,1838.71,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreement/List,525.39,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=1875,185.42,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=1875,154.43,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreement/Edit/11,459.15,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreement/Edit/11,207,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreement/List,505.61,GET
+Membership Management → Program → User Agreemets → Texts → New Text,1799.13,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreementText/List,506.75,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/GetVersions?programId=1875&text=,167.28,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Catalog/CultureListDataSourceResult,136.32,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreementText/List_Read?programId=1875,183.39,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreementText/List_Read?programId=1875,151.58,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreementText/Create,427.82,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/GetActualVersions?programId=1875&text=,170.49,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Catalog/CultureListDataSourceResult,142.09,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreementText/HasDefault?userAgreementId=11,171.51,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreementText/Create,208,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreementText/List,520.01,GET
+Membership Management → Program → User Agreemets → Texts → Update Text,1826.39,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreementText/List,508.78,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/GetVersions?programId=1875&text=,165.53,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Catalog/CultureListDataSourceResult,138.66,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreementText/List_Read?programId=1875,173.5,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreementText/List_Read?programId=1875,143.67,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreementText/Edit/5,488.2,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreementText/Edit/5,212,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreementText/List,544.07,GET
+Membership Management → Program → User Agreemets → Texts → Delete Text,1883.78,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreementText/List,509.56,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/GetVersions?programId=1875&text=,159.31,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Catalog/CultureListDataSourceResult,132.44,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreementText/List_Read?programId=1875,180.17,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreementText/List_Read?programId=1875,145.22,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreementText/List_Delete?programId=1875,222.82,POST
+Membership Management → Program → User Agreements → Delete Version,1847.43,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/Edit/1875/UserAgreement/List,516.85,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=1875,214.52,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=1875,174.67,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/List_Delete?programId=1875,216.04,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=1875,183.06,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=1875,159.62,POST
+Membership Management → Programs → Delete Program,1880.02,
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List,470.63,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,171.21,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,167.4,GET
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List_Read,282.3,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List_Read,188.34,POST
+https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List_Delete,31335.82,POST

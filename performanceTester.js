@@ -67,7 +67,7 @@ exports.init = async function init(params, loginParams){
 
 
         browser.on('targetchanged', () => {
-            page.activeResponses = 0;
+            // page.activeResponses = 0;
             page.bringToFront();
         });
         
@@ -88,6 +88,17 @@ exports.init = async function init(params, loginParams){
         }
 
         
+        page.activeResponses = 0;
+        page.on('request', r => {
+            page.activeResponses++;
+        });
+        page.on('requestfailed', r => {
+            page.activeResponses--;
+        });
+        page.on('requestfinished', r => {
+            page.activeResponses--;
+        });
+
             // Specify listeners for page events
         page.on('requestfailed', request => {
             if(request.failure().errorText !== 'net::ERR_ABORTED'){
@@ -152,12 +163,18 @@ async function executeCommand(command, page, mainUrl){
         if(typeof command[key] === 'string'){
 
             const timestamp_marker = "[timestamp]";
+            const today_date_marker = "[date_today]";
 
             if(command[key].includes(timestamp_marker)){
                 let val = command[key];
                 command[key] = val.slice(0, val.indexOf(timestamp_marker)) + new String(Date.now()) + val.slice(val.indexOf(timestamp_marker) + timestamp_marker.length);
             }
-
+            if(command[key].includes(today_date_marker)){
+                let val = command[key];
+                let date = new Date().getDate() + '.' + ('0' + (new Date().getMonth() + 1)).slice(-2) + '.' + new Date().getFullYear();
+                let string = val.slice(0, val.indexOf(today_date_marker)) + date + val.slice(val.indexOf(today_date_marker) + today_date_marker.length);
+                command[key] = string;
+            }
         }
 
         if(key === '~~download'){
@@ -244,7 +261,7 @@ async function executeCommand(command, page, mainUrl){
 
         else if(key === '~~click'){
             await page.click(command[key], {'delay': 100});
-                // wait untail all requests would be resolved
+                // wait until all requests would be sent
             await page.waitFor(500);
         }
         else if(key === '~~press'){
@@ -411,7 +428,7 @@ exports.newTest = async function newTest(page, url, testParams){
         }
 
         curRequestsData[reqId] = newRequest;
-        page.activeResponses++;
+        // page.activeResponses++;
 
         if(firstRequestTime === -1){
             firstRequestTime = request['timestamp'];
@@ -455,7 +472,7 @@ exports.newTest = async function newTest(page, url, testParams){
                 curRequestsData[reqId]['downloadTime'] = request['timestamp'] - curRequestsData[reqId]['startDownloadTimestamp'];;
             }
 
-            page.activeResponses--;
+            // page.activeResponses--;
 
             lastResponseTime = request['timestamp'];
         }catch(e){
@@ -472,7 +489,7 @@ exports.newTest = async function newTest(page, url, testParams){
 
             delete curRequestsData[reqId];
 
-            page.activeResponses--;
+            // page.activeResponses--;
         }catch(e){
             throw e;
         }
@@ -505,13 +522,14 @@ exports.newTest = async function newTest(page, url, testParams){
                 await executeCommand(iterationCommands[i], page, mainUrl);
 
                 while(page.activeResponses > 0){
-                    await page.waitFor(100);
+                    await page.waitFor(500);
                 }
 
             }catch(e){
                 let newMsg = 'Error while processing command for: ' + url + ' command: ' + JSON.stringify(iterationCommands[i]) + '\n' 
                                 + ( typeof e === 'object' ? JSON.stringify(e) : e);
-                throw newMsg;
+                // throw newMsg;
+                throw e;
             }
                 
         }

@@ -32,9 +32,9 @@ const {TimeoutError} = require('puppeteer/Errors');
 
         for(let testSuiteName in testsParams){
 
-            let resp = await performanceTester.init(executionParams, loginParams);
-            let browser = resp.browser;
-            let page = resp.page;
+            // let resp = await performanceTester.init(executionParams, loginParams);
+            let browser = {};
+            let page = {};
 
 
             dataReport.push({'url' : testSuiteName});
@@ -42,6 +42,10 @@ const {TimeoutError} = require('puppeteer/Errors');
 
             let tests = testsParams[testSuiteName];
             for(let i = 0; i < tests.length; i++){
+
+                let resp = await performanceTester.init(executionParams, loginParams);
+                browser = resp.browser;
+                page = resp.page;
                 
                 try{
 
@@ -83,14 +87,16 @@ const {TimeoutError} = require('puppeteer/Errors');
 
                 }
 
+                    // close browser after each test
+                await page.close();
+                // await browser.close();
+                await setTimeout(()=>{
+                    browser.close();
+                }, 1000);
+
             }
 
-                // close browser after each test
-            await page.close();
-            // await browser.close();
-            await setTimeout(()=>{
-                browser.close();
-            }, 1000);
+            
 
         }
         // tests executed /////////////////////////////////////
