@@ -162,12 +162,17 @@ async function executeCommand(command, page, mainUrl){
 
         if(typeof command[key] === 'string'){
 
-            const timestamp_marker = "[timestamp]";
-            const today_date_marker = "[date_today]";
+            const timestamp_marker = '[timestamp]';
+            const today_date_marker = '[date_today]';
+            const seconds_marker = '[timestamp.5]';
 
             if(command[key].includes(timestamp_marker)){
                 let val = command[key];
                 command[key] = val.slice(0, val.indexOf(timestamp_marker)) + new String(Date.now()) + val.slice(val.indexOf(timestamp_marker) + timestamp_marker.length);
+            }
+            if(command[key].includes(seconds_marker)){
+                let val = command[key];
+                command[key] = val.slice(0, val.indexOf(seconds_marker)) + new String(Date.now() % 100000) + val.slice(val.indexOf(seconds_marker) + seconds_marker.length);
             }
             if(command[key].includes(today_date_marker)){
                 let val = command[key];
@@ -258,18 +263,24 @@ async function executeCommand(command, page, mainUrl){
                 }, {'timeout': 2400000}); // wait 40 mins for response
 
         }
-
         else if(key === '~~click'){
             await page.click(command[key], {'delay': 100});
                 // wait until all requests would be sent
             await page.waitFor(500);
         }
         else if(key === '~~press'){
-            await page.keyboard.press(command[key], {'delay': 100});
-            
+            await page.keyboard.press(command[key], {'delay': 100});      
         }
         else if(key === '~~delay'){
             await page.waitFor(command[key]);
+        }
+        else if(key === '~~eval'){
+            let selector = Object.keys(command[key])[0];
+            let func = eval(command[key][selector]);
+
+            // console.log(selector);
+            // console.log(func);
+            await page.$$eval(selector, func);
         }
         else if(key === '~~refresh'){
             let selector = command[key] !== '' ? command[key] : '.filter-actions > .k-button:first-child';
@@ -435,7 +446,7 @@ exports.newTest = async function newTest(page, url, testParams){
         }
     });
         // Add server timing when response received
-    client.on('Network.responseReceived', (res) => {
+    client.on('Network.responseReceived', async (res) => {
 
         try{
             let response = res['response'];
@@ -463,7 +474,7 @@ exports.newTest = async function newTest(page, url, testParams){
 
     });
         // Add loading timing when request finished
-    client.on('Network.loadingFinished', (request) => {
+    client.on('Network.loadingFinished', async (request) => {
         
         try{
             let reqId = request['requestId'];

@@ -2508,7 +2508,7 @@
                 "name": "Home → Expiration Monitor → Valid Until (mass update)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor",
                 "parameters" : [
-
+                    ---
                 ]
             },
 
@@ -2608,12 +2608,6 @@
                     "~~ITERATIONS_COUNT=1",
                     "~~ITERATION",
 
-                    {"~~click": "#CountriesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
-                    {"~~delay": 1000},
-                    {"~~click": "#IsActive"},
-                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"},
-
-                    {"~~delay": 1000},
                     {"~~click": "#CountriesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
                     {"~~delay": 1000},
                     {"~~click": "#IsActive"},
@@ -3032,6 +3026,613 @@
                     {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
                 ]
             },
+
+
+
+            {
+                "name": "Membership Management → Member → New Member",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Member/Create",
+                "parameters" : [
+                    {"~~delay": 1000},
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"#MemberName": "_test member name [timestamp]"},
+                    {"#MemberCode": "[timestamp.5]"},
+                    {"~~click": "form > div > div:nth-child(3) > div > div > div > button"}
+                ]
+            },
+            {
+                "name": "Membership Management → Member → Update Member",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Member/List",
+                "parameters" : [
+                    {"~~click": "#MembersGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"}, 
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~delay": 1000},
+                    {"#MemberName": "_"},
+                    {"~~click": "form > div > div:nth-child(4) > div > div > div > button"}
+                ]
+            },
+            {
+                "name": "Membership Management → Update FI information",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/FinancialInstitution/Edit",
+                "parameters" : [
+                    {"~~delay": 1000},
+                    
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) es[i].value=''; }"}},
+
+                    {"#FinancialInstitutionName": "FI Name Test"},
+                    {"#Addr1": "Address 1"},
+                    {"#Addr2": "addr 2"},
+                    {"#ContactPerson": "Contact Person"},
+                    {"#ContactPhone": "12365498788"},
+                    {"#PostalCode": "666555"},
+                    {"#ContactEmail": "test@inbox.com"},
+                    {"#City": "Berlin"},
+                    {"form > div:nth-child(6) > div:nth-child(1) > div > div.col-md-8.col-xs-11 > span.k-widget > span > input": "Germany"},
+                    {"~~press": "Tab"},
+                    {"#State": "state"},
+                    {"#CreditorIdentifier": "155"},
+
+                    {"~~click": "form > div:nth-child(8) > div > div > div > button"}
+                ]
+            },
+            {
+                "name": "Membership Management → Update FI information (return)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/FinancialInstitution/Edit",
+                "parameters" : [
+                    {"~~delay": 1000},
+                    
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) es[i].value=''; }"}},
+
+                    {"#FinancialInstitutionName": "ACME Corporation Financial Institution"},
+                    {"#Addr1": "123 Main Street"},
+                    {"#PostalCode": "12345"},
+                    {"#ContactEmail": "noreply@kontocloud.com"},
+                    {"form > div:nth-child(6) > div:nth-child(1) > div > div.col-md-8.col-xs-11 > span.k-widget > span > input": "Germany"},
+                    {"~~press": "Tab"},
+                    {"#City": "Anytown"},
+
+                    {"~~click": "form > div:nth-child(8) > div > div > div > button"}
+                ]
+            },
+
+
+            {
+                "name": "Product Management → New Account Type",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountType/Create",
+                "parameters": [
+                    {"~~delay": 1000},
+                    
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+
+                    {"#Name": "_Test Account Type"},
+                    {"#Code": "TESTCODE"},
+                    {"~~click": "form > div > div:nth-child(3) > div:nth-child(1) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "form > div > div:nth-child(4) > div:nth-child(1) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+                    {"~~click": "#IsForAccount"},
+                    {"~~click": "form > div > div:nth-child(5) > div:nth-child(1) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "m"},
+                    {"~~press": "Tab"},
+                    {"~~click": "#IsForAccountApplicationFlow"},
+                    {"#limits > div.row > div > div > div > div:nth-child(2) > div:nth-child(1) > div > div.col-md-7.col-xs-11 > span.k-widget.k-numerictextbox > span > input.k-formatted-value.numerictextbox": "1000"},
+                    
+                    {"~~click": "form > div > div:nth-child(7) > div > div > div > button"}
+                ]
+            },
+            {
+                "name": "Product Management → Update Account Type",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountType/List",
+                "parameters": [
+                    {"~~delay": 1000},
+                    {"~~click": "div.form-horizontal > div:nth-child(1) > div > div > div > span > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "div.form-horizontal > div:nth-child(2) > div > div > div > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+                    {"~~click": "#AccountTypesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(2) > div > div > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+
+                    {"#Name": "__"},
+                    {"~~click": "#IsForAccount"},
+                    {"~~click": "#IsForAccountApplicationFlow"},
+                    
+                    {"~~click": "form > div > div:nth-child(8) > div > div > div > button"}
+                ]
+            },
+            {
+                "name": "Product Management → Delete Account Type",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountType/List",
+                "parameters": [
+                    {"~~delay": 1000},
+                    {"~~click": "div.form-horizontal > div:nth-child(1) > div > div > div > span > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "div.form-horizontal > div:nth-child(2) > div > div > div > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+
+                    
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"~~click": "#AccountTypesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(12) > div > div > a"},
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
+            },
+            {
+                "name": "Product Management → Transaction Type activation",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/TransactionType/List",
+                "parameters": [
+                    {"~~delay": 1000},
+                    {"~~click": "div.form-horizontal > div:nth-child(1) > div:nth-child(1) > div > div > span > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "div.form-horizontal > div:nth-child(1) > div:nth-child(2) > div > div > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#TransactionTypesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td.is-active > div > div > div > input[type='checkbox']"},
+                    {"~~delay": 500},
+                    {"~~click": "#TransactionTypesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td.is-active > div > div > div > input[type='checkbox']"}
+                ]
+            },
+            {
+                "name": "Product Management → Fee Management → Fees → New Fee",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Fee/Create",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~delay": 1000},
+
+                    {"~~click": "#content-body > div > div:nth-child(1) > div:nth-child(1) > div > div.col-md-6.col-xs-11 > span > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "#content-body > div > div:nth-child(1) > div:nth-child(2) > div > div.col-md-6.col-xs-11 > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 500},
+                    {"~~click": "#TransactionTypesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > input[type='radio']"},
+                    {"#FeeName": "_testFee"},
+                    {"~~click": "form > div:nth-child(6) > div:nth-child(2) > div > div.col-md-6.col-xs-11 > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "t"},
+                    {"~~press": "Tab"},
+                    {"~~click": "form > div:nth-child(6) > div:nth-child(4) > div > div.col-md-6.col-xs-11 > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "n"},
+                    {"~~press": "Tab"},
+                    {"#program-currency-fees > div.panel.panel-default > div > div:nth-child(2) > div:nth-child(1) > div > div.col-md-6.col-xs-11 > span.k-widget.k-numerictextbox.numerictextbox > span > input.k-formatted-value.numerictextbox": "10"},
+
+                    {"~~click": "form > div:nth-child(8) > div > button"}
+                ]
+            },
+            {
+                "name": "Product Management → Fee Management → Fees → Edit Fee",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Fee/List",
+                "parameters": [
+
+                    {"~~delay": 1000},
+                    {"~~click": "#FeesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(2) > div > div > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"#FeeName": "_"},
+
+                    {"~~click": "form > div:nth-child(11) > div > button"}
+                ]
+            },
+            {
+                "name": "Product Management → Fee Management → Fees → Mass Update",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Fee/List",
+                "parameters": [
+
+                    {"~~delay": 1000},
+                    {"~~click": "#content-body > div > a:nth-child(4)"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#FeesGrid > div > div > table > thead > tr > th > div > input[type='checkbox']"},
+                    {"#FeeName": "_Test mass update"},
+                    {"#ValidFrom": "[date_today]"},
+                    {"#ValidUntil": "30.12.9999"},
+
+                    {"~~click": "form > div:nth-child(7) > div > button"}
+                ]
+            },
+            {
+                "name": "Product Management → Fee Management → Recurring Fees → New Fee",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/RecurringFee/Create",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"~~click": "form > div:nth-child(2) > div:nth-child(1) > div > div.col-md-6.col-xs-11 > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "form > div:nth-child(2) > div:nth-child(2) > div > div.col-md-6.col-xs-11 > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+                    {"~~click": "form > div:nth-child(2) > div:nth-child(4) > div > div.col-md-6.col-xs-11 > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "form > div:nth-child(2) > div:nth-child(6) > div > div.col-md-6.col-xs-11 > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "w"},
+                    {"~~press": "Tab"},
+                    {"#RecurringFeeName": "_testFee"},
+                    {"#recurring-fee-currencies > div.row > div > div > div > div:nth-child(2) > div > div > div.col-md-6.col-xs-11 > span.k-widget.k-numerictextbox > span > input.k-formatted-value": "100"},
+
+                    {"~~click": "form > div:nth-child(4) > div > button"}
+                ]
+            },
+            {
+                "name": "Product Management → Fee Management → Recurring Fees → Edit Fee",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/RecurringFee/List",
+                "parameters": [
+                    {"~~delay": 1000},
+                    {"~~click": "#RecurringFeesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(2) > div > div > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"#RecurringFeeName": "_"},
+
+                    {"~~click": "form > div:nth-child(7) > div > button"}
+                ]
+            },
+            {
+                "name": "Product Management → Limit Management → New Limit",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Limit/Create",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#content-body > div > div:nth-child(1) > div:nth-child(1) > div > div.col-md-6.col-xs-11 > span > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "#content-body > div > div:nth-child(1) > div:nth-child(2) > div > div.col-md-6.col-xs-11 > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 500},
+                    {"~~click": "#TransactionTypesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > input[type='checkbox']"},
+
+                    {"#LimitName": "_testLimitName"},
+                    {"~~click": "form > div:nth-child(7) > div:nth-child(2) > div > div.col-md-6.col-xs-11 > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "t"},
+                    {"~~press": "Tab"},
+                    {"~~click": "form > div:nth-child(7) > div:nth-child(4) > div > div.col-md-6.col-xs-11 > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "w"},
+                    {"~~press": "Tab"},
+                    {"~~click": "form > div:nth-child(7) > div:nth-child(6) > div > div.col-md-6.col-xs-11 > span.k-widget.k-dropdown.k-header > span > span.k-input"},
+                    {"~~press": "g"},
+                    {"~~press": "Tab"},
+
+                    {"#limit-currencies > div.panel > div > div:nth-child(1) > div:nth-child(1) > div > div.col-md-6.col-xs-11 > span.k-widget.k-numerictextbox > span > input.k-formatted-value": "100"},
+
+
+                    {"~~click": "form > div:nth-child(9) > div > button"}
+                ]
+            },
+            {
+                "name": "Product Management → Limit Management → Edit Limit",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Limit/List",
+                "parameters": [
+                    {"~~delay": 1000},
+                    {"~~click": "#LimitsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(2) > div > div > a"},
+
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"#LimitName": "_"},
+
+                    {"~~click": "form > div > div:nth-child(5) > div > button"}
+                ]
+            },
+            {
+                "name": "Product Management → Limit Management → Mass Update",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Limit/List",
+                "parameters": [
+                    {"~~delay": 1000},
+                    {"~~click": "#content-body > div > a:nth-child(4)"},
+
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"~~click": "#LimitsGrid > div > div > table > thead > tr > th:nth-child(1) > div > input[type='checkbox']"},
+                    {"#LimitName": "_massUpdateTest"},
+                    {"#ValidFrom": "[date_today]"},
+                    {"#ValidUntil": "30.12.9999"},
+                    {"form > div:nth-child(7) > div:nth-child(1) > div > div > span.k-widget.k-numerictextbox.numerictextbox > span > input.k-formatted-value.numerictextbox": "1000"},
+
+                    {"~~click": "form > div:nth-child(9) > div > button"}
+                ]
+            },
+
+
+
+            {
+                "name": "Account Management → New account",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Account/Create",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "form > div > div:nth-child(2) > div:nth-child(1) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+                    {"#NewEmail": "user[timestamp]@inbox.com"},
+                    {"~~click": "form > div > div:nth-child(3) > div:nth-child(2) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "e"},
+                    {"~~press": "Tab"},
+                    {"~~click": "form > div > div:nth-child(5) > div:nth-child(1) > div > div > span.k-widget.k-dropdown.k-header > span > span.k-input"},
+                    {"~~press": "m"},
+                    {"~~press": "Tab"},
+                    {"#FirstName": "Name"},
+                    {"#LastName": "Surname"},
+                    {"#Addr1": "addr 1"},
+                    {"#PostCode": "112233"},
+                    {"#City": "Berlin"},
+                    {"form > div > div:nth-child(10) > div:nth-child(2) > div > div > span.k-widget.k-combobox > span > input": "Albania"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+
+                    {"#MobilePhone": "11122233345"},
+                    {"#Dob": "01.01.1950"},
+                    {"form > div > div:nth-child(14) > div > div > div > span.k-widget.k-combobox > span > input": "Albania"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~delay": 1000},
+                    {"~~press": "Tab"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "form > div > div:nth-child(24) > div > button"}
+                ]
+            },
+            {
+                "name": "Account Management → Update account",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Account/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#content-body > div > div.form-horizontal > div:nth-child(2) > div:nth-child(1) > div > div > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr.k-alt > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+
+                    {"#ExternalAccountReference": "ExternalReferenceTest-[timestamp]"},
+
+                    {"~~click": "form > div.form-group.no-margin-b > div > button:nth-child(1)"}
+                ]
+            },
+            {!
+                "name": "Account Management → Account → Stored Payment Options → New Bank Account"
+            },
+            {
+                "name": "Account Management → Account → Risk Management → Add to Blacklist",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Account/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#content-body > div > div.form-horizontal > div:nth-child(2) > div:nth-child(1) > div > div > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr.k-alt > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#submenu > div > div > li:nth-child(5) > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#content-body > div:nth-child(3) > button"},
+                    {"~~delay": 1000},
+                    {"~~click": "#blacklist-account > div:nth-child(1) > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "#blacklist-account > div:nth-child(2) > div > span.k-widget.k-dropdown.k-header.related-element > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#BlacklistGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td.k-command-cell > div > div > a"},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
+            },
+            {
+                "name": "Account Management → Account → Risk Management → Add to whitelist",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Account/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#content-body > div > div.form-horizontal > div:nth-child(2) > div:nth-child(1) > div > div > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr.k-alt > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#submenu > div > div > li:nth-child(5) > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#content-body > button"},
+                    {"~~delay": 1000},
+                    {"~~click": "#blacklist-account > div:nth-child(1) > div > span.k-widget.k-dropdown.k-header.related-element > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "#blacklist-account > div:nth-child(2) > div > span.k-widget.k-dropdown.k-header.related-element > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#WhitelistGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td.k-command-cell > div > div > a"},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
+            },
+            {
+                "name": "Account Management → Account application → Update Account Application",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountApplication/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "div.form-horizontal > div:nth-child(3) > div:nth-child(1) > div > div > span > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+                    {"~~click": "div.form-horizontal > div:nth-child(3) > div:nth-child(2) > div > div > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 1000},
+                    {"~~click": "#AccountApplicationsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(3) > div > div > a"},
+                    {"~~delay": 1500},
+
+
+                    {"#IdentityNumber": "1233333"},
+                    {"#PlaceOfBirth": "Berlin"},
+                    {"#Occupation": "test"},
+                    {"~~click": "#IsPep"},
+                    {"~~click": "#registration-data > div.form-group > div > button:nth-child(1)"}
+                    
+                ]
+            },
+            {
+                "name": "Account Management → Account application → Account Application → Compliance Check → Repeat",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountApplication/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "div.form-horizontal > div:nth-child(3) > div:nth-child(1) > div > div > span > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+                    {"~~click": "div.form-horizontal > div:nth-child(3) > div:nth-child(2) > div > div > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "#AccountApplicationsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(3) > div > div > a"},
+                    {"~~delay": 1000},
+
+
+                    {"~~click": ".form-horizontal > div:nth-child(11) > div > div > div.form-group-margin-t > button"}
+                    
+                ]
+            },
+            {!
+                "name": "Account Management → Account application → Account Application → Add Document"
+            },
+            {
+                "name": "Account Management → Account application → Account Application → Switch to status 'Closed'",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountApplication/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "div.form-horizontal > div:nth-child(3) > div:nth-child(1) > div > div > span > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+                    {"~~click": "div.form-horizontal > div:nth-child(3) > div:nth-child(2) > div > div > span > span > span.k-input"},
+                    {"~~press": "_"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "#AccountApplicationsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(3) > div > div > a"},
+                    {"~~delay": 1000},
+
+
+                    {"~~click": "#content-body > div > div:nth-child(16) > div > div > div > div > button"},
+                    {"~~click": "#content-body > div > div:nth-child(16) > div > div > div > div > ul > li > a"},
+                    {"#CloseAccount_ClosingReason": "Test"},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                    
+                ]
+            },
+            {!
+                "name": "Account Management → Account Groups → Approve"
+            },
+            {
+                "name": "Account Management → Account Adjusments → New Account Adjustment",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountAdjustment/Create",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"form > div > div:nth-child(2) > div:nth-child(1) > div > div > span.k-widget.k-combobox.k-header > span > input": "1000094094108"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+                    {"form > div > div:nth-child(5) > div:nth-child(1) > div > div > span.k-widget > span > input.k-formatted-value": "2"},
+                    {"~~click": "form > div > div:nth-child(5) > div:nth-child(2) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "c"},
+                    {"~~press": "Tab"},
+                    {"#Description": "Test adjustment"},
+                    {"~~click": "form > div > div:nth-child(8) > div > button"}
+                ]
+            },
+            {
+                "name": "Account Management → Mandate Archive → Download Mandate",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/MandateArchive/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"~~click": "#MandateArchivesGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(20) > div > div > form > button"}
+                ]
+            },
+
+
+
+            
             {
                 "name": "Membership Management → Programs → Delete Program",
                 "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Program/List",
@@ -3042,24 +3643,8 @@
                     {"~~delay": 500},
                     {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
                 ]
-            },
-
-
-
-            {
-                "name": "Membership Management → Member → New Member + Update Member + (!!! no delete step) Delete Member",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor",
-                "parameters" : [
-
-                ]
-            },
-            {
-                "name": "Membership Management → Update FI information",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor",
-                "parameters" : [
-
-                ]
             }
+
 
         ]
         
