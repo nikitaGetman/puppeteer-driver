@@ -3063,7 +3063,7 @@
                     "~~ITERATION",
 
                     {"~~delay": 1000},
-                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) es[i].value=''; }"}},
+                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) if(es[i].type !== 'submit' && es[i].type !== 'hidden') es[i].value=''; }"}},
 
                     {"#FinancialInstitutionName": "FI Name Test"},
                     {"#Addr1": "Address 1"},
@@ -3091,7 +3091,7 @@
                     "~~ITERATION",
 
                     {"~~delay": 1000},
-                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) es[i].value=''; }"}},
+                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) if(es[i].type !== 'submit' && es[i].type !== 'hidden') es[i].value=''; }"}},
 
                     {"#FinancialInstitutionName": "ACME Corporation Financial Institution"},
                     {"#Addr1": "123 Main Street"},
@@ -3391,7 +3391,7 @@
                     "~~ITERATION",
 
                     {"~~click": "form > div > div:nth-child(2) > div:nth-child(1) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
-                    {"~~press": "_"},
+                    {"~~press": "a"},
                     {"~~press": "Tab"},
                     {"#NewEmail": "user[timestamp]@inbox.com"},
                     {"~~click": "form > div > div:nth-child(3) > div:nth-child(2) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
@@ -3405,14 +3405,16 @@
                     {"#Addr1": "addr 1"},
                     {"#PostCode": "112233"},
                     {"#City": "Berlin"},
-                    {"form > div > div:nth-child(10) > div:nth-child(2) > div > div > span.k-widget.k-combobox > span > input": "Albania"},
+                    {"form > div > div:nth-child(10) > div:nth-child(2) > div > div > span.k-widget.k-combobox > span > input": "Germany"},
                     {"~~press": "ArrowDown"},
                     {"~~press": "ArrowDown"},
+                    {"~~delay": 1000},
                     {"~~press": "Tab"},
+                    {"~~delay": 1000},
 
                     {"#MobilePhone": "11122233345"},
                     {"#Dob": "01.01.1950"},
-                    {"form > div > div:nth-child(14) > div > div > div > span.k-widget.k-combobox > span > input": "Albania"},
+                    {"form > div > div:nth-child(14) > div > div > div > span.k-widget.k-combobox > span > input": "Germany"},
                     {"~~press": "ArrowDown"},
                     {"~~press": "ArrowDown"},
                     {"~~delay": 1000},
@@ -3431,11 +3433,14 @@
                     "~~ITERATION",
 
                     {"~~click": "#content-body > div > div.form-horizontal > div:nth-child(2) > div:nth-child(1) > div > div > span > span > span.k-input"},
-                    {"~~press": "_"},
+                    {"~~press": "a"},
                     {"~~press": "Tab"},
                     {"~~delay": 1000},
 
-                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr.k-alt > td:nth-child(1) > div > div > a"},
+                    {"~~click": "thead > tr > th:first-child > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
                     {"~~delay": 1000},
 
                     {"#ExternalAccountReference": "ExternalReferenceTest-[timestamp]"},
@@ -3443,8 +3448,44 @@
                     {"~~click": "form > div.form-group.no-margin-b > div > button:nth-child(1)"}
                 ]
             },
-            {!
-                "name": "Account Management → Account → Stored Payment Options → New Bank Account"
+            {
+                "name": "Account Management → Account → Stored Payment Options → New Bank Account",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Account/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#content-body > div > div.form-horizontal > div:nth-child(2) > div:nth-child(1) > div > div > span > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "thead > tr > th:first-child > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#submenu > div > div > li:nth-child(3) > a"},
+                    {"~~delay": 1000},
+                    {"~~click": "#content-body > div > a"},
+
+                    {"~~delay": 1000},
+                    {"~~click": "#content-body > div > div > div > div > div > div > div:nth-child(1) > div > div.k-grid.k-widget > div.k-grid-content > table > tbody > tr > td:nth-child(1) > div > div > input"},
+
+                    {"~~click": "#content-body > div > div > div > div > div > div > div:nth-child(3) > button:nth-child(1)"},
+
+                    {"~~delay": 2000},
+                    {"input.wpwl-control.wpwl-control-accountHolder": "Test holder"},
+                    {"form > div.wpwl-group.wpwl-group-accountIban > div.wpwl-wrapper.wpwl-wrapper-accountIban > input": "DE91100000000123456789"},
+                    
+                    {"~~press": "Tab"},
+                    {"~~press": "Enter"},
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+
+                ]
             },
             {
                 "name": "Account Management → Account → Risk Management → Add to Blacklist",
@@ -3455,12 +3496,16 @@
                     "~~ITERATION",
 
                     {"~~click": "#content-body > div > div.form-horizontal > div:nth-child(2) > div:nth-child(1) > div > div > span > span > span.k-input"},
-                    {"~~press": "_"},
+                    {"~~press": "a"},
                     {"~~press": "Tab"},
                     {"~~delay": 1000},
 
-                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr.k-alt > td:nth-child(1) > div > div > a"},
+                    {"~~click": "thead > tr > th:first-child > a"},
                     {"~~delay": 1000},
+
+                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+
 
                     {"~~click": "#submenu > div > div > li:nth-child(5) > a"},
                     {"~~delay": 1000},
@@ -3491,12 +3536,16 @@
                     "~~ITERATION",
 
                     {"~~click": "#content-body > div > div.form-horizontal > div:nth-child(2) > div:nth-child(1) > div > div > span > span > span.k-input"},
-                    {"~~press": "_"},
+                    {"~~press": "a"},
                     {"~~press": "Tab"},
                     {"~~delay": 1000},
 
-                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr.k-alt > td:nth-child(1) > div > div > a"},
+                    {"~~click": "thead > tr > th:first-child > a"},
                     {"~~delay": 1000},
+
+                    {"~~click": "#AccountsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+
 
                     {"~~click": "#submenu > div > div > li:nth-child(5) > a"},
                     {"~~delay": 1000},
@@ -3530,7 +3579,7 @@
                     {"~~press": "a"},
                     {"~~press": "Tab"},
                     {"~~click": "div.form-horizontal > div:nth-child(3) > div:nth-child(2) > div > div > span > span > span.k-input"},
-                    {"~~press": "_"},
+                    {"~~press": "a"},
                     {"~~press": "Tab"},
 
                     {"~~delay": 1000},
@@ -3558,7 +3607,7 @@
                     {"~~press": "a"},
                     {"~~press": "Tab"},
                     {"~~click": "div.form-horizontal > div:nth-child(3) > div:nth-child(2) > div > div > span > span > span.k-input"},
-                    {"~~press": "_"},
+                    {"~~press": "a"},
                     {"~~press": "Tab"},
 
                     {"~~click": "#AccountApplicationsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(3) > div > div > a"},
@@ -3584,7 +3633,7 @@
                     {"~~press": "a"},
                     {"~~press": "Tab"},
                     {"~~click": "div.form-horizontal > div:nth-child(3) > div:nth-child(2) > div > div > span > span > span.k-input"},
-                    {"~~press": "_"},
+                    {"~~press": "a"},
                     {"~~press": "Tab"},
 
                     {"~~click": "#AccountApplicationsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(3) > div > div > a"},
@@ -3598,8 +3647,17 @@
                     
                 ]
             },
-            {!
-                "name": "Account Management → Account Groups → Approve"
+            {
+                "name": "Account Management → Account Groups → Approve",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/AccountGroup/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    
+                    {"~~click": "#AccountGroupsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(2) > td:nth-child(2) > div > div > button:nth-child(2)"},
+                    {"~~click": "#AccountGroupsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(2) > td:nth-child(2) > div > div > button:nth-child(1)"}
+                ]
             },
             {
                 "name": "Account Management → Account Adjusments → New Account Adjustment",
@@ -3642,6 +3700,438 @@
                     {"~~click": "#ProgramsGrid > .k-grid-content > table > tbody > tr:nth-child(1) > td:nth-child(11) > div > div > a"},
                     {"~~delay": 500},
                     {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
+            },
+
+
+
+
+            {
+                "name": "Transaction Management → Transactions → Actions → Settle",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Transaction/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(4) > div > div.col-md-6.col-xs-11 > div > div > input": "Captured"},
+                    {"~~press": "Enter"},
+                    {"~~click": "#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(21) > div > div.col-md-6.col-xs-11 > span > span > span.k-input"},
+                    {"~~press": "d"},
+                    {"~~press": "Tab"},
+                    
+                    {"~~delay": 1000},
+                    {"~~click": "#TransactionsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(28) > div > div > div > button"},
+                    {"~~click": "#TransactionsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(28) > div > div > div > ul > li:nth-child(2) > a"},
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+
+                ]
+            },
+            {
+                "name": "Transaction Management → Transactions → Actions → Chargeback (3.1)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Transaction/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(4) > div > div.col-md-6.col-xs-11 > div > div > input": "Settled"},
+                    {"~~press": "Enter"},
+                    {"#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(20) > div > div.col-md-6.col-xs-11 > div > div > input": "Authorize"},
+                    {"~~press": "Enter"},
+                    {"~~click": "#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(25) > div > div.col-md-6.col-xs-11 > span > span > span.k-input"},
+                    {"~~press": "n"},
+                    {"~~press": "Tab"},
+                    
+                    {"~~delay": 1000},
+                    {"~~click": "#TransactionsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(28) > div > div > div > button"},
+                    {"~~delay": 500},
+                    {"~~click": "#TransactionsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(28) > div > div > div > ul > li:nth-child(1) > a"},
+                    
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+
+                ]
+            },
+            {
+                "name": "Transaction Management → Transactions → Actions → Refund (3.58)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Transaction/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(4) > div > div.col-md-6.col-xs-11 > div > div > input": "Captured"},
+                    {"~~press": "Enter"},
+                    {"#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(20) > div > div.col-md-6.col-xs-11 > div > div > input": "Authorize"},
+                    {"~~press": "Enter"},
+                    {"~~click": "#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(25) > div > div.col-md-6.col-xs-11 > span > span > span.k-input"},
+                    {"~~press": "n"},
+                    {"~~press": "Tab"},
+                    
+                    {"~~delay": 1000},
+                    {"~~click": "#TransactionsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(28) > div > div > div > button"},
+                    {"~~delay": 500},
+                    {"~~click": "#TransactionsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(28) > div > div > div > ul > li:nth-child(1) > a"},
+                    
+                    {"~~delay": 500},
+                    {"#RefundUsage": "Test refund"},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+
+                ]
+            },
+            {
+                "name": "Transaction Management → Transactions → Actions → Reject",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Transaction/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(4) > div > div.col-md-6.col-xs-11 > div > div > input": "Settled"},
+                    {"~~press": "Enter"},
+                    {"#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(20) > div > div.col-md-6.col-xs-11 > div > div > input": "Authorize"},
+                    {"~~press": "Enter"},
+                    {"~~click": "#content-body > div > div:nth-child(1) > div:nth-child(8) > div:nth-child(25) > div > div.col-md-6.col-xs-11 > span > span > span.k-input"},
+                    {"~~press": "n"},
+                    {"~~press": "Tab"},
+                    
+                    {"~~delay": 1000},
+                    {"~~click": "#TransactionsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(28) > div > div > div > button"},
+                    {"~~delay": 500},
+                    {"~~click": "#TransactionsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(28) > div > div > div > ul > li:nth-child(3) > a"},
+                    
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+
+                ]
+            },
+            {!
+                "name": "Transaction Management → Scheduled Transactions → Cancel (empty)"
+            },
+            {
+                "name": "Transaction Management → Unsettled Transactions → Settle",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UnsettledTransaction/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#UnsettledTransactionsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(11) > div > div > a"},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
+            },
+
+
+            {
+                "name": "Merchants → New Merchant",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Merchant/Create",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "form > div > div:nth-child(5) > div:nth-child(1) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+                    {"~~click": "form > div > div:nth-child(5) > div:nth-child(2) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+                    
+                    {"#Name": "_Test merchant name"},
+                    {"~~click": "form > div > div:nth-child(6) > div:nth-child(1) > div:nth-child(3) > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "m"},
+                    {"~~press": "Tab"},
+                    {"#ContactEmail": "test[timestamp]@inbox.com"},
+                    {"#ContactPersonFirstName": "Firstname"},
+                    {"#ContactPersonLastName": "Lastname"},
+                    {"#MobilePhone": "88855544423"},
+                    {"#ContactPersonDateOfBirth": "01.01.1960"},
+                    {"form > div > div:nth-child(6) > div:nth-child(2) > div:nth-child(5) > div > span.k-widget.k-combobox.k-header > span > input": "Germany"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~delay": 1000},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "form > div > div:nth-child(6) > div:nth-child(2) > div:nth-child(6) > div > span.k-widget.k-dropdown.k-header > span > span.k-input"},
+                    {"~~press": "m"},
+                    {"~~press": "Tab"},
+
+                    {"#Addr1": "Address 1"},
+                    {"#ContactPersonAddr1": "Contact person addrr 1"},
+                    {"#PostalCode": "112233"},
+                    {"#ContactPersonPostalCode": "332211"},
+                    {"#City": "Berlin"},
+                    {"#ContactPersonCity": "Berlin"},
+                    {"form > div > div:nth-child(8) > div:nth-child(1) > div:nth-child(8) > div > span.k-widget.k-combobox.k-header > span > input": "Germany"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~delay": 1000},
+                    {"~~press": "Tab"},
+                    {"form > div > div:nth-child(8) > div:nth-child(2) > div:nth-child(8) > div > span.k-widget.k-combobox.k-header > span > input": "Germany"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~delay": 1000},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "#Currencies_0__IsActive"},
+
+                    {"form > div > div:nth-child(12) > div:nth-child(2) > div > div > span.k-widget.k-combobox > span > input": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~delay": 1000},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "form > div > div:nth-child(18) > div > button"}
+                ]
+            },
+            {
+                "name": "Merchants → Update Merchant",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Merchant/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#content-body > div > div.form-horizontal > div:nth-child(1) > div:nth-child(1) > div > div > span > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+                    {"~~click": "#content-body > div > div.form-horizontal > div:nth-child(1) > div:nth-child(2) > div > div > span > span > span.k-input"},
+                    {"~~press": "a"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 1000},
+                    {"~~click": "#MerchantsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(3) > div > div > a"},
+                    
+                    {"~~delay": 1000},
+                    {"#TaxId": "TESTID"},
+                    {"#Addr2": "Address 2 update"},
+                    {"~~click": "#ComplianceNotificationIsActive"},
+                    {"~~click": "#NotificationServiceActive"},
+                    {"~~delay": 500},
+                    {"~~click": "form > div > div:nth-child(13) > div:nth-child(1) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "n"},
+                    {"~~press": "Tab"},
+                    {"#NotificationsTargetUrl": "http://notifications.com"},
+                    
+
+                    {"~~click": "form > div > div:nth-child(16) > div > button"}
+                ]
+            },
+
+
+            {
+                "name": "Support → New Support Ticket",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/SupportTicket/Create",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "form > div > div.row > div:nth-child(1) > div > div > span.k-widget.k-combobox > span > input"},
+                    {"~~press": "a"},
+                    {"~~delay": 500},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+
+                    {"#Description": "_Test ticket description"},
+                    {"#Details": "Some details for ticket"},
+
+                    {"~~click": "form > div > div.form-group > div > button"}
+                ]
+            },
+            {
+                "name": "Support → Update Support Ticket",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/SupportTicket/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#SupportTicketsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(2) > div > div > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "form > div > div.row > div:nth-child(8) > div > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~delay": 500},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "form > div > div:nth-child(5) > div > button"}
+                ]
+            },
+            {
+                "name": "Support → Switch Status",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/SupportTicket/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#SupportTicketsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(2) > div > div > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "form > div > div:nth-child(6) > div > div > button"},
+                    {"~~delay": 500},
+                    {"~~click": "form > div > div:nth-child(6) > div > div > ul > li:nth-child(1) > a"},
+
+                    {"~~click": "form > div > div:nth-child(6) > div > div > button"},
+                    {"~~delay": 500},
+                    {"~~click": "form > div > div:nth-child(6) > div > div > ul > li:nth-child(1) > a"}
+                    
+                ]
+            },
+            {
+                "name": "Support → Add Comment",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/SupportTicket/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#SupportTicketsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(2) > div > div > a"},
+                    {"~~delay": 1000},
+
+                    {"~~click": "#content-body > div > div:nth-child(2) > div > div.row > div > button"},
+                    {"#Message": "Test message"},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                    
+                ]
+            },
+            {
+                "name": "Support → Add Attachment",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/SupportTicket/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#SupportTicketsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(2) > div > div > a"},
+                    {"~~delay": 1000},
+
+                    {"~~upload": {"#SupportTicketAttachmentsUpload": "/upload-templates/support-attachment.md"}},
+                    {"~~click": "#content-body > div > div.form-horizontal > div.row > div > div > button.k-button.k-upload-selected"}
+                ]
+            },
+
+
+
+            {
+                "name": "Account → Change Email",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserSettings/ChangeEmail",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"#NewEmail": "newemailfortest@email.com"},
+                    {"#Password": "[password]"},
+                    {"~~click": "form > div > div > div.row > div > input"},
+                    
+                    {"~~delay": 1000},
+
+                    {"#NewEmail": "nikitag@dmdevelopment.ru"},
+                    {"#Password": "[password]"},
+                    {"~~click": "form > div > div > div.row > div > input"}
+                ]
+            },
+            {
+                "name": "Account → Change Password",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserSettings/ChangePassword",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"#OldPassword": "[password]"},
+                    {"#NewPassword": "Test_00"},
+                    {"#RepeatNewPassword": "Test_00"},
+                    {"~~click": "form > div > div > div.row > div > input"},
+                    
+                    {"~~delay": 1000},
+
+                    {"#OldPassword": "Test_00"},
+                    {"#NewPassword": "Test_01"},
+                    {"#RepeatNewPassword": "Test_01"},
+                    {"~~click": "form > div > div > div.row > div > input"},
+                    
+                    {"~~delay": 1000},
+
+                    {"#OldPassword": "Test_01"},
+                    {"#NewPassword": "Test_02"},
+                    {"#RepeatNewPassword": "Test_02"},
+                    {"~~click": "form > div > div > div.row > div > input"},
+
+                    {"~~delay": 1000},
+
+                    {"#OldPassword": "Test_02"},
+                    {"#NewPassword": "Test_03"},
+                    {"#RepeatNewPassword": "Test_03"},
+                    {"~~click": "form > div > div > div.row > div > input"},
+
+                    {"~~delay": 1000},
+
+                    {"#OldPassword": "Test_03"},
+                    {"#NewPassword": "Test_04"},
+                    {"#RepeatNewPassword": "Test_04"},
+                    {"~~click": "form > div > div > div.row > div > input"},
+
+                    {"~~delay": 1000},
+
+                    {"#OldPassword": "Test_04"},
+                    {"#NewPassword": "[password]"},
+                    {"#RepeatNewPassword": "[password]"},
+                    {"~~click": "form > div > div > div.row > div > input"}
+                ]
+            },
+            {
+                "name": "Account → Change Name",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserSettings/ChangeName",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) if(es[i].type !== 'submit' && es[i].type !== 'hidden') es[i].value=''; }"}},
+
+                    {"#FirstName": "Name"},
+                    {"#LastName": "Surname"},
+                    {"~~click": "form > div > div > div:nth-child(3) > div > input"},
+                
+                    {"~~delay": 1000},
+
+                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) if(es[i].type !== 'submit' && es[i].type !== 'hidden') es[i].value=''; }"}},
+
+                    {"#FirstName": "Nikita"},
+                    {"#LastName": "Getman"},
+                    {"~~click": "form > div > div > div:nth-child(3) > div > input"}
+                
+                ]
+            },
+            {
+                "name": "Account → Change Regional Settings",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserSettings/ChangeRegionalSettings",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) if(es[i].type !== 'submit' && es[i].type !== 'hidden') es[i].value=''; }"}},
+
+                    {".form-horizontal > div:nth-child(1) > div > span.k-widget.k-combobox > span > input": "Afghanistan - Dari"},
+                    {"~~delay": 500},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+                    {"~~click": ".form-horizontal > div.row > div > input"},
+                
+                    {"~~delay": 1000},
+
+                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) if(es[i].type !== 'submit' && es[i].type !== 'hidden') es[i].value=''; }"}},
+
+                    {".form-horizontal > div:nth-child(1) > div > span.k-widget.k-combobox > span > input": "Germany - German"},
+                    {"~~delay": 500},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+                    {"~~click": ".form-horizontal > div.row > div > input"}
+                
                 ]
             }
 

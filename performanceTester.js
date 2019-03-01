@@ -2,12 +2,10 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const {TimeoutError} = require('puppeteer/Errors');
 const colors = require('colors');
+const path = require('path');
 
-//     // Checks that object is empty or not
-// function isEmpty(obj) {
-//     for(var key in obj) return false;
-//     return true;
-// }
+
+let USER_CONFIG;
 
 
 /*
@@ -42,6 +40,8 @@ exports.loadConfig = async function loadConfig(filename){
         throw e;
     }
     
+    USER_CONFIG = Object.assign({}, config);
+    delete USER_CONFIG.tests;
     return config;
 };
 
@@ -129,7 +129,7 @@ exports.init = async function init(params, loginParams){
 
         });
         page.on('console', msg => {
-            if( msg['_location']['url'] !== 'https://testing1.kontocloud.com:8443/favicon.ico' && msg['_type'] !== 'verbose'){
+            if( msg['_location']['url'] !== 'https://testing1.kontocloud.com:8443/favicon.ico' && msg['_type'] !== 'verbose' && msg['_type'] !== 'info'){
                 console.error('Message to console: ');
                 console.error(msg);
             }
@@ -160,11 +160,13 @@ exports.init = async function init(params, loginParams){
 async function executeCommand(command, page, mainUrl){
     for(key in command){
 
+
         if(typeof command[key] === 'string'){
 
             const timestamp_marker = '[timestamp]';
             const today_date_marker = '[date_today]';
             const seconds_marker = '[timestamp.5]';
+            const password_marker = '[password]';
 
             if(command[key].includes(timestamp_marker)){
                 let val = command[key];
@@ -173,6 +175,10 @@ async function executeCommand(command, page, mainUrl){
             if(command[key].includes(seconds_marker)){
                 let val = command[key];
                 command[key] = val.slice(0, val.indexOf(seconds_marker)) + new String(Date.now() % 100000) + val.slice(val.indexOf(seconds_marker) + seconds_marker.length);
+            }
+            if(command[key].includes(password_marker)){
+                let val = command[key];
+                command[key] = val.slice(0, val.indexOf(password_marker)) + USER_CONFIG.loginParameters.password + val.slice(val.indexOf(password_marker) + password_marker.length);
             }
             if(command[key].includes(today_date_marker)){
                 let val = command[key];
@@ -264,7 +270,25 @@ async function executeCommand(command, page, mainUrl){
 
         }
         else if(key === '~~click'){
-            await page.click(command[key], {'delay': 100});
+            
+            let frames = await page.frames();
+
+            let isFound = false;
+            let err;
+
+            for(i in frames){
+                try{
+                    await page.click(command[key], {'delay': 100});
+                    isFound = true;
+                    break;
+                }catch(e){
+                    err = e;
+                }
+            }
+
+            if(!isFound){
+                throw err;
+            }
                 // wait until all requests would be sent
             await page.waitFor(500);
         }
@@ -281,6 +305,17 @@ async function executeCommand(command, page, mainUrl){
             // console.log(selector);
             // console.log(func);
             await page.$$eval(selector, func);
+        }
+        else if(key === '~~upload'){
+            const selector = Object.keys(command[key])[0];
+            const filePath  = path.relative(process.cwd(), __dirname + command[key][selector]);
+            
+            if(!fs.existsSync(filePath)){
+                throw "File path is not available: " + filePath;
+            }
+
+            const input = await page.$(selector);
+            await input.uploadFile(filePath);
         }
         else if(key === '~~refresh'){
             let selector = command[key] !== '' ? command[key] : '.filter-actions > .k-button:first-child';
@@ -299,8 +334,25 @@ async function executeCommand(command, page, mainUrl){
         }
 
         else{
-              // if it's parameter then spicify it
-            await page.type(key, new String(command[key]));
+            let frames = await page.frames();
+
+            let isFound = false;
+            let err;
+
+            for(i in frames){
+                try{
+                    await frames[i].type(key, new String(command[key]));
+                    isFound = true;
+                    break;
+                }catch(e){
+                    err = e;
+                }
+            }
+
+            if(!isFound){
+                throw err;
+            }
+            
         }
 
     }
