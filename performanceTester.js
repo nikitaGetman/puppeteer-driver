@@ -317,6 +317,9 @@ async function executeCommand(command, page, mainUrl){
             const input = await page.$(selector);
             await input.uploadFile(filePath);
         }
+        else if(key === '~~goto'){
+            await page.goto(command[key]);
+        }
         else if(key === '~~refresh'){
             let selector = command[key] !== '' ? command[key] : '.filter-actions > .k-button:first-child';
             

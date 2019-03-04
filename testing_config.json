@@ -23,35 +23,11 @@
 
         "Test": [
 
-            {
-                "name": "Account → Change Regional Settings",
-                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserSettings/ChangeRegionalSettings",
-                "parameters": [
-                    "~~ITERATIONS_COUNT=1",
-                    "~~ITERATION",
-
-                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) if(es[i].type !== 'submit' && es[i].type !== 'hidden') es[i].value=''; }"}},
-
-                    {".form-horizontal > div:nth-child(1) > div > span.k-widget.k-combobox > span > input": "Afghanistan - Dari"},
-                    {"~~delay": 500},
-                    {"~~press": "ArrowDown"},
-                    {"~~press": "ArrowDown"},
-                    {"~~press": "Tab"},
-                    {"~~click": ".form-horizontal > div.row > div > input"},
-                
-                    {"~~delay": 1000},
-
-                    {"~~eval": {"input" : "(es) => { for(var i=0; i < es.length; i++) if(es[i].type !== 'submit' && es[i].type !== 'hidden') es[i].value=''; }"}},
-
-                    {".form-horizontal > div:nth-child(1) > div > span.k-widget.k-combobox > span > input": "Germany - German"},
-                    {"~~delay": 500},
-                    {"~~press": "ArrowDown"},
-                    {"~~press": "ArrowDown"},
-                    {"~~press": "Tab"},
-                    {"~~click": ".form-horizontal > div.row > div > input"}
-                
-                ]
-            }
+            
+            
+            
+            
+            
 
         ]
     }
