@@ -155,38 +155,59 @@ exports.init = async function init(params, loginParams){
     }
 };
 
+function setMarkers(command){
 
+    if(typeof command === 'string'){
+
+        const timestamp_marker = '[timestamp]';
+        const today_date_marker = '[date_today]';
+        const seconds_marker = '[timestamp.5]';
+        const password_marker = '[password]';
+        const randnum_marker = '[randnum]';
+
+        let val = command;
+
+        if(command.includes(timestamp_marker)){
+            command = val.slice(0, val.indexOf(timestamp_marker)) + new String(Date.now()) + val.slice(val.indexOf(timestamp_marker) + timestamp_marker.length);
+            
+            command = setMarkers(command);
+        }
+        if(command.includes(seconds_marker)){
+            command = val.slice(0, val.indexOf(seconds_marker)) + new String(Date.now() % 100000) + val.slice(val.indexOf(seconds_marker) + seconds_marker.length);
+            
+            command = setMarkers(command);
+        }
+        if(command.includes(password_marker)){
+            command = val.slice(0, val.indexOf(password_marker)) + USER_CONFIG.loginParameters.password + val.slice(val.indexOf(password_marker) + password_marker.length);
+            
+            command = setMarkers(command);
+        }
+        if(command.includes(today_date_marker)){
+            let date = new Date().getDate() + '.' + ('0' + (new Date().getMonth() + 1)).slice(-2) + '.' + new Date().getFullYear();
+            command = val.slice(0, val.indexOf(today_date_marker)) + date + val.slice(val.indexOf(today_date_marker) + today_date_marker.length);
+            
+            command = setMarkers(command);
+        }
+        if(command.includes(randnum_marker)){
+            const min = 0;
+            const max = 9;
+
+            let rand = min + Math.random() * (max + 1 - min);
+            rand = Math.floor(rand);
+            command = val.slice(0, val.indexOf(randnum_marker)) + rand + val.slice(val.indexOf(randnum_marker) + randnum_marker.length);
+
+            command = setMarkers(command);
+        }
+    }
+
+
+    return command;
+}
 
 async function executeCommand(command, page, mainUrl){
     for(key in command){
 
-
-        if(typeof command[key] === 'string'){
-
-            const timestamp_marker = '[timestamp]';
-            const today_date_marker = '[date_today]';
-            const seconds_marker = '[timestamp.5]';
-            const password_marker = '[password]';
-
-            if(command[key].includes(timestamp_marker)){
-                let val = command[key];
-                command[key] = val.slice(0, val.indexOf(timestamp_marker)) + new String(Date.now()) + val.slice(val.indexOf(timestamp_marker) + timestamp_marker.length);
-            }
-            if(command[key].includes(seconds_marker)){
-                let val = command[key];
-                command[key] = val.slice(0, val.indexOf(seconds_marker)) + new String(Date.now() % 100000) + val.slice(val.indexOf(seconds_marker) + seconds_marker.length);
-            }
-            if(command[key].includes(password_marker)){
-                let val = command[key];
-                command[key] = val.slice(0, val.indexOf(password_marker)) + USER_CONFIG.loginParameters.password + val.slice(val.indexOf(password_marker) + password_marker.length);
-            }
-            if(command[key].includes(today_date_marker)){
-                let val = command[key];
-                let date = new Date().getDate() + '.' + ('0' + (new Date().getMonth() + 1)).slice(-2) + '.' + new Date().getFullYear();
-                let string = val.slice(0, val.indexOf(today_date_marker)) + date + val.slice(val.indexOf(today_date_marker) + today_date_marker.length);
-                command[key] = string;
-            }
-        }
+        command[key] = setMarkers(command[key]);
 
         if(key === '~~download'){
             
@@ -268,6 +289,28 @@ async function executeCommand(command, page, mainUrl){
                     return isOk;
                 }, {'timeout': 2400000}); // wait 40 mins for response
 
+        }
+        else if(key === '~~focus'){
+            let frames = await page.frames();
+
+            let isFound = false;
+            let err;
+
+            for(i in frames){
+                try{
+                    await page.focus(command[key]);
+                    isFound = true;
+                    break;
+                }catch(e){
+                    err = e;
+                }
+            }
+
+            if(!isFound){
+                throw err;
+            }
+                // wait until all requests would be sent
+            await page.waitFor(500);
         }
         else if(key === '~~click'){
             
@@ -390,16 +433,20 @@ exports.newTest = async function newTest(page, url, testParams){
 
         // Click Reset Filters button (if it`s exists)
     try{
-        await page.waitForSelector('.filter-actions > .k-button:last-child', {'timeout': 1000});
-        await executeCommand({'~~resetFilters': ''}, page, mainUrl);
+        if(! url === 'https://dmd-vm.kontocloud.com/kontocloud/backoffice/RiskType/List'
+            && ! url === 'https://dmd-vm.kontocloud.com/kontocloud/backoffice/RiskScore/List') 
+        {
+            await page.waitForSelector('.filter-actions > .k-button:last-child', {'timeout': 1000});
+            await executeCommand({'~~resetFilters': ''}, page, mainUrl);
+        }
     }catch(e){
         if(e instanceof TimeoutError){
             // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:last-child');
         }
-        else{
-            console.log('Warning:'.bgYellow.black + ' tried to find resetButton and did not get TimeoutError'.underline.yellow);
-        }
-        // else throw e;
+        // else{
+        //     console.log('Warning:'.bgYellow.black + ' tried to find resetButton and did not get TimeoutError'.underline.yellow);
+        // }
+        else throw e;
     }
     
 
@@ -437,13 +484,20 @@ exports.newTest = async function newTest(page, url, testParams){
 
             // click Refresh button (if it`s exists)
         try{
-            await page.waitForSelector('.filter-actions > .k-button:first-child', {'timeout': 1000});
-            await executeCommand({'~~refresh': ''}, page, mainUrl);
+            if(! url === 'https://dmd-vm.kontocloud.com/kontocloud/backoffice/RiskType/List'
+                && ! url === 'https://dmd-vm.kontocloud.com/kontocloud/backoffice/RiskScore/List') 
+            {
+                await page.waitForSelector('.filter-actions > .k-button:first-child', {'timeout': 1000});
+                await executeCommand({'~~refresh': ''}, page, mainUrl);
+            }
         }catch(e){
             if(e instanceof TimeoutError){
                 // console.error('Can not to find button with selector: .filter-control > .filter-actions > .k-button:first-child');
             }
-            else throw e;
+            
+            else {
+                throw e;
+            }
         }
 
     }

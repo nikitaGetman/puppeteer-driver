@@ -23,11 +23,69 @@
 
         "Test": [
 
-            
-            
-            
-            
-            
+            {
+                "name": "Settings → User → External IDs → New External ID + (Update) + Delete",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/User/List",
+                "parameters": [
+                    {"#content-body > div.form-horizontal > div:nth-child(1) > div:nth-child(2) > div > div > span > span > input": "ACME Corporation Program"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+                    {"#content-body > div.form-horizontal > div:nth-child(2) > div:nth-child(2) > div > div > span > span > input": "ACME Corporation Program"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 1000},
+                    {"~~click": "#UsersGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+                    {"~~click": "#submenu > div > div > li:nth-child(5) > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"~~click": "#content-body > a"},
+                    {"~~delay": 1000},
+                    {"#Uuid": "[timestamp]"},
+                    {"~~click": ".form-horizontal > div:nth-child(2) > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "f"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": ".form-horizontal > div:nth-child(3) > div > button"}
+                ]
+            },
+            {
+                "name": "Settings → User → External IDs → Delete External ID",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/User/List",
+                "parameters": [
+                    {"#content-body > div.form-horizontal > div:nth-child(1) > div:nth-child(2) > div > div > span > span > input": "ACME Corporation Program"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+                    {"#content-body > div.form-horizontal > div:nth-child(2) > div:nth-child(2) > div > div > span > span > input": "ACME Corporation Program"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 1000},
+                    {"~~click": "#UsersGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+                    {"~~click": "#submenu > div > div > li:nth-child(5) > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#ApplicationUserExternalIdsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(3) > div > div > a"},
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
+            }
+
 
         ]
     }

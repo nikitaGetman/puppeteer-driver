@@ -615,20 +615,6 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BankHoliday"
             },
             {
-                "name": "Settings → Bank Holidays → New Holiday",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BankHoliday",
-                "parameters": [
-                    "~~ITERATION",
-                    {"~~click": "#Create"},
-                    {"#HolidayDate": "01.01"},
-                    {"#HolidayName": "Auto test"},
-                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > .k-grid-update"},
-                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > div > div > a:last-child"},
-                    {"~~delay": 1000},
-                    {"~~click": ".modal > .modal-dialog > .modal-content > .modal-footer > button:first-child"}
-                ]
-            },
-            {
                 "name": "Settings → Enrollment Documents",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EnrollmentDocument/List"
             },
@@ -2506,9 +2492,16 @@
 
             {
                 "name": "Home → Expiration Monitor → Valid Until (mass update)",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor",
-                "parameters" : [
-                    ---
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Home/ExpirationMonitor",
+                "parameters" : [                    
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#EntitiesGrid > div.k-grid-header > div > table > thead > tr > th:nth-child(1) > div > input[type='checkbox']"},
+                    {"#ValidUntil": "31.12.9999"},
+
+                    {"~~click": "form > div:nth-child(6) > div > button:nth-child(1)"},
+                    {"~~delay": 2000}
                 ]
             },
 
@@ -4070,8 +4063,67 @@
                     {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
                 ]
             },
-            {!
-                "name": "Settings → User → External IDs → New External ID + (Update) + Delete"
+            {
+                "name": "Settings → User → External IDs → New External ID + (Update) + Delete",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/User/List",
+                "parameters": [
+                    {"#content-body > div.form-horizontal > div:nth-child(1) > div:nth-child(2) > div > div > span > span > input": "ACME Corporation Program"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+                    {"#content-body > div.form-horizontal > div:nth-child(2) > div:nth-child(2) > div > div > span > span > input": "ACME Corporation Program"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 1000},
+                    {"~~click": "#UsersGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+                    {"~~click": "#submenu > div > div > li:nth-child(5) > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"~~click": "#content-body > a"},
+                    {"~~delay": 1000},
+                    {"#Uuid": "[timestamp]"},
+                    {"~~click": ".form-horizontal > div:nth-child(2) > div > span.k-widget.k-dropdown > span > span.k-input"},
+                    {"~~press": "f"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": ".form-horizontal > div:nth-child(3) > div > button"}
+                ]
+            },
+            {
+                "name": "Settings → User → External IDs → Delete External ID",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/User/List",
+                "parameters": [
+                    {"#content-body > div.form-horizontal > div:nth-child(1) > div:nth-child(2) > div > div > span > span > input": "ACME Corporation Program"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+                    {"#content-body > div.form-horizontal > div:nth-child(2) > div:nth-child(2) > div > div > span > span > input": "ACME Corporation Program"},
+                    {"~~delay": 1000},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 1000},
+                    {"~~click": "#UsersGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    {"~~delay": 1000},
+                    {"~~click": "#submenu > div > div > li:nth-child(5) > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#ApplicationUserExternalIdsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(3) > div > div > a"},
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
             },
             {!
                 "name": "Settings → User → Reset Password"
@@ -4079,8 +4131,34 @@
             {!
                 "name": "Settings → User → Send Verification link"
             },
-            {!
-                "name": "Settings → Roles → New + Update Role + (Delete)"
+            {
+                "name": "Settings → Roles → New + Update Role + (Delete)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/RoleSettings/Add",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    
+                    {"#RoleName": "__test_role[timestamp]"},
+                    {"#RoleCode": "[timestamp.5]"},
+                    {"~~click": "#IsActive"},
+                    {"~~delay": 1000},
+                    {"~~click": "#operations > ul > li.k-item.k-first > ul > li:nth-child(1) > .k-top > .k-checkbox-wrapper > input"},
+
+                    {"~~click": "#form0 > div > div > div:nth-child(5) > div > button"}
+                ]
+            },
+            {
+                "name": "Settings → Roles → Update Role",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/RoleSettings",
+                "parameters": [
+                    {"~~click": "#Roles > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+                    
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#IsActive"},
+                    {"~~click": "#form0 > div > div > div:nth-child(5) > div > button"}
+                ]
             },
             {!
                 "name": "Settings → Roles → Role Members → Scope → Activation + (Deactivation)"
@@ -4364,25 +4442,242 @@
                 ]
             },
             {
-                "name": "Settings → User Agreements → New Version + Update + (Delete)"
+                "name": "Settings → User Agreements → New Version",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserAgreement/Create",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"#ValidFrom": "01.01.3[randnum][randnum][randnum]"},
+                    {"#VersionDescription": "_test version description"},
+                    {"~~click": "form > div > div > div:nth-child(3) > div > div > div > button"}
+                ]
             },
             {
-                "name": "Settings → User Agreements → Texts → New Text + Update + (Delete)"
+                "name": "Settings → User Agreements → Update Version (Delete)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserAgreement/List",
+                "parameters": [
+                    {"~~click": "#UserAgreementsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"#VersionDescription": "updated"},
+                    {"~~click": "form > div > div > div:nth-child(4) > div > div > div > button"}
+
+                ]
             },
             {
-                "name": "Settings → Bank Holidays → Create Bank Holiday + Update + (Delete)"
+                "name": "Settings → User Agreements → Delete Version",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserAgreement/List",
+                "parameters": [
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#UserAgreementsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(6) > div > div > div > button"},
+                    {"~~delay": 500},
+                    {"~~click": "#UserAgreementsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(6) > div > div > div > ul > li:nth-child(2) > a"},
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
             },
             {
-                "name": "Settings → Enrollment Documents → New Enrollment Document + (Update) + Delete"
+                "name": "Settings → User Agreements → Texts → New Text",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserAgreementText/Create",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "form > div > div > div:nth-child(1) > div > div > div > span.k-widget.k-dropdown.k-header > span > span.k-input"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+
+                    {"form > div > div > div:nth-child(2) > div:nth-child(1) > div > div > span.k-widget.k-combobox > span > input": "Germany - German"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "ArrowDown"},
+                    {"~~press": "Tab"},
+
+                    {"~~click": "iframe.k-content"},
+                    {"body": "some text"},
+
+                    {"~~click": "form > div > div > div:nth-child(4) > div > div > div > button"}
+                ]
             },
             {
-                "name": "Settings → Risk Type → Update Cummulative Risk Score To"
+                "name": "Settings → User Agreements → Texts → Update Text",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserAgreementText/List",
+                "parameters": [
+                    {"~~click": "#UserAgreementTextsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~delay": 1000},
+                    {"~~click": "iframe.k-content"},
+                    {"body": "updated"},
+
+                    {"~~click": "form > div > div > div:nth-child(5) > div > div > div > button"}
+                ]
             },
             {
-                "name": "Settings → Risk Score → Update Score"
+                "name": "Settings → User Agreements → Texts → Delete Text",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserAgreementText/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#UserAgreementTextsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(8) > div > div > a"},
+                    {"~~delay": 1000},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
             },
             {
-                "name": "Settings → Test HMAC → Compute"
+                "name": "Settings → Bank Holidays → New Holiday",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/BankHoliday",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    
+                    {"~~click": "#Create"},
+                    {"#HolidayDate": "16.10"},
+                    {"#HolidayName": "Auto test"},
+                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > .k-grid-update"}
+                ]
+            },
+            {
+                "name": "Settings → Bank Holidays → Update Bank Holiday",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/BankHoliday",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#BankHolidayGrid2019 > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td.k-command-cell > div > div > a.k-button.k-button-icontext.k-grid-edit"},
+                    {"#HolidayName": "updated"},
+                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > .k-grid-update"}
+                ]
+            },
+            {
+                "name": "Settings → Bank Holidays → Delete Bank Holiday",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/BankHoliday",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": ".k-selectable > tbody > tr:first-child > .k-command-cell > div > div > a:last-child"},
+                    {"~~delay": 1000},
+                    {"~~click": ".modal > .modal-dialog > .modal-content > .modal-footer > button:first-child"}
+                ]
+            },
+            {
+                "name": "Settings → Enrollment Documents → New Enrollment Document + (Update) + Delete",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/EnrollmentDocument/Create",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"#DocumentTypeEn": "_test document"},
+                    {"#DocumentDescriptionEn": "some description"},
+
+                    {"~~click": "form > div > div:nth-child(5) > div > div > div > button"}
+                ]
+            },
+            {
+                "name": "Settings → Enrollment Documents → New Enrollment Document + (Update) + Delete",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/EnrollmentDocument/List",
+                "parameters": [
+                    {"~~click": "#EnrollmentDocumentsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
+
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                
+                    {"#DocumentTypeDe": "_description"},
+                    {"#DocumentDescriptionDe": "DE description"},
+
+                    {"~~click": "form > div > div:nth-child(5) > div > div > div > button"}
+                ]
+            },
+            {
+                "name": "Settings → Enrollment Documents → New Enrollment Document + (Update) + Delete",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/EnrollmentDocument/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    
+                    {"~~click": "#EnrollmentDocumentsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td.k-command-cell > div > div > a"},
+                    {"~~delay": 500},
+                    {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
+                ]
+            },
+            {
+                "name": "Settings → Risk Management → Risk Type → Update Cummulative Risk Score To",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/RiskType/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    
+                    {"~~click": "#RiskTypeGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(3) > div > div"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "5"},
+                    {"~~press": "0"},
+                    {"~~press": "0"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 1000},
+
+                    {"~~click": "#RiskTypeGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(3) > div > div"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "1"},
+                    {"~~press": "0"},
+                    {"~~press": "0"},
+                    {"~~press": "0"},
+                    {"~~press": "Tab"}
+                ]
+            },
+            {
+                "name": "Settings → Risk Management → Risk Score → Update Score",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/RiskScore/List",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"~~click": "#RiskScoreGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(2) > div > div"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "5"},
+                    {"~~press": "0"},
+                    {"~~press": "Tab"},
+
+                    {"~~delay": 1000},
+
+                    {"~~click": "#RiskScoreGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr > td:nth-child(2) > div > div"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "Backspace"},
+                    {"~~press": "1"},
+                    {"~~press": "0"},
+                    {"~~press": "0"},
+                    {"~~press": "Tab"}
+                ]
+            },
+            {
+                "name": "Settings → Test HMAC → Compute",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/Hmac/Test",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+
+                    {"#Payload": "some text"},
+                    {"#Secret": "some secret text"},
+
+                    {"~~click": "form > div.row > div > button"}
+                ]
             },
 
 
