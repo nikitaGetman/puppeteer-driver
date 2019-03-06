@@ -571,20 +571,12 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/List"
             },
             {
-                "name": "(!!! select update) Settings → Email Templates → New Layout",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/Edit/10"
-            },
-            {
                 "name": "Settings → Email Templates → Layout",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/Edit/9"
             },
             {
                 "name": "Settings → Email Templates → Contents",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailContent/List"
-            },
-            {
-                "name": "(!!!) Settings → Email Templates → Contents → New Content",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailContent/Create?notificationTypeId=100&culture=prs-AF"
             },
             {
                 "name": "Settings → User Agreements → Versions",
@@ -3611,8 +3603,9 @@
                     
                 ]
             },
-            {!
-                "name": "Account Management → Account application → Account Application → Add Document"
+            {
+                "name": "Account Management → Account application → Account Application → Add Document (!!! correct account required)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/"
             },
             {
                 "name": "Account Management → Account application → Account Application → Switch to status 'Closed'",
@@ -3800,8 +3793,9 @@
 
                 ]
             },
-            {!
-                "name": "Transaction Management → Scheduled Transactions → Cancel (empty)"
+            {
+                "name": "Transaction Management → Scheduled Transactions → Cancel (!!! empty)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/"
             },
             {
                 "name": "Transaction Management → Unsettled Transactions → Settle",
@@ -3832,7 +3826,7 @@
                     {"~~press": "a"},
                     {"~~press": "Tab"},
                     
-                    {"#Name": "_Test merchant name"},
+                    {"#Name": "_Test merchant name [timestamp]"},
                     {"~~click": "form > div > div:nth-child(6) > div:nth-child(1) > div:nth-child(3) > div > span.k-widget.k-dropdown > span > span.k-input"},
                     {"~~press": "m"},
                     {"~~press": "Tab"},
@@ -4125,11 +4119,13 @@
                     {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
                 ]
             },
-            {!
-                "name": "Settings → User → Reset Password"
+            {
+                "name": "Settings → User → Reset Password (!!! correct account required)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/"
             },
-            {!
-                "name": "Settings → User → Send Verification link"
+            {
+                "name": "Settings → User → Send Verification link(!!! correct account required)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/"
             },
             {
                 "name": "Settings → Roles → New + Update Role + (Delete)",
@@ -4160,8 +4156,9 @@
                     {"~~click": "#form0 > div > div > div:nth-child(5) > div > button"}
                 ]
             },
-            {!
-                "name": "Settings → Roles → Role Members → Scope → Activation + (Deactivation)"
+            {
+                "name": "Settings → Roles → Role Members → Scope → Activation + (Deactivation) (!!! correct steps required)",
+                "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/"
             },
             {
                 "name": "Settings → API Authorization Sets → API Authorization Set → Copy",
@@ -4405,8 +4402,8 @@
                     {"~~click": "body > div.modal.fade.in > div > div > div.modal-footer > button:nth-child(1)"}
                 ]
             },
-            {! can not create with same parameters
-                "name": "Settings → Email Templates → Contents → New Content",
+            {
+                "name": "Settings → Email Templates → Contents → New Content (!!! can not create with same parameters)",
                 "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/EmailContent/List",
                 "parameters": [
                     "~~ITERATIONS_COUNT=1",
@@ -4454,7 +4451,7 @@
                 ]
             },
             {
-                "name": "Settings → User Agreements → Update Version (Delete)",
+                "name": "Settings → User Agreements → Update Version",
                 "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/UserAgreement/List",
                 "parameters": [
                     {"~~click": "#UserAgreementsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
@@ -4571,7 +4568,7 @@
                 ]
             },
             {
-                "name": "Settings → Enrollment Documents → New Enrollment Document + (Update) + Delete",
+                "name": "Settings → Enrollment Documents → New Enrollment Document",
                 "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/EnrollmentDocument/Create",
                 "parameters": [
                     "~~ITERATIONS_COUNT=1",
@@ -4584,7 +4581,7 @@
                 ]
             },
             {
-                "name": "Settings → Enrollment Documents → New Enrollment Document + (Update) + Delete",
+                "name": "Settings → Enrollment Documents → Update Enrollment Document",
                 "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/EnrollmentDocument/List",
                 "parameters": [
                     {"~~click": "#EnrollmentDocumentsGrid > div.k-grid-content.k-auto-scrollable > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div > a"},
@@ -4599,7 +4596,7 @@
                 ]
             },
             {
-                "name": "Settings → Enrollment Documents → New Enrollment Document + (Update) + Delete",
+                "name": "Settings → Enrollment Documents → Delete Enrollment Document",
                 "url": "https://dmd-vm.kontocloud.com/kontocloud/backoffice/EnrollmentDocument/List",
                 "parameters": [
                     "~~ITERATIONS_COUNT=1",
