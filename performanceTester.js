@@ -618,7 +618,7 @@ exports.newTest = async function newTest(page, url, testParams){
 
         /// General cycle of time measurement
     let averageTime = 0;
-    const iterations = specifiedIterationsCount > 0 ? specifiedIterationsCount : 3;   
+    const iterations = 1;//specifiedIterationsCount > 0 ? specifiedIterationsCount : 3;   
 
     for(let i=0; i < iterations; i++){
             // set default values
