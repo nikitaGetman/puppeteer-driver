@@ -1,0 +1,180 @@
+Url,Elapsed time (ms),Method
+Opening period dependent data grids (filters are empty),,
+Account Management → Compliance Check,2306.17,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/List,455.63,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,137.03,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/GetTrafficLightList?text=,105.67,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/GetHitTypeList?text=,112.2,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/List_Read,936.45,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/List_Read,309.38,POST
+Account Management → Billing Events,1747.92,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BillingEvent/List,515.54,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,181.93,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BillingEvent/List_Read,481.17,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BillingEvent/List_Read,452.79,POST
+Account Management → Charged Fees,2006.14,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/FeeCharge/List,402.71,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=1,688.6,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,938.28,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Fee/GetFees,955.13,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RecurringFee/GetNameList,862.66,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/FeeCharge/List_Read,800.29,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/FeeCharge/List_Read,531.59,POST
+Account Management → Charged Initiator Fees,2217.74,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorFeeCharge/List,347.75,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes,176.22,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorFeeCharge/List_Read,1138.54,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorFeeCharge/List_Read,480.34,POST
+Account Management → Account Adjustments,1818.25,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/List,874.16,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/List_Read,182.49,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/List_Read,127.27,POST
+Transaction Management → Transactions,2564.41,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List,451.69,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,147.04,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=32,136.47,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,120.47,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List_Read,1017.33,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List_Read,830.44,POST
+Transaction Management → External Transactions,1867.31,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List,374.43,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=8,141.63,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,124.83,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List_Read,635.13,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List_Read,612.71,POST
+Transaction Management → Internal Transactions,2400.23,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List,319.11,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=16,163.16,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RiskType/GetRiskTypeList?text=,115.45,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List_Read,315.65,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List_Read,1258.36,POST
+Transaction Management → Scheduled Transactions,1535.62,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List,391.84,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,231.09,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List_Read,234.25,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List_Read,132.49,POST
+Transaction Management → Unsettled Transactions,11986.69,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List,505.2,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,134.65,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/GetEntryIndicators?text=,119.33,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,140.4,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List_Read,10588.54,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List_Read,2310.8,POST
+Risk Management → Order Risk Check,1581.29,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/OrderRiskCheck/List,371.68,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,762.83,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/GetTrafficLightList?text=,715.39,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/OrderRiskCheck/GetDenialReasonsList?text=,717.65,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/OrderRiskCheck/List_Read,165.09,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/OrderRiskCheck/List_Read,110.13,POST
+Risk Management → Blocked Transactions,1311.79,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BlockedTransactionIssuing/List,385.5,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,150.06,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=64,145.22,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BlockedTransactionIssuing/List_Read,162.76,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BlockedTransactionIssuing/List_Read,112.67,POST
+Reports → Account Application Status,9968.69,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus,357.34,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/GetStatusList?text=,135.62,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,122.92,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus_Read,8844.74,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus_Read,324.99,POST
+Reports → Account Balance,45031.99,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance,324.94,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,120.75,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,117.02,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetStatusList?text=,114.56,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,135.68,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetPrograms?text=&MemberId=&WalletProductId=,341.4,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance_Read,43904.07,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance_Read,7713.98,POST
+Reports → External Authorization,3429.50,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalAuthorization,371.75,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,255.49,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptions?text=,206.5,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalAuthorization_Read,212.46,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalAuthorization_Read,2256.54,POST
+Reports → External Payout,2520.46,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalPayout,338.11,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,127.6,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptions?text=,127.04,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalPayoutList_Read,336.54,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalPayoutList_Read,1381.43,POST
+Reports → Fees,1308.06,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Fee,343.89,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FeeList_Read,194.92,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FeeList_Read,115.6,POST
+Reports → Fraud Transactions,1279.42,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FraudTransactions,366.21,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,165.37,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FraudTransactionsList_Read,127.21,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FraudTransactionsList_Read,149.65,POST
+Reports → GoAML Transactions,2614.39,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/GoAmlTransactions,825.51,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/GoAmlTransactionsList_Read,817.5,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/GoAmlTransactionsList_Read,942.31,POST
+Reports → KPI Report,14412.00,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Kpi,395.09,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/KpiList_Read,13301.07,POST
+Reports → Loading,5750.35,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Loading,410.05,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,259.76,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptions?text=,244.77,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/LoadingList_Read,447.02,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/LoadingList_Read,4527.77,POST
+Reports → Payment,5146.75,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Payment,461.92,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/GetMerchantList?text=,283.6,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,438.22,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetMerchantAccountList?text=&MerchantId=,512.54,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/PaymentList_Read,3288.98,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/PaymentList_Read,3891.84,POST
+Reports → Risk Score Card,1196.55,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskScoreCard,365.22,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskScoreCardList_Read,129.28,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskScoreCardList_Read,110.96,POST
+Reports → Risk Transactions,13158.20,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskTransactions,354.22,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskTransactionsList_Read,12008.36,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskTransactionsList_Read,1435.85,POST
+Reports → Sent Emails,1744.26,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SentEmails,453.69,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SentEmailsList_Read,530.91,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SentEmailsList_Read,178.23,POST
+Reports → Summary Payout,4178.73,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SummaryPayout,344.53,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,132.26,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SummaryPayoutList_Read,2937.01,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SummaryPayoutList_Read,221.79,POST
+Reports → Unloading,4771.83,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading,772.47,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,793.19,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptions?text=,769.9,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/UnloadingList_Read,1181.04,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/UnloadingList_Read,3057.02,POST
+Reports → User Statistics (last month),3258.48,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading,327.77,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,130.8,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptions?text=,184.24,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/UnloadingList_Read,1411.89,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/UnloadingList_Read,2097.07,POST
+Settings → Log → End-of-Day Job Log,1566.16,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog,365.96,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog/List_Read,196.45,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog/List_Read,107.77,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog/AllowedActions,220.62,POST
+Settings → Log → API Activity Log,1462.85,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog,423.74,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes,204.02,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog/List_Read,251.05,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog/List_Read,174.88,POST
+Settings → Log → System Activity Log,13000.18,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog,336.83,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityResource/GetList,129.69,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityOperation/GetList?text=&ResourceId=,129.6,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog/List_Read,11908.49,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog/List_Read,248.37,POST
+Settings → Log → External Call Log,1368.87,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog,358.96,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog/List_Read,244.37,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog/List_Read,151.96,POST

@@ -14,7 +14,7 @@ const {TimeoutError} = require('puppeteer/Errors');
 
 
             // loading configuration and login in the system
-        let cfg = await performanceTester.loadConfig('test_configs/periodIndependent.json');
+        let cfg = await performanceTester.loadConfig('test_configs/reports_downloading57.json');
         
         let loginParams = cfg.loginParameters;
         let executionParams = cfg.executionParameters;
@@ -104,7 +104,7 @@ const {TimeoutError} = require('puppeteer/Errors');
         // trying to re-process timeouted tests ///////////////
         if(timeoutedTests.length > 0){
             dataReport.push({'url' : 'Timeouted tests'});
-            console.log("Test complect: ".blue, 'Timeouted tests'.blue.bold)
+            console.log("Test suite: ".blue, 'Timeouted tests'.blue.bold)
         }
         for(let i=0; i < timeoutedTests.length; i++){
 

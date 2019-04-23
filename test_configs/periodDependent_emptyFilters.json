@@ -6,10 +6,10 @@
     },
 
     "executionParameters": {
-        "reportPath" : "reports",
+        "reportPath" : "reports-5.7/",
         "rowReportPath" : "row-reports/",
-        "headless" : false,
-        "devtools": true,
+        "headless" : true,
+        "devtools": false,
         "defaultViewport": {
             "width": 1280,
             "height": 720
@@ -82,7 +82,7 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus"
             },
             {
-                "name": "Reports → Acount Balance",
+                "name": "Reports → Account Balance",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance"
             },
             {

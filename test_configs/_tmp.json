@@ -1,0 +1,38 @@
+{
+    "loginParameters": {
+        "username": "test@example.com",
+        "password": "1234567890",
+        "loginUrl": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Authentication/Login"
+    },
+
+    "executionParameters": {
+        "reportPath" : "reports-5.6/",
+        "rowReportPath" : "row-reports/",
+        "headless" : true,
+        "devtools": false,
+        "defaultViewport": {
+            "width": 1280,
+            "height": 720
+        }
+    },
+
+    "urlBlacklist": [],
+    
+    "tests": {
+
+       
+        "Timeouted" : [
+
+            {
+                "name": "Product Management → Limit Management → Edit Limit",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Limit/Edit/2"
+            },
+            {
+                "name": "Settings → User Agreements → Texts → Text",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreementText/Edit/14"
+            }
+
+        ]
+ 
+    }
+}

@@ -1,0 +1,650 @@
+Url,Elapsed time (ms),Method
+Opening period independent data grids,,
+Home → System Health Monitor,2712.16,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/SystemHealthMonitor,438.89,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog/List_Read,131.17,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes,158.83,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ApiActivityWidgetData,128.54,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/WeeklyApiCallsDistributionWidgetData,1035.07,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/SequentialQueueMonitorList_Read,122.21,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/SequentialQueueMonitorList_Read,123.81,POST
+Home → Expiration Monitor,2676.91,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitor,327.96,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,180.25,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Home/ExpirationMonitorList_Read,743.04,POST
+Membership Management → Programs,1625.59,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/List,321.4,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,125.49,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,124.58,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/List_Read,487.2,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/List_Read,207.16,POST
+Membership Management → Programs → New Program,1284.64,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Create,369.56,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetMemberList?text=,135.87,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetProductList?text=,132.86,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList?onlyActive=True,119.9,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/CultureListDataSourceResult,108.11,POST
+Membership Management → Program Data,2006.22,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/4,485.79,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountType/GetNonProductAccountTypes?programId=4&forAccount=True&accountCategory=Program&onlyEwalletAccountCategory=False&text=,131.65,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList?onlyActive=True,123.27,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/CultureListDataSourceResult,110.53,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetPortals?text=,130.76,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAccountsByAccountOwnerId?accountOwnerId=4&text=,132.39,GET
+Membership Management → Program Data  Accounts → (link),1820.38,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/List?ownerId=4,353.37,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetStatusList?text=,121.35,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,121.37,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,120.64,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,153.14,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/List_Read?AccountOwnerId=4,128.96,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/List_Read?AccountOwnerId=4,115.61,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetPrograms?text=&MemberId=&WalletProductId=,127.3,GET
+Membership Management → Program → Countries,1215.61,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCountry/List/4,350.93,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCountry/Countries_Read?ProgramId=4,125.32,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCountry/Countries_Read?ProgramId=4,120.78,POST
+Membership Management → Program → Countries → select any country and click its name link,1280.41,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCountry/List/4,354.11,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCountry/Countries_Read?ProgramId=4,129.06,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCountry/Countries_Read?ProgramId=4,122.25,POST
+Membership Management → Program → Currencies,1453.34,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCurrency/List/4,377.91,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCurrency/List_Read?ProgramId=4&ProgramName=ACME%20Corporation%20Program,188.75,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCurrency/List_Read?ProgramId=4&ProgramName=ACME%20Corporation%20Program,139.51,POST
+Membership Management → Program → Account Application Flows,1341.77,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramAccountApplicationFlow/List/4,407.75,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramAccountApplicationFlow/List_Read?programId=4,141.99,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramAccountApplicationFlow/List_Read?programId=4,120.43,POST
+Membership Management → Program → Account Application Flow,1229.51,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramAccountApplicationFlow/Edit/4?accountApplicationFlowId=1,317.36,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramAccountApplicationFlow/AccountApplicationFlowStep_Read?accountApplicationFlowId=1,196.38,POST
+Membership Management → Program → New Account Application Flow,1226.36,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramAccountApplicationFlow/Create/4,297.19,GET
+Membership Management → Program → Enrollment Documents,1359.05,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramEnrollmentDocuments/List/4,356.48,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramEnrollmentDocuments/EnrollmentDocuments_Read?ProgramId=4,132.65,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramEnrollmentDocuments/EnrollmentDocuments_Read?ProgramId=4,115.37,POST
+Membership Management → Program → Payment Provider Settings,1593.57,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/List/4,698.02,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=4,149.94,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/List_Read?ProgramId=4,130.02,POST
+Membership Management → Program → Payment Provider Setting,1158.73,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/Edit/4?paymentProviderSettingId=8,332.89,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/GetPaymentOptionCards?paymentProviderType=Payon&text=,130.66,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/GetPaymentOptions?programId=4&paymentProviderType=Payon&text=,173.11,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/GetTestModelList?paymentProviderType=Payon&text=,109.39,GET
+Membership Management → Program → New Payment Provider Setting,1817.49,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/Create/4?paymentProviderType=20,303.89,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/GetPaymentOptionCards?paymentProviderType=Payon&text=,127.29,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/GetPaymentOptions?programId=4&paymentProviderType=Payon&text=,127.06,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramPaymentProviderSetting/GetTestModelList?paymentProviderType=Payon&text=,113.59,GET
+Membership Management → Program → Integration Settings,2039.42,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramIntegrationSettings/4,394.07,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/IdProvider/GetProvidersList?text=,132.94,GET
+Membership Management → Program → Email Notifications,1446.14,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramEmailNotifications/List/4,340.63,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramEmailNotifications/EmailNotificationsList_Read?programId=4,154.24,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramEmailNotifications/EmailNotificationsList_Read?programId=4,124.19,POST
+Membership Management → Program → User Agreements → Versions,1418.64,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/4/UserAgreement/List,378.54,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=4,136.32,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramUserAgreement/List_Read?programId=4,126.61,POST
+Membership Management → Program → User Agreements → Versions → Version,1293.92,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreement/Edit/1,296.87,GET
+Membership Management → Program → User Agreements → New Version,1438.28,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreement/Create,334.78,GET
+Membership Management → Program → User Agreements → Texts,1449.92,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreementText/List,368.96,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramUserAgreement/GetVersions?programId=17587&text=,129.91,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/CultureListDataSourceResult,109.47,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramUserAgreementText/List_Read?programId=17587,144.82,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramUserAgreementText/List_Read?programId=17587,118.96,POST
+Membership Management → Program → User Agreements → Text,1616.32,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreementText/Edit/1,380.29,GET
+Membership Management → Program → User Agreements → New Text,2003.01,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/Edit/17587/UserAgreementText/Create,438.4,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramUserAgreement/GetActualVersions?programId=17587&text=,133.6,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/CultureListDataSourceResult,116.65,POST
+Membership Management → Members,1156.49,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/List,316.37,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/List_Read,139.22,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/List_Read,112.73,POST
+Membership Management → Member → Programs (link),1797.86,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/List?memberId=2,418.75,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,139.87,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,134.01,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/List_Read,498.28,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/List_Read,140.86,POST
+Membership Management → New Member,747.32,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/Create,266.86,GET
+Membership Management → FI,1263.37,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/FinancialInstitution/Edit,339.16,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList?onlyActive=True,136.85,POST
+Product Management → Products,1260.54,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product,346.48,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/Products_Read,133.73,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/Products_Read,110.21,POST
+Product Management → Account Types,1477.97,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountType/List,346.35,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,124.68,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountType/List_Read,144.35,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountType/List_Read,113.62,POST
+Product Management → Account Type,1365.65,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountType/Edit/7,454.69,GET
+Product Management → Account Type → Payment Options (link),1703.65,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/List?accountTypeId=7,441.55,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,134.06,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentGroups?text=,134.23,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetPrograms?WalletProductId=2&filter%5Bfilters%5D%5B0%5D%5Bfield%5D=Value&filter%5Bfilters%5D%5B0%5D%5Boperator%5D=eq&filter%5Bfilters%5D%5B0%5D%5Bvalue%5D=2&filter%5Blogic%5D=and,125.23,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/List_Read,135.72,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/List_Read,136.48,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountType/GetNonProductAccountTypes?onlyEwalletAccountCategory=False&ProgramId=4&filter%5Bfilters%5D%5B0%5D%5Bfield%5D=Id&filter%5Bfilters%5D%5B0%5D%5Boperator%5D=eq&filter%5Bfilters%5D%5B0%5D%5Bvalue%5D=4&filter%5Blogic%5D=and,145.83,GET
+Product Management → New Account Type,1355.05,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountType/Create,279.73,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=True&text=,150.84,GET
+Product Management → Payment Options,1549.20,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/List,313.75,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,138.43,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentGroups?text=,122.19,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/List_Read,158.28,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/List_Read,117.31,POST
+Product Management → Payment Option,917.52,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/Edit/17,421.97,GET
+Product Management → Transaction Types,1670.16,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/List,326.97,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,134.58,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,131.97,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes,148.12,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/List_Read,325.38,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/List_Read,123.73,POST
+Product Management → Fee Management → Fees,1776.92,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Fee/List,341.6,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=True&text=,136.23,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,132.41,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentGroups?text=,120.82,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=1,133.09,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Fee/List_Read,170.24,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Fee/List_Read,122.17,POST
+Product Management → Fee Management → Fees → Edit Fee,1744.68,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Fee/Edit/6,585.76,GET
+Product Management → Fee Management → Fees → New Fee,2447.62,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Fee/Create,306.43,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=True&text=,135.09,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,128.8,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentGroups?text=,120.77,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=1,147.39,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Fee/Create_Read,475.1,POST
+Product Management → Fee Management → Recurring Fees,1571.62,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RecurringFee/List,331.38,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=True&text=,138.97,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RecurringFee/List_Read,124.75,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RecurringFee/List_Read,124.15,POST
+Product Management → Fee Management → Recurring Fees → Edit Fee,1194.79,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RecurringFee/Edit/3,313.61,GET
+Product Management → Fee Management → Recurring Fees → New Fee,1100.33,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RecurringFee/Create,254.84,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=True&text=,132.12,GET
+Product Management → Limit Management,1797.88,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Limit/List,385.39,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=True&text=,127.5,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,124.97,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentGroups?text=,126.34,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=2,128.63,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Limit/List_Read,132.03,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Limit/List_Read,114.4,POST
+Product Management → Limit Management → Edit Limit,1437.98,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Limit/Edit/2,490.57,GET
+Product Management → Limit Management → New Limit,4852.75,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Limit/Create,260.47,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=True&text=,140.94,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,126.23,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentGroups?text=,121.34,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=2,131.06,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Limit/Create_Read,442.26,POST
+Account Management → Accounts,5133.96,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/List,331.2,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetStatusList?text=,133.04,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,155.71,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,129.35,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,223.53,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/List_Read,3681.73,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/List_Read,756.41,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetPrograms?text=&MemberId=&WalletProductId=,1596.76,GET
+Account Management → New E-Wallet Account,1461.11,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/Create,379.61,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetPrograms?boardingAllowed=True&text=,121.74,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,151.36,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/GetIdentificationDocumentTypes?text=,138.93,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,141.73,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,128.32,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,128.54,POST
+Account Management → Account Data,1576.70,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/Edit/7,490.59,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAcceptableStatusList?accountId=7&text=,164.57,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAccountTypes?accountId=7&text=,150.47,GET
+Account Management → Account Data → Account Owner (link),1506.20,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/Edit/15,439.3,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/TimeZoneList,117.96,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList?onlyActive=True,126.45,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,130.51,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/TimeZoneList,120.76,POST
+Account Management → Account Data → Account Application (link),2026.65,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit/3,656.73,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,138.3,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/GetIdentificationDocumentTypes?text=,112.81,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,144.54,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetSourcesOfWealth?text=,124.31,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetSourcesOfWealth?text=,112.1,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/PartialList_Read?ProgramId=4&ResourceName=UserAccountApplication&ResourceId=3&ReadOnly=False,142.56,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit_DocumentFileList_Read?accountApplicationDocumentId=3,123.6,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit_DocumentFileList_Read?accountApplicationDocumentId=4,127.8,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,149.36,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/PartialList_Read?ProgramId=4&ResourceName=UserAccountApplication&ResourceId=3&ReadOnly=False,123.64,POST
+Account Management → Account Data → Account Statement,1719.16,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List/1,547.98,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List_Read?AccountId=1,157.76,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List_Read?AccountId=1,119.4,POST
+Account Management → Account Data → Stored Payment Options,1342.80,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStoredPaymentOption/List/7,489.29,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStoredPaymentOption/List_Read?AccountId=7,147.03,POST
+Account Management → Account Data → Limits,1387.46,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountLimit/List/7,438.63,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountLimit/List_Read?AccountId=7,149.31,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountLimit/List_Read?AccountId=7,129.26,POST
+Account Management → Account Data → Risk Management (!!! empty),1570.58,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountRiskManagement/List/7,466.12,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountRiskManagement/Blacklist_Read?AccountId=7,153.16,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountRiskManagement/Whitelist_Read?AccountId=7,153.77,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountRiskManagement/Blacklist_Read?AccountId=7,181.27,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountRiskManagement/Whitelist_Read?AccountId=7,184.44,POST
+Account Management → Account Applications,1989.58,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/List,329.55,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/GetStatusList?text=,137.13,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,134.49,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/List_Read,532.85,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/List_Read,196.68,POST
+Account Management → Account Application,1777.71,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit/212633,501.02,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,135.19,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/GetIdentificationDocumentTypes?text=,107.68,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,129.52,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetSourcesOfWealth?text=,110.14,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetSourcesOfWealth?text=,144.3,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/PartialList_Read?ProgramId=28101&ResourceName=UserAccountApplication&ResourceId=212633&ReadOnly=False,147.64,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,127.86,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/PartialList_Read?ProgramId=28101&ResourceName=UserAccountApplication&ResourceId=212633&ReadOnly=False,120.58,POST
+Account Management → Account Application → Applicant (link),1614.68,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/Edit/274120,536.15,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/TimeZoneList,116.07,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList?onlyActive=True,136.36,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,136.96,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/TimeZoneList,118.02,POST
+Account Management → Account Application → Account (link),1455.22,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/Edit/212665,484.26,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAcceptableStatusList?accountId=212665&text=,180.54,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAccountTypes?accountId=212665&text=,157.4,GET
+Account Management → Account Application → Risk Profile History,1345.09,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplicationRiskCheckHistory/List/212633,399.31,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplicationRiskCheckHistory/List_Read?accountApplicationId=212633,134.12,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplicationRiskCheckHistory/List_Read?accountApplicationId=212633,115.62,POST
+Account Management → Account Application → Account Application History,1353.49,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplicationHistory/List/212633,410.24,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplicationHistory/List_Read?accountApplicationId=212633,230.94,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplicationHistory/List_Read?accountApplicationId=212633,141.96,POST
+Account Management → Stored Payment Options,2667.11,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/StoredPaymentOption/List,330.38,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,136.65,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,131.61,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/StoredPaymentOption/List_Read,147.35,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/StoredPaymentOption/List_Read,905.57,POST
+Account Management → Compliance Check → Account Owner (link),2039.06,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit/17937,558.46,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,144.9,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/GetIdentificationDocumentTypes?text=,109.8,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,134.52,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetSourcesOfWealth?text=,111.75,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetSourcesOfWealth?text=,120.26,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,132.45,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,136.96,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/PartialList_Read?ProgramId=17587&ResourceName=UserAccountApplication&ResourceId=17937&ReadOnly=True,150.48,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit_DocumentFileList_Read?accountApplicationDocumentId=35869,130.88,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountApplication/Edit_DocumentFileList_Read?accountApplicationDocumentId=35876,131.37,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/PartialList_Read?ProgramId=17587&ResourceName=UserAccountApplication&ResourceId=17937&ReadOnly=True,126.65,POST
+Account Management → Account Groups,1575.82,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountGroup/List,329.64,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountGroup/AccountApprovedStatesDummy?text=,112,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,122.46,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountGroup/List_Read,226.76,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountGroup/List_Read,124.14,POST
+Account Management → Account Adjustments → New Adjustment,1492.49,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/Create,327.68,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAccounts,150.56,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/GetEntryIndicators?text=,116.81,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/PreviewAccountEntryList_Read,120.41,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/PreviewAccountEntryList_Read,111.82,POST
+Account Management → Account Adjusments → Account Number (link),2032.67,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/Edit/35,548.64,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAcceptableStatusList?accountId=35&text=,171.91,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAccountTypes?accountId=35&text=,149.13,GET
+Account Management → Mandate Archive,1618.37,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/MandateArchive/List,334.49,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,129.69,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/MandateArchive/List_Read,169.81,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/MandateArchive/List_Read,130.31,POST
+Transaction Management → Transactions → Transaction → Details (link),1933.96,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List?transactionId=10887326,414.44,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=16,167.99,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RiskType/GetRiskTypeList?text=,134.28,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List_Read?TransactionId=10887326,140.24,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List_Read?TransactionId=10887326,123.99,POST
+Transaction Management → Transactions → Transaction → Open Dependent Transaction (link),4331.04,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List?dependingTransactionId=10887313,1180.85,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,154.81,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=32,131.88,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,125.32,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List_Read,1769.18,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List_Read,1451.91,POST
+Transaction Management → External Transactions → Open Transaction (link),1889.58,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List?transactionId=10915914,456.66,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,148.44,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=32,126.88,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,133.98,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List_Read,215.94,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List_Read,128.35,POST
+Transaction Management → Internal Transactions → Open Transactions (link),2701.03,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List?transactionIssuingId=8302313,443.96,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,156.45,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionType/GetTransactionTypes?applicableTarget=32,137.7,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/PaymentOption/GetPaymentOptionNames,146.08,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List_Read,438.71,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List_Read,888.8,POST
+Risk Management → Risk Type,1846.02,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskType/List,349.79,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,132.32,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskType/List_Read,152.17,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskType/List_Read,122.98,POST
+Risk Management → Risk Check,1377.38,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskCheck/List,319.93,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,127.73,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RiskScore/GetRiskScoreList?text=,133.42,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskCheck/List_Read,142.25,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskCheck/List_Read,111.14,POST
+Risk Management → Risk Score,1508.35,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskScore/List,321.63,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,133.09,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskScore/List_Read,141.94,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorRiskScore/List_Read,117.37,POST
+Merchants → Merchants,1599.04,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/List,355.08,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,133.46,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,139.23,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/GetStates?text=,121.8,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/List_Read,154.14,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/List_Read,117.9,POST
+Merchants → Merchants → Merchant Data,1859.18,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/Edit/28110,471.64,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,127.7,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetPrograms?text=,132.09,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,140.61,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/GetMerchantPanelRealmPortals?text=,124.45,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/TimeZoneList,108.63,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCountry/GetCountryList,130.75,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ProgramCountry/GetCountryList,125.89,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,130.41,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/TimeZoneList,117.04,POST
+Merchants → Merchants → Accounts,1378.16,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/AccountList/28110,347.22,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/AccountList_Read?merchantId=28110,152.52,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/AccountList_Read?merchantId=28110,146.45,POST
+Merchants → Merchants → Accounts → Acount Number (link),1363.22,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/Edit/18445,449.06,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAcceptableStatusList?accountId=18445&text=,165.65,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAccountTypes?accountId=18445&text=,141.04,GET
+Merchants → Merchants → New Merchant,1295.47,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/Create,276.83,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,126.8,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,192.23,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/GetMerchantPanelRealmPortals?text=,129.73,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/TimeZoneList,111.1,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/MerchantCurrencies?programId=,116.47,GET
+Reports → E-Wallet Account Type,1680.55,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletAccountType,353.94,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,131.24,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,132.86,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletAccountType_Read,135.72,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletAccountType_Read,131.86,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetPrograms?text=&MemberId=&WalletProductId=,127.76,GET
+Reports → E-Wallet Activation,1699.69,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletActivation,360.64,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetStatusList?text=,123.13,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,123,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletActivation_Read,328.2,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletActivation_Read,136.1,POST
+Reports → E-Wallet User State,1974.75,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletUserState,430.27,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,135.25,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletUserStateList_Read,174.35,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/EWalletUserStateList_Read,142.91,POST
+Support,2231.54,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SupportTicket/List,344.67,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetUserNames,1229.26,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetCurrentRealmUserNameList,204.57,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SupportTicket/List_Read,185.76,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SupportTicket/List_Read,115.05,POST
+Support → Edit Ticket,1386.64,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SupportTicket/Edit/6,273.69,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SupportTicket/CommentList_Read?supportTicketId=6,136.13,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SupportTicket/AttachmentList_Read?supportTicketId=6,138.76,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SupportTicket/CommentList_Read?supportTicketId=6,120.57,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SupportTicket/AttachmentList_Read?supportTicketId=6,120.73,POST
+Support → New Ticket,1761.80,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SupportTicket/Create,259.12,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetUsers,726.04,POST
+Settings → Users,1934.44,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/List,324.17,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetUserOwners,173.18,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/GetPortals,148.77,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/List_Read,595.71,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/List_Read,127.83,POST
+Settings → New User,1225.75,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/Create,280.86,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetPortals?text=,132.65,GET
+Settings → User → User Data,1645.99,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/Edit/19115,641.81,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/TimeZoneList,113.3,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList?onlyActive=True,127.68,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,199.09,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/TimeZoneList,110.74,POST
+Settings → User → Accounts (link),1869.84,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/List?ownerId=19115,339.72,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetStatusList?text=,133.29,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,130.08,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,125.84,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,143.03,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/List_Read?AccountOwnerId=19115,133.34,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/List_Read?AccountOwnerId=19115,119.52,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Program/GetPrograms?text=&MemberId=&WalletProductId=,131.07,GET
+Settings → User → Secondary Emails,1401.49,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSecondaryEmail/List/19115,461.79,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSecondaryEmail/List_Read/19115,136.55,POST
+Settings → User → Roles,1656.94,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/Roles/19115,489.43,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Role/UserScopeRolesList_Read?userId=19115,232.54,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Role/UserScopesRoleAssignments_Count,127.93,POST
+Settings → User → Effective Permissions,1402.02,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/EffectivePermissions/19115,442.87,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/GetUserScopesList?userId=19115,136.68,GET
+Settings → User → External IDs (!!! empty),1381.59,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationUserExternalId/List/19115,459.1,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationUserExternalId/List_Read/19115,144.03,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationUserExternalId/List_Read/19115,127.95,POST
+Settings → User → External IDs → New External ID,1320.68,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationUserExternalId/Create/19115,405.57,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/IdProvider/GetProvidersList?text=,124.35,GET
+Settings → Roles,1504.58,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings,330.46,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/GetScopeTypeList?text=,133.9,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/List_Read,133.17,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/List_Read,119.9,POST
+Settings → Role,2091.10,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/Edit/5,641.58,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/ScopeTypeList_Read?text=,129.41,GET
+Settings → Role → Role Members,1284.70,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/Members/5,439.75,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/MemberList_Read/5,141.52,POST
+Settings → Roles→ Role → Role Members → Scopes (link),1432.74,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/Members/5,646.84,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/MemberList_Read/5,143.43,POST
+Settings → New Role,1922.34,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/Add,397.63,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RoleSettings/ScopeTypeList_Read?text=,123.4,GET
+Settings → Scopes,1693.99,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/List,326.14,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/List_Read,591.28,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/List_Read,147.89,POST
+Settings → Scopes → Scope Name (link),1340.46,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/ScopeUsers/1,516.3,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Role/ScopeUserRolesList_Read?scopeId=1,128.15,POST
+Settings → Scopes → Scope Name → Effective Permissions,1209.49,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScopeSettings/EffectivePermissions/1,426.42,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/GetScopeUsersList?scopeId=1,125.77,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Role/ScopeOperationsList_Read?ScopeId=1,118.34,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Role/ScopeOperationsList_Read?ScopeId=1,463.55,POST
+Settings → API Authorization Sets,1544.70,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiAuthorizationSet/List,360.59,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiAuthorizationSet/List_Read,134.04,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiAuthorizationSet/List_Read,111.9,POST
+Settings → API Authorization Set,808.04,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiAuthorizationSet/Edit/1,329.91,GET
+Settings → Log → API Activity Log → Select any entry → Open (link),955.64,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog/Entry/5995339,438.87,GET
+Settings → Log → System Activity Log → select any entry and click its Entity (link),1432.33,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/User/Edit/8,442.8,GET
+Settings → Log → System Activity Log Settings,1139.07,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog/Settings,322.71,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog/SettingsList_Read,140.63,POST
+Settings → Application Settings,1209.73,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationSettings,321.13,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationSettings/SectionsList_Read,112.86,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationSettings/SectionsList_Read,110.84,POST
+Settings → Application Settings → Application Setting,1136.23,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApplicationSettings/AccountPolicy,306.1,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?IsActive=True&text=,159.83,GET
+Settings → ID Providers,1304.41,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/IdProvider/List,349.44,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/IdProvider/List_Read,135.04,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/IdProvider/List_Read,114.51,POST
+Settings → ID Provider,795.30,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/IdProvider/Edit/1,316.84,GET
+Settings → ID Providers → New ID Provider,749.41,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/IdProvider/Create,282.54,GET
+Settings → Realms,1316.42,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Realm/List,324.29,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Realm/List_Read,144.38,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Realm/List_Read,121.31,POST
+Settings → Realm,1266.03,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/List?realmId=1,293.94,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/List_Read?RealmId=1,124.32,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/List_Read?RealmId=1,109.93,POST
+Settings → Realm → Portal,843.45,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/Edit/1?realmId=1,310.1,GET
+Settings → Realm → Portal → New Portal,810.87,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Portal/Create?realmId=5,320.3,GET
+Settings → Countries,1643.22,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/List,341.73,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetList,127.53,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/GetCountryCodesList,128.34,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/List_Read,130.72,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Country/List_Read,114.81,POST
+Settings → Currencies,1254.44,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/List,346.6,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/List_Read,157.42,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/List_Read,115.71,POST
+Settings → Currency Exchange Rates,1532.77,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/CurrencyExchangeRate/List,340.41,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,155.36,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,150.82,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/CurrencyExchangeRate/List_Read,125.63,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/CurrencyExchangeRate/List_Read,113.91,POST
+Settings → Currency Conversion Fees,1495.99,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/CurrencyConversionFee/List,362.87,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,154.04,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,161.67,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/CurrencyConversionFee/List_Read,133.05,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/CurrencyConversionFee/List_Read,121.61,POST
+Settings → New Currency Conversion Fee,1314.45,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/CurrencyConversionFee/Create,298.46,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,152.3,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Currency/GetCurrencyList?text=,147.63,GET
+Settings → Email Templates → Layouts,1352.55,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/List,379.79,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/List_Read,180.68,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/List_Read,194.51,POST
+Settings → Email Templates → Layout,1387.63,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailLayout/Edit/9,311.5,GET
+Settings → Email Templates → Contents,1284.04,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailContent/List,376.03,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailContent/List_Read_Programs,134.93,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EmailContent/List_Read_Programs,139.48,POST
+Settings → User Agreements → Versions,1446.27,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreement/List,347.99,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreement/List_Read,135.32,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreement/List_Read,119.41,POST
+Settings → User Agreements → Versions → Version,1191.51,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreement/Edit/4,296.56,GET
+Settings → User Agreements → Versions → New Version,1112.84,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreement/Create,305.24,GET
+Settings → User Agreements → Texts,1509.53,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreementText/List,362.23,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreement/GetVersions?text=,129.66,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/CultureListDataSourceResult,109.83,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreementText/List_Read,129.79,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreementText/List_Read,117.82,POST
+Settings → User Agreements → Texts → Text,1205.40,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreementText/Edit/14,353.55,GET
+Settings → User Agreements → Texts → New Text,1447.11,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreementText/Create,298.45,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreement/GetActualVersions?text=,130.09,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/CultureListDataSourceResult,111.13,POST
+Settings → Bank Holidays,1287.37,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BankHoliday,405.71,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BankHoliday/List_Read?year=2018,125.02,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BankHoliday/List_Read?year=2019,124.18,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/BankHoliday/List_Read?year=2020,117.66,POST
+Settings → Enrollment Documents,1344.97,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EnrollmentDocument/List,324.98,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EnrollmentDocument/List_Read,138.81,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EnrollmentDocument/List_Read,110.98,POST
+Settings → Enrollment Documents → Enrollment Document,784.68,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EnrollmentDocument/Edit/5,300.11,GET
+Settings → Risk management → Risk Type,1242.92,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RiskType/List,342.71,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RiskType/List_Read,130.8,POST
+Settings → Risk management → Risk Score,1229.35,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RiskScore/List,331.37,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/RiskScore/List_Read,125.18,POST
+Settings → Test HMAC,849.84,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Hmac/Test,326.2,GET
+Account → Change Email,835.09,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSettings/ChangeEmail,313.24,GET
+Account → Change Password,840.02,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSettings/ChangePassword,353.68,GET
+Account → Change Name,888.14,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSettings/ChangeName,366.79,GET
+Account → Change Regional Settings,1477.94,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSettings/ChangeRegionalSettings,394.85,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/CultureListDataSourceResult,117.01,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Catalog/CultureListDataSourceResult,114.91,POST
+Account → Email Notifications,1194.69,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSettings/EmailNotifications,314.89,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSettings/EmailNotificationsList_Read,159.92,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserSettings/EmailNotificationsList_Read,115.66,POST
+Membership Management → Member,804.37,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/Edit/2,319.6,GET
+Settings → New API Authorization Set,974.29,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiAuthorizationSet/Create,331.9,GET
+Settings → Log → External Call Log → select any entry and click its Details (link),996.52,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog/Entry/6208013?isArchived=false,492.01,GET
+Settings → Enrollment Documents → New Enrollment Document,765.63,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/EnrollmentDocument/Create,289.49,GET

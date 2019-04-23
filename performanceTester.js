@@ -63,7 +63,7 @@ exports.init = async function init(params, loginParams){
         page = await browser.newPage();
 
         await page.setDefaultNavigationTimeout(120000); // 2 minute
-        await page.setDefaultTimeout(600000); // 10 minutes
+        await page.setDefaultTimeout(240000); // 4 minutes
 
 
         browser.on('targetchanged', () => {
@@ -618,7 +618,7 @@ exports.newTest = async function newTest(page, url, testParams){
 
         /// General cycle of time measurement
     let averageTime = 0;
-    const iterations = 2;//specifiedIterationsCount > 0 ? specifiedIterationsCount : 3;   
+    const iterations = 1;//specifiedIterationsCount > 0 ? specifiedIterationsCount : 3;   
 
     for(let i=0; i < iterations; i++){
             // set default values
