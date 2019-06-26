@@ -13,7 +13,7 @@ const {TimeoutError} = require('puppeteer/Errors');
         let startTimestamp =  Date.now();
 
 
-            // loading configuration and log into the system
+            // load configuration and log into the system
         let file = process.argv[2];
         console.log("Starting..");
         console.log("Opening file: " + file);
