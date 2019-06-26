@@ -26,7 +26,7 @@ e.g. {"#BookingDateTop": "22.02.2019"}
 ....
 "tests" : {
   
-  "{any name of test complect}" : [
+  "{any name of test suite}" : [
       {
         "name": "{test name}",
         "url": "{url}",
