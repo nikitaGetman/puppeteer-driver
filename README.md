@@ -1,8 +1,42 @@
-Before start:
-1. Specify correct user parameters in config.json;
+## Before start:
+1. Specify correct user settings in `loginParameters` and `executionParameters`;
 2. Backup databese;
 3. Create Transactions for Chargeback and Reject pages;
 4. Create user with active 'Send Verification link' button;
 
-Tips:
-1. Разбить все тесты на части, и запускать по очереди (как сейчас и сделано в папках tests_5.7, tests_5.8) (репорт генерируется в конце выполнения всех тестов, так что если крашнеться, то ~несколько часов коту под хвост..)
+## Tips:
+1. Divide your tests on small parts and execute it one by one (becouse report generates at the end of execution, so if program will crash you will loose all progress for last couple of hours) 
+
+## Commands:
+1. ~~download - clicks "Download" button (better use ~~click + selector)
+2. ~~focus + CSS selector
+3. ~~press + button
+4. ~~click + CSS selector
+5. ~~delay + time in ms
+6. ~~goto + URL
+7. ~~refresh - reloads current page
+8. ~~resetFilters - click "Reset Filters" button
+
+Also you can write something like:
+"{CSS selector}": "{text to type in this field}"
+e.g. {"#BookingDateTop": "22.02.2019"}
+
+## Syntax of tests:
+```javascript
+....
+"tests" : {
+  
+  "{any name of test complect}" : [
+      {
+        "name": "{test name}",
+        "url": "{url}",
+        "parameters": [  - optionally
+          { "{name of command}": "{arguments}" },
+          ...
+        ]
+      }
+  ]
+
+}
+....
+```
