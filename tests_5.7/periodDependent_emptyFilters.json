@@ -1,0 +1,165 @@
+{
+    "loginParameters": {
+        "username": "test@example.com",
+        "password": "",
+        "loginUrl": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Authentication/Login"
+    },
+
+    "executionParameters": {
+        "reportPath" : "reports-5.7/",
+        "rowReportPath" : "row-reports/",
+        "headless" : true,
+        "devtools": false,
+        "defaultViewport": {
+            "width": 1280,
+            "height": 720
+        }
+    },
+
+    "urlBlacklist": [],
+    
+    "tests": {
+        
+        
+        "Opening period dependent data grids (filters are empty)" : [
+
+            {
+                "name": "Account Management → Compliance Check",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/List"
+            },
+            {
+                "name": "Account Management → Billing Events",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BillingEvent/List"
+            },
+            {
+                "name": "Account Management → Charged Fees",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/FeeCharge/List"
+            },
+            {
+                "name": "Account Management → Charged Initiator Fees",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorFeeCharge/List"
+            },
+            {
+                "name": "Account Management → Account Adjustments",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/List"
+            },
+
+
+            {
+                "name": "Transaction Management → Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List"
+            },
+            {
+                "name": "Transaction Management → External Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List"
+            },
+            {
+                "name": "Transaction Management → Internal Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List"
+            },
+            {
+                "name": "Transaction Management → Scheduled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List"
+            },
+            {
+                "name": "Transaction Management → Unsettled Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List"
+            },
+
+
+            {
+                "name": "Risk Management → Order Risk Check",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/OrderRiskCheck/List"
+            },
+            {
+                "name": "Risk Management → Blocked Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BlockedTransactionIssuing/List"
+            },
+
+
+            {
+                "name": "Reports → Account Application Status",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus"
+            },
+            {
+                "name": "Reports → Account Balance",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance"
+            },
+            {
+                "name": "Reports → External Authorization",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalAuthorization"
+            },
+            {
+                "name": "Reports → External Payout",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalPayout"
+            },
+            {
+                "name": "Reports → Fees",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Fee"
+            },
+            {
+                "name": "Reports → Fraud Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FraudTransactions"
+            },
+            {
+                "name": "Reports → GoAML Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/GoAmlTransactions"
+            },
+            {
+                "name": "Reports → KPI Report",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Kpi"
+            },
+            {
+                "name": "Reports → Loading",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Loading"
+            },
+            {
+                "name": "Reports → Payment",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Payment"
+            },
+            {
+                "name": "Reports → Risk Score Card",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskScoreCard"
+            },
+            {
+                "name": "Reports → Risk Transactions",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskTransactions"
+            },
+            {
+                "name": "Reports → Sent Emails",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SentEmails"
+            },
+            {
+                "name": "Reports → Summary Payout",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SummaryPayout"
+            },
+            {
+                "name": "Reports → Unloading",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading"
+            },
+            {
+                "name": "Reports → User Statistics (last month)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading"
+            },
+
+
+            {
+                "name": "Settings → Log → End-of-Day Job Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog"
+            },
+            {
+                "name": "Settings → Log → API Activity Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog"
+            },
+            {
+                "name": "Settings → Log → System Activity Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog"
+            },
+            {
+                "name": "Settings → Log → External Call Log",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog"
+            }
+        
+        ]
+    }
+}
