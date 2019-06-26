@@ -14,7 +14,7 @@ const {TimeoutError} = require('puppeteer/Errors');
 
 
             // loading configuration and login in the system
-        let cfg = await performanceTester.loadConfig('test_configs/reports_downloading57.json');
+        let cfg = await performanceTester.loadConfig('test_configs/_tmp.json');
         
         let loginParams = cfg.loginParameters;
         let executionParams = cfg.executionParameters;

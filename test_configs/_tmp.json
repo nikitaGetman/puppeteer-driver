@@ -6,10 +6,10 @@
     },
 
     "executionParameters": {
-        "reportPath" : "reports-5.6/",
+        "reportPath" : "reports-5.7/",
         "rowReportPath" : "row-reports/",
-        "headless" : true,
-        "devtools": false,
+        "headless" : false,
+        "devtools": true,
         "defaultViewport": {
             "width": 1280,
             "height": 720
@@ -24,14 +24,17 @@
         "Timeouted" : [
 
             {
-                "name": "Product Management → Limit Management → Edit Limit",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Limit/Edit/2"
-            },
-            {
-                "name": "Settings → User Agreements → Texts → Text",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UserAgreementText/Edit/14"
+                "name": "Account Management → Account → Account Statement (20 !!!)",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List/8",
+                "parameters": [
+                    "~~ITERATIONS_COUNT=1",
+                    "~~ITERATION",
+                    {"#BookingDateBottom": "01.01.2018"},
+                    {"#BookingDateTop": "22.02.2019"},
+                    {"~~click": ".filter-action-search"}, {"~~delay": 1000},
+                    {"~~download": ""}
+                ]
             }
-
         ]
  
     }

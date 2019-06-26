@@ -1,0 +1,9 @@
+Url,Elapsed time (ms),Method
+Timeouted,,
+Account Management → Account → Account Statement (20 !!!),2008.87,
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List/8,900.33,GET
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List_Read?AccountId=8,145.77,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List_Read?AccountId=8,117.47,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List_Read?AccountId=8,189.66,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/List_Read?AccountId=8,123.97,POST
+https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountStatement/Download?accountId=8,321.04,POST

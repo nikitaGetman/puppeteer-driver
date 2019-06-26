@@ -394,7 +394,7 @@ Merchants → Merchants → Accounts,929.96,
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/AccountList/28110,429.76,GET
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/AccountList_Read?merchantId=28110,198.47,POST
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Merchant/AccountList_Read?merchantId=28110,114.48,POST
-Merchants → Merchants → Accounts → Acount Number (link),959.38,
+Merchants → Merchants → Accounts → Account Number (link),959.38,
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/Edit/18445,412.58,GET
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAcceptableStatusList?accountId=18445&text=,145.33,GET
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Account/GetAccountTypes?accountId=18445&text=,219.76,GET

@@ -55,7 +55,7 @@ https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus_Read,168.21,POST
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus_Read,144.69,POST
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatusDownload,3341.22,POST
-Reports → Acount Balance (12147),13872.63,
+Reports → Account Balance (12147),13872.63,
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance,498.96,GET
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,202.65,GET
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,297.58,GET
@@ -235,7 +235,7 @@ https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus_Read,7951.61,POST
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus_Read,333.02,POST
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatusDownload,62878.07,POST
-Reports → Acount Balance (302701),14579.72,
+Reports → Account Balance (302701),14579.72,
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance,596.96,GET
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,290.27,GET
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,858.83,GET
@@ -387,7 +387,7 @@ https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus_Read,5127.16,POST
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus_Read,586.21,POST
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatusDownload,63868.09,POST
-Reports → Acount Balance (993209),14526.76,
+Reports → Account Balance (993209),14526.76,
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance,613.2,GET
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Member/GetMemberList?exceptUnusedMembers=False&text=,299.81,GET
 https://testing1.kontocloud.com:8443/kontocloud/backoffice/Product/GetProducts?hideFiProduct=False&text=,216.16,GET

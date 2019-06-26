@@ -6,7 +6,7 @@
     },
 
     "executionParameters": {
-        "reportPath" : "reports-5.6/",
+        "reportPath" : "reports-5.7/",
         "rowReportPath" : "row-reports/",
         "headless" : true,
         "devtools": false,
@@ -28,7 +28,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/List",
                 "parameters": [
                     {"#CreationDateFrom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTo": "31.08.2018 23:59:59"}
+                    {"#CreationDateTo": "31.08.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -36,7 +37,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BillingEvent/List",
                 "parameters": [
                     {"#EventDateBottom": "11.01.2019 00:00:00"},
-                    {"#EventDateTop": "14.01.2019 05:45:00"}
+                    {"#EventDateTop": "14.01.2019 05:45:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -44,7 +46,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/FeeCharge/List",
                 "parameters": [
                     {"#ChargedOnBottom": "01.06.2018 00:00:00"},
-                    {"#ChargedOnTop": "30.06.2018 23:59:59"}
+                    {"#ChargedOnTop": "30.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -52,7 +55,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorFeeCharge/List",
                 "parameters": [
                     {"#ChargedOnBottom": "01.06.2018 00:00:00"},
-                    {"#ChargedOnTop": "30.06.2018 23:59:59"}
+                    {"#ChargedOnTop": "30.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -60,7 +64,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.05.2018 00:00:00"},
-                    {"#CreationDateTop": "31.12.2018 23:59:59"}
+                    {"#CreationDateTop": "31.12.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
 
@@ -70,7 +75,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
                 "parameters": [
                     {"#CreationDateBottom": "20.06.2018 06:00:00"},
-                    {"#CreationDateTop": "20.06.2018 08:24:00"}
+                    {"#CreationDateTop": "20.06.2018 08:24:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -78,7 +84,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
                 "parameters": [
                     {"#CreationDateBottom": "20.06.2018 00:00:00"},
-                    {"#CreationDateTop": "20.06.2018 02:32:00"}
+                    {"#CreationDateTop": "20.06.2018 02:32:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -86,7 +93,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
                 "parameters": [
                     {"#CreationDateBottom": "20.06.2018 00:00:00"},
-                    {"#CreationDateTop": "20.06.2018 02:32:00"}
+                    {"#CreationDateTop": "20.06.2018 02:32:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -94,7 +102,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
                 "parameters": [
                     {"#CreationDateFrom": "15.06.2018 00:00:00"},
-                    {"#CreationDateTo": "15.06.2018 22:38:00"}
+                    {"#CreationDateTo": "15.06.2018 22:38:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -102,7 +111,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
                 "parameters": [
                     {"#CreationDateBottom": "16.02.2019"},
-                    {"#CreationDateTop": "16.02.2019"}
+                    {"#CreationDateTop": "16.02.2019"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
 
@@ -112,7 +122,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/OrderRiskCheck/List",
                 "parameters": [
                     {"#CreationDateBottom": "20.06.2018 00:00:00"},
-                    {"#CreationDateTop": "20.06.2018 23:59:59"}
+                    {"#CreationDateTop": "20.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -120,7 +131,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BlockedTransactionIssuing/List",
                 "parameters": [
                     {"#CreationDateBottom": "20.06.2018 00:00:00"},
-                    {"#CreationDateTop": "20.06.2018 23:59:59"}
+                    {"#CreationDateTop": "20.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
 
@@ -130,15 +142,17 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus",
                 "parameters": [
                     {"#CreatedFromDate": "01.06.2018 00:00:00"},
-                    {"#CreatedToDate": "15.06.2018 20:42:00"}
+                    {"#CreatedToDate": "15.06.2018 20:42:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
-                "name": "Reports → Acount Balance (12147)",
+                "name": "Reports → Account Balance (12147)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance",
                 "parameters": [
                     {"#FromDate": "01.06.2018"},
-                    {"#ToDate": "01.06.2018"}
+                    {"#ToDate": "01.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -146,7 +160,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalAuthorization",
                 "parameters": [
                     {"#CreatedFrom": "04.06.2018"},
-                    {"#CreatedTo": "04.06.2018"}
+                    {"#CreatedTo": "04.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -154,7 +169,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalPayout",
                 "parameters": [
                     {"#CreatedFrom": "02.06.2018"},
-                    {"#CreatedTo": "13.06.2018"}
+                    {"#CreatedTo": "13.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -162,7 +178,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Fee",
                 "parameters": [
                     {"#FromDate": "01.06.2018"},
-                    {"#ToDate": "30.06.2018"}
+                    {"#ToDate": "30.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -170,7 +187,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FraudTransactions",
                 "parameters": [
                     {"#FraudDateFrom": "20.06.2018"},
-                    {"#FraudDateTo": "20.06.2018"}
+                    {"#FraudDateTo": "20.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -178,7 +196,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/GoAmlTransactions",
                 "parameters": [
                     {"#CreationDateFrom": "20.06.2018 06:38:00"},
-                    {"#CreationDateTo": "20.06.2018 09:00:00"}
+                    {"#CreationDateTo": "20.06.2018 09:00:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -186,7 +205,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Kpi",
                 "parameters": [
                     {"#ActionDateFrom": "20.06.2018"},
-                    {"#ActionDateTo": "20.06.2018"}
+                    {"#ActionDateTo": "20.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -194,7 +214,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Loading",
                 "parameters": [
                     {"#CreatedFrom": "20.06.2018"},
-                    {"#CreatedTo": "20.06.2018"}
+                    {"#CreatedTo": "20.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -202,7 +223,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Payment",
                 "parameters": [
                     {"#CreatedFrom": "01.06.2018"},
-                    {"#CreatedTo": "01.09.2018"}
+                    {"#CreatedTo": "01.09.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -210,7 +232,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskScoreCard",
                 "parameters": [
                     {"#From": "20.01.2019"},
-                    {"#To": "25.01.2019"}
+                    {"#To": "25.01.2019"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -218,7 +241,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskTransactions",
                 "parameters": [
                     {"#CreatedFrom": "07.06.2018"},
-                    {"#CreatedTo": "08.06.2018"}
+                    {"#CreatedTo": "08.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -226,7 +250,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SentEmails",
                 "parameters": [
                     {"#ActionDateFrom": "16.06.2018"},
-                    {"#ActionDateTo": "16.06.2018"}
+                    {"#ActionDateTo": "16.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -234,7 +259,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SummaryPayout",
                 "parameters": [
                     {"#CreatedFrom": "30.08.2018"},
-                    {"#CreatedTo": "14.11.2018"}
+                    {"#CreatedTo": "14.11.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -242,7 +268,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading",
                 "parameters": [
                     {"#CreatedFrom": "02.06.2018"},
-                    {"#CreatedTo": "13.06.2018"}
+                    {"#CreatedTo": "13.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             
@@ -252,7 +279,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog",
                 "parameters": [
                     {"#StartDateFrom": "01.06.2018"},
-                    {"#StartDateTo": "07.06.2018"}
+                    {"#StartDateTo": "07.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -260,7 +288,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog",
                 "parameters": [
                     {"#StartDateFrom": "10.12.2018 03:00:00"},
-                    {"#StartDateTo": "20.12.2018 04:46:00"}
+                    {"#StartDateTo": "20.12.2018 04:46:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -268,7 +297,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog",
                 "parameters": [
                     {"#ActionDateFrom": "11.01.2019 20:01:00"},
-                    {"#ActionDateTo": "11.01.2019 22:00:00"}
+                    {"#ActionDateTo": "11.01.2019 22:00:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -276,7 +306,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog",
                 "parameters": [
                     {"#StartDateFrom": "14.01.2019 07:54:00"},
-                    {"#StartDateTo": "31.01.2019 23:59:59"}
+                    {"#StartDateTo": "31.01.2019 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             }
 
@@ -290,7 +321,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/List",
                 "parameters": [
                     {"#CreationDateFrom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTo": "31.08.2018 23:59:59"}
+                    {"#CreationDateTo": "31.08.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -298,7 +330,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BillingEvent/List",
                 "parameters": [
                     {"#EventDateBottom": "28.06.2018 17:32:00"},
-                    {"#EventDateTop": "30.06.2018 23:59:59"}
+                    {"#EventDateTop": "30.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -306,7 +339,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/FeeCharge/List",
                 "parameters": [
                     {"#ChargedOnBottom": "01.06.2018 00:00:00"},
-                    {"#ChargedOnTop": "30.06.2018 23:59:59"}
+                    {"#ChargedOnTop": "30.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -314,7 +348,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorFeeCharge/List",
                 "parameters": [
                     {"#ChargedOnBottom": "01.06.2018 00:00:00"},
-                    {"#ChargedOnTop": "30.06.2018 23:59:59"}
+                    {"#ChargedOnTop": "30.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -322,7 +357,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.05.2018 00:00:00"},
-                    {"#CreationDateTop": "31.12.2018 23:59:59"}
+                    {"#CreationDateTop": "31.12.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
 
@@ -332,7 +368,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.06.2018 09:30:00"},
-                    {"#CreationDateTop": "09.06.2018 23:59:59"}
+                    {"#CreationDateTop": "09.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -340,7 +377,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTop": "09.06.2018 16:49:00"}
+                    {"#CreationDateTop": "09.06.2018 16:49:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -348,7 +386,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTop": "11.06.2018 08:55:00"}
+                    {"#CreationDateTop": "11.06.2018 08:55:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -356,7 +395,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
                 "parameters": [
                     {"#CreationDateFrom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTo": "22.02.2019 23:59:59"}
+                    {"#CreationDateTo": "22.02.2019 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -364,7 +404,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
                 "parameters": [
                     {"#CreationDateBottom": "12.06.2018"},
-                    {"#CreationDateTop": "30.06.2018"}
+                    {"#CreationDateTop": "30.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
 
@@ -374,7 +415,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/OrderRiskCheck/List",
                 "parameters": [
                     {"#CreationDateBottom": "20.06.2018 00:00:00"},
-                    {"#CreationDateTop": "20.06.2018 23:59:59"}
+                    {"#CreationDateTop": "20.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -382,7 +424,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BlockedTransactionIssuing/List",
                 "parameters": [
                     {"#CreationDateBottom": "20.06.2018 00:00:00"},
-                    {"#CreationDateTop": "20.06.2018 23:59:59"}
+                    {"#CreationDateTop": "20.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
 
@@ -392,15 +435,17 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus",
                 "parameters": [
                     {"#CreatedFromDate": "01.01.2018 00:00:00"},
-                    {"#CreatedToDate": "22.02.2019 23:59:59"}
+                    {"#CreatedToDate": "22.02.2019 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
-                "name": "Reports → Acount Balance (302701)",
+                "name": "Reports → Account Balance (302701)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance",
                 "parameters": [
                     {"#FromDate": "02.06.2018"},
-                    {"#ToDate": "18.06.2018"}
+                    {"#ToDate": "18.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -408,7 +453,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalAuthorization",
                 "parameters": [
                     {"#CreatedFrom": "28.05.2018"},
-                    {"#CreatedTo": "27.06.2018"}
+                    {"#CreatedTo": "27.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -416,7 +462,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalPayout",
                 "parameters": [
                     {"#CreatedFrom": "04.06.2018"},
-                    {"#CreatedTo": "20.11.2018"}
+                    {"#CreatedTo": "20.11.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -424,7 +471,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Fee",
                 "parameters": [
                     {"#FromDate": "01.06.2018"},
-                    {"#ToDate": "30.06.2018"}
+                    {"#ToDate": "30.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -432,7 +480,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FraudTransactions",
                 "parameters": [
                     {"#FraudDateFrom": "20.06.2018"},
-                    {"#FraudDateTo": "20.06.2018"}
+                    {"#FraudDateTo": "20.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -440,7 +489,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/GoAmlTransactions",
                 "parameters": [
                     {"#CreationDateFrom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTo": "09.06.2018 16:05:00"}
+                    {"#CreationDateTo": "09.06.2018 16:05:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -448,7 +498,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Kpi",
                 "parameters": [
                     {"#ActionDateFrom": "01.06.2018"},
-                    {"#ActionDateTo": "07.06.2018"}
+                    {"#ActionDateTo": "07.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -456,7 +507,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Loading",
                 "parameters": [
                     {"#CreatedFrom": "04.06.2018"},
-                    {"#CreatedTo": "30.06.2018"}
+                    {"#CreatedTo": "30.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -464,7 +516,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Payment",
                 "parameters": [
                     {"#CreatedFrom": "01.06.2018"},
-                    {"#CreatedTo": "01.09.2018"}
+                    {"#CreatedTo": "01.09.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -472,7 +525,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskScoreCard",
                 "parameters": [
                     {"#From": "20.01.2019"},
-                    {"#To": "30.01.2019"}
+                    {"#To": "30.01.2019"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -480,7 +534,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskTransactions",
                 "parameters": [
                     {"#CreatedFrom": "01.06.2018"},
-                    {"#CreatedTo": "15.06.2018"}
+                    {"#CreatedTo": "15.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -488,7 +543,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SentEmails",
                 "parameters": [
                     {"#ActionDateFrom": "01.06.2018"},
-                    {"#ActionDateTo": "31.12.2018"}
+                    {"#ActionDateTo": "31.12.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -496,7 +552,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SummaryPayout",
                 "parameters": [
                     {"#CreatedFrom": "01.06.2018"},
-                    {"#CreatedTo": "22.02.2019"}
+                    {"#CreatedTo": "22.02.2019"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -504,7 +561,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading",
                 "parameters": [
                     {"#CreatedFrom": "01.06.2018"},
-                    {"#CreatedTo": "01.12.2018"}
+                    {"#CreatedTo": "01.12.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             
@@ -514,7 +572,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog",
                 "parameters": [
                     {"#StartDateFrom": "01.06.2018"},
-                    {"#StartDateTo": "01.07.2018"}
+                    {"#StartDateTo": "01.07.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -522,7 +581,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog",
                 "parameters": [
                     {"#StartDateFrom": "27.11.2018 08:42:00"},
-                    {"#StartDateTo": "22.02.2019 04:46:00"}
+                    {"#StartDateTo": "22.02.2019 04:46:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -530,7 +590,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog",
                 "parameters": [
                     {"#ActionDateFrom": "12.12.2018 07:53:00"},
-                    {"#ActionDateTo": "11.01.2019 22:00:00"}
+                    {"#ActionDateTo": "11.01.2019 22:00:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -538,7 +599,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog",
                 "parameters": [
                     {"#StartDateFrom": "01.06.2018 00:00:00"},
-                    {"#StartDateTo": "22.02.2019 23:59:59"}
+                    {"#StartDateTo": "22.02.2019 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             }
 
@@ -553,7 +615,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ComplianceCheck/List",
                 "parameters": [
                     {"#CreationDateFrom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTo": "31.08.2018 23:59:59"}
+                    {"#CreationDateTo": "31.08.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -561,7 +624,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BillingEvent/List",
                 "parameters": [
                     {"#EventDateBottom": "01.06.2018 00:00:00"},
-                    {"#EventDateTop": "03.08.2018 17:38:00"}
+                    {"#EventDateTop": "03.08.2018 17:38:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -569,7 +633,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/FeeCharge/List",
                 "parameters": [
                     {"#ChargedOnBottom": "01.06.2018 00:00:00"},
-                    {"#ChargedOnTop": "30.06.2018 23:59:59"}
+                    {"#ChargedOnTop": "30.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -577,7 +642,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/InitiatorFeeCharge/List",
                 "parameters": [
                     {"#ChargedOnBottom": "01.06.2018 00:00:00"},
-                    {"#ChargedOnTop": "30.06.2018 23:59:59"}
+                    {"#ChargedOnTop": "30.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -585,7 +651,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/AccountAdjustment/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.05.2018 00:00:00"},
-                    {"#CreationDateTop": "31.12.2018 23:59:59"}
+                    {"#CreationDateTop": "31.12.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
 
@@ -595,7 +662,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Transaction/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTop": "28.06.2018 18:07:00"}
+                    {"#CreationDateTop": "28.06.2018 18:07:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -603,7 +671,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionAcquiring/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTop": "30.06.2018 07:42:00"}
+                    {"#CreationDateTop": "30.06.2018 07:42:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -611,7 +680,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/TransactionIssuing/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTop": "29.06.2018 14:57:00"}
+                    {"#CreationDateTop": "29.06.2018 14:57:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -619,7 +689,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ScheduledTransaction/List",
                 "parameters": [
                     {"#CreationDateFrom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTo": "22.02.2019 23:59:59"}
+                    {"#CreationDateTo": "22.02.2019 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -627,7 +698,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/UnsettledTransaction/List",
                 "parameters": [
                     {"#CreationDateBottom": "01.06.2018"},
-                    {"#CreationDateTop": "30.11.2018"}
+                    {"#CreationDateTop": "30.11.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
 
@@ -637,7 +709,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/OrderRiskCheck/List",
                 "parameters": [
                     {"#CreationDateBottom": "20.06.2018 00:00:00"},
-                    {"#CreationDateTop": "20.06.2018 23:59:59"}
+                    {"#CreationDateTop": "20.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -645,7 +718,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/BlockedTransactionIssuing/List",
                 "parameters": [
                     {"#CreationDateBottom": "20.06.2018 00:00:00"},
-                    {"#CreationDateTop": "20.06.2018 23:59:59"}
+                    {"#CreationDateTop": "20.06.2018 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
 
@@ -655,15 +729,17 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountApplicationStatus",
                 "parameters": [
                     {"#CreatedFromDate": "01.01.2018 00:00:00"},
-                    {"#CreatedToDate": "22.02.2019 23:59:59"}
+                    {"#CreatedToDate": "22.02.2019 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
-                "name": "Reports → Acount Balance (993209)",
+                "name": "Reports → Account Balance (993209)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance",
                 "parameters": [
                     {"#FromDate": "04.06.2018"},
-                    {"#ToDate": "07.07.2018"}
+                    {"#ToDate": "07.07.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -671,7 +747,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalAuthorization",
                 "parameters": [
                     {"#CreatedFrom": "01.06.2018"},
-                    {"#CreatedTo": "06.08.2018"}
+                    {"#CreatedTo": "06.08.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -679,7 +756,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/ExternalPayout",
                 "parameters": [
                     {"#CreatedFrom": "01.01.2018"},
-                    {"#CreatedTo": "22.02.2019"}
+                    {"#CreatedTo": "22.02.2019"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -687,7 +765,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Fee",
                 "parameters": [
                     {"#FromDate": "01.06.2018"},
-                    {"#ToDate": "30.06.2018"}
+                    {"#ToDate": "30.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -695,7 +774,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/FraudTransactions",
                 "parameters": [
                     {"#FraudDateFrom": "20.06.2018"},
-                    {"#FraudDateTo": "20.06.2018"}
+                    {"#FraudDateTo": "20.06.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -703,7 +783,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/GoAmlTransactions",
                 "parameters": [
                     {"#CreationDateFrom": "01.06.2018 00:00:00"},
-                    {"#CreationDateTo": "28.06.2018 18:07:00"}
+                    {"#CreationDateTo": "28.06.2018 18:07:00"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -711,7 +792,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Kpi",
                 "parameters": [
                     {"#ActionDateFrom": "01.06.2018"},
-                    {"#ActionDateTo": "01.07.2018"}
+                    {"#ActionDateTo": "01.07.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -719,7 +801,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Loading",
                 "parameters": [
                     {"#CreatedFrom": "02.06.2018"},
-                    {"#CreatedTo": "12.08.2018"}
+                    {"#CreatedTo": "12.08.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -727,7 +810,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Payment",
                 "parameters": [
                     {"#CreatedFrom": "01.06.2018"},
-                    {"#CreatedTo": "01.09.2018"}
+                    {"#CreatedTo": "01.09.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -735,7 +819,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskScoreCard",
                 "parameters": [
                     {"#From": "01.01.2019"},
-                    {"#To": "22.02.2019"}
+                    {"#To": "22.02.2019"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -743,7 +828,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/RiskTransactions",
                 "parameters": [
                     {"#CreatedFrom": "02.06.2018"},
-                    {"#CreatedTo": "30.07.2018"}
+                    {"#CreatedTo": "30.07.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -751,7 +837,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SentEmails",
                 "parameters": [
                     {"#ActionDateFrom": "01.06.2018"},
-                    {"#ActionDateTo": "31.12.2018"}
+                    {"#ActionDateTo": "31.12.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -759,7 +846,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/SummaryPayout",
                 "parameters": [
                     {"#CreatedFrom": "01.06.2018"},
-                    {"#CreatedTo": "22.02.2019"}
+                    {"#CreatedTo": "22.02.2019"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -767,7 +855,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading",
                 "parameters": [
                     {"#CreatedFrom": "01.01.2018"},
-                    {"#CreatedTo": "22.02.2019"}
+                    {"#CreatedTo": "22.02.2019"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             
@@ -777,7 +866,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/EndOfDayJobActivityLog",
                 "parameters": [
                     {"#StartDateFrom": "01.06.2018"},
-                    {"#StartDateTo": "01.12.2018"}
+                    {"#StartDateTo": "01.12.2018"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -785,7 +875,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ApiActivityLog",
                 "parameters": [
                     {"#StartDateFrom": "01.01.2018 00:00:00"},
-                    {"#StartDateTo": "22.02.2019 23:59:59"}
+                    {"#StartDateTo": "22.02.2019 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -793,7 +884,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/SystemActivityLog",
                 "parameters": [
                     {"#ActionDateFrom": "01.01.2018 00:00:00"},
-                    {"#ActionDateTo": "22.02.2019 23:59:59"}
+                    {"#ActionDateTo": "22.02.2019 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             },
             {
@@ -801,7 +893,8 @@
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/ExternalCallLog",
                 "parameters": [
                     {"#StartDateFrom": "01.06.2018 00:00:00"},
-                    {"#StartDateTo": "22.02.2019 23:59:59"}
+                    {"#StartDateTo": "22.02.2019 23:59:59"},
+                    {"~~click": ".filter-action-search"}
                 ]
             }
 

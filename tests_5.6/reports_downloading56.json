@@ -142,7 +142,7 @@
                 ]
             },
             {
-                "name": "Reports → Acount Balance (12147)",
+                "name": "Reports → Account Balance (12147)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance",
                 "parameters": [
                     {"#FromDate": "01.06.2018"},
@@ -325,7 +325,7 @@
             },
             {
                 "name": "Reports → User Statistics (last month)",
-                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/Unloading",
+                "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/UserStatistics",
                 "parameters": [
                     {"~~press": "Tab"}, {"~~delay": 5000}, "~~ITERATIONS_COUNT=1",
                     "~~ITERATION",
@@ -459,7 +459,7 @@
                 ]
             },
             {
-                "name": "Reports → Acount Balance (302701)",
+                "name": "Reports → Account Balance (302701)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance",
                 "parameters": [
                     {"#FromDate": "02.06.2018"},
@@ -740,7 +740,7 @@
                 ]
             },
             {
-                "name": "Reports → Acount Balance (993209)",
+                "name": "Reports → Account Balance (993209)",
                 "url": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Report/AccountBalance",
                 "parameters": [
                     {"#FromDate": "04.06.2018"},
