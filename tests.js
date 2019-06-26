@@ -13,8 +13,11 @@ const {TimeoutError} = require('puppeteer/Errors');
         let startTimestamp =  Date.now();
 
 
-            // loading configuration and login in the system
-        let cfg = await performanceTester.loadConfig('test_configs/_tmp.json');
+            // loading configuration and log into the system
+        let file = process.argv[2];
+        console.log("Starting..");
+        console.log("Opening file: " + file);
+        let cfg = await performanceTester.loadConfig(file);
         
         let loginParams = cfg.loginParameters;
         let executionParams = cfg.executionParameters;

@@ -1,7 +1,7 @@
 {
     "loginParameters": {
         "username": "test@example.com",
-        "password": "1234567890",
+        "password": "",
         "loginUrl": "https://testing1.kontocloud.com:8443/kontocloud/backoffice/Authentication/Login"
     },
 
