@@ -1,8 +1,15 @@
+## Before before start:
+1. Make sure you have node.js installed;
+2. Execute `npm i` and make sure that all packages dowloaded correctly.
+
 ## Before start:
 1. Specify correct user settings in `loginParameters` and `executionParameters`;
 2. Backup databese;
 3. Create Transactions for Chargeback and Reject pages;
-4. Create user with active 'Send Verification link' button;
+4. Create user with active 'Send Verification link' button.
+
+## Start:
+1. Execute `tests.js "tests_5.7/{fileName}"`
 
 ## Tips:
 1. Divide your tests on small parts and execute it one by one (becouse report generates at the end of execution, so if program will crash you will loose all progress for last couple of hours) 
